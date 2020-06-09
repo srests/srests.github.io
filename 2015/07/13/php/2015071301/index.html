@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>FFmpegPHP的安装使用详解 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="ffmpeg,php">
+    <meta name="description" content="FFmpegPHP 是一个纯面向对象的 ffmpeg 的 PHP封装。提供一些简单易用、面向对象的API用以访问视频和音频文件的信息，可直接从视频中获取帧的图片，这常用来做视频的缩略图。支持的视频格式包 括： MOV, AVI, MPG, 和 WMV.FFmpegPHP封装，没有提供视频转换的接口。（至少我没找到，如果大家知道还望赐教。） 我使用的集成环境APMServ。  1.下载ffmpeg－">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FFmpegPHP的安装使用详解">
+<meta property="og:url" content="http://srests.github.io/2015/07/13/php/2015071301/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="FFmpegPHP 是一个纯面向对象的 ffmpeg 的 PHP封装。提供一些简单易用、面向对象的API用以访问视频和音频文件的信息，可直接从视频中获取帧的图片，这常用来做视频的缩略图。支持的视频格式包 括： MOV, AVI, MPG, 和 WMV.FFmpegPHP封装，没有提供视频转换的接口。（至少我没找到，如果大家知道还望赐教。） 我使用的集成环境APMServ。  1.下载ffmpeg－">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-07-13T05:46:00.000Z">
+<meta property="article:modified_time" content="2018-05-28T06:20:30.547Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="ffmpeg">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">FFmpegPHP的安装使用详解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">FFmpegPHP的安装使用详解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-07-13T05:46:00.000Z" itemprop="datePublished" class="page-time">
+  2015-07-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.下载ffmpeg－php：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 解压ffmpeg-php-win32-all.zip 后有下面几个文件：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 将四个文件拷贝到windows&#x2F;system32文件夹下面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.将php_ffmpeg.dll拷贝到php的ext目录下。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. 修改php.ini</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. 重新启动APMServ后使用phpinfo()函数看到一下信息配置：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 下面我们建立一个php的页面来测试是不是可以使用ffmpeg的一些函数功能。建立testvideo.php文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">8.</span> <span class="post-toc-text">8.执行后如果拿到视频的一些信息如下就表示环境配置成功了，那我们就可以开始开发我们的视频操作。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">9.</span> <span class="post-toc-text">9.实现视频的截图。（接上面的php代码）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">10.</span> <span class="post-toc-text">10.关于ffmpeg-php的API。</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-php/2015071301"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">FFmpegPHP的安装使用详解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-07-13 13:46:00" datetime="2015-07-13T05:46:00.000Z"  itemprop="datePublished">2015-07-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>FFmpegPHP 是一个纯面向对象的 ffmpeg 的 PHP封装。提供一些简单易用、面向对象的API用以访问视频和音频文件的信息，可直接从视频中获取帧的图片，这常用来做视频的缩略图。支持的视频格式包 括： MOV, AVI, MPG, 和 WMV.<br>FFmpegPHP封装，没有提供视频转换的接口。（至少我没找到，如果大家知道还望赐教。）</p>
+<p>我使用的集成环境APMServ。 </p>
+<h2><span id="1-xia-zai-ffmpeg-php-http-sergey89-ru-files-ffmpeg-php-win32-all-zip">1.下载ffmpeg－php：</span><a href="#1-xia-zai-ffmpeg-php-http-sergey89-ru-files-ffmpeg-php-win32-all-zip" class="header-anchor">#</a></h2><h2><span id="2-jie-ya-ffmpeg-php-win32-all-zip-hou-you-xia-mian-ji-ge-wen-jian">2. 解压ffmpeg-php-win32-all.zip 后有下面几个文件：</span><a href="#2-jie-ya-ffmpeg-php-win32-all-zip-hou-you-xia-mian-ji-ge-wen-jian" class="header-anchor">#</a></h2><pre><code>avcodec-51.dll
+
+avformat-51.dll
+
+avutil-49.dll
+
+php_ffmpeg.dll
+
+pthreadGC2.dll</code></pre><h2><span id="3-jiang-si-ge-wen-jian-kao-bei-dao-windows-system32-wen-jian-jia-xia-mian">3. 将四个文件拷贝到windows/system32文件夹下面</span><a href="#3-jiang-si-ge-wen-jian-kao-bei-dao-windows-system32-wen-jian-jia-xia-mian" class="header-anchor">#</a></h2><pre><code>avcodec-51.dll, avformat-51.dll, avutil-49.dll, pthreadGC2.dll</code></pre><h2><span id="4-jiang-php-ffmpeg-dll-kao-bei-dao-php-de-ext-mu-lu-xia">4.将php_ffmpeg.dll拷贝到php的ext目录下。</span><a href="#4-jiang-php-ffmpeg-dll-kao-bei-dao-php-de-ext-mu-lu-xia" class="header-anchor">#</a></h2><h2><span id="5-xiu-gai-php-ini">5. 修改php.ini</span><a href="#5-xiu-gai-php-ini" class="header-anchor">#</a></h2><p>然后需要到apache/bin文件下找到php.ini文件下允许使用dll文件加入extension=php_ffmpeg.dll 并允许     extension=php_gd2.dll， extension=php_gettext.dll这两个设置。（去掉前面的分号）</p>
+<pre><code>extension=php_gd2.dll
+extension=php_gettext.dll
+extension=php_ffmpeg.dll</code></pre><h2><span id="6-chong-xin-qi-dong-apmserv-hou-shi-yong-phpinfo-han-shu-kan-dao-yi-xia-xin-xi-pei-zhi">6. 重新启动APMServ后使用phpinfo()函数看到一下信息配置：</span><a href="#6-chong-xin-qi-dong-apmserv-hou-shi-yong-phpinfo-han-shu-kan-dao-yi-xia-xin-xi-pei-zhi" class="header-anchor">#</a></h2><p>FFmpegPHP的安装使用详解 - PIRATE - ChenZhenhuas blog</p>
+<p> 以上就表明ffmpeg在php环境中配置成功了。</p>
+<h2><span id="7-xia-mian-wo-men-jian-li-yi-ge-php-de-ye-mian-lai-ce-shi-shi-bu-shi-ke-yi-shi-yong-ffmpeg-de-yi-xie-han-shu-gong-neng-jian-li-testvideo-php-wen-jian">7. 下面我们建立一个php的页面来测试是不是可以使用ffmpeg的一些函数功能。建立testvideo.php文件</span><a href="#7-xia-mian-wo-men-jian-li-yi-ge-php-de-ye-mian-lai-ce-shi-shi-bu-shi-ke-yi-shi-yong-ffmpeg-de-yi-xie-han-shu-gong-neng-jian-li-testvideo-php-wen-jian" class="header-anchor">#</a></h2><p> 代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">extension_loaded(<span class="string">'ffmpeg'</span>);</span><br><span class="line"></span><br><span class="line">$ffmpegInstance = <span class="keyword">new</span> ffmpeg_movie(<span class="string">'D:\Program Files\APMServ5.2.6\www\htdocs\test.mpg'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"getDuration: "</span> . $ffmpegInstance-&gt;getDuration().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getFrameCount: "</span> . $ffmpegInstance-&gt;getFrameCount().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getFrameRate: "</span> . $ffmpegInstance-&gt;getFrameRate().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getFilename: "</span> . $ffmpegInstance-&gt;getFilename().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getComment: "</span> . $ffmpegInstance-&gt;getComment().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getTitle: "</span> . $ffmpegInstance-&gt;getTitle().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getAuthor: "</span> . $ffmpegInstance-&gt;getAuthor().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getCopyright: "</span> . $ffmpegInstance-&gt;getCopyright().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getArtist: "</span> . $ffmpegInstance-&gt;getArtist().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getGenre: "</span> . $ffmpegInstance-&gt;getGenre().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getTrackNumber: "</span> . $ffmpegInstance-&gt;getTrackNumber().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getYear: "</span> . $ffmpegInstance-&gt;getYear().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getFrameHeight: "</span> . $ffmpegInstance-&gt;getFrameHeight().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getFrameWidth: "</span> . $ffmpegInstance-&gt;getFrameWidth().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getPixelFormat: "</span> . $ffmpegInstance-&gt;getPixelFormat().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getBitRate: "</span> . $ffmpegInstance-&gt;getBitRate().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getVideoBitRate: "</span> . $ffmpegInstance-&gt;getVideoBitRate().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getAudioBitRate: "</span> . $ffmpegInstance-&gt;getAudioBitRate().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getAudioSampleRate: "</span> . $ffmpegInstance-&gt;getAudioSampleRate().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getVideoCodec: "</span> . $ffmpegInstance-&gt;getVideoCodec().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getAudioCodec: "</span> . $ffmpegInstance-&gt;getAudioCodec().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"getAudioChannels: "</span> . $ffmpegInstance-&gt;getAudioChannels().<span class="string">"&lt;br&gt;"</span> .</span><br><span class="line"><span class="string">"hasAudio: "</span> . $ffmpegInstance-&gt;hasAudio();</span><br></pre></td></tr></table></figure>
+
+
+<h2><span id="8-zhi-xing-hou-ru-guo-na-dao-shi-pin-de-yi-xie-xin-xi-ru-xia-jiu-biao-shi-huan-jing-pei-zhi-cheng-gong-liao-na-wo-men-jiu-ke-yi-kai-shi-kai-fa-wo-men-de-shi-pin-cao-zuo">8.执行后如果拿到视频的一些信息如下就表示环境配置成功了，那我们就可以开始开发我们的视频操作。</span><a href="#8-zhi-xing-hou-ru-guo-na-dao-shi-pin-de-yi-xie-xin-xi-ru-xia-jiu-biao-shi-huan-jing-pei-zhi-cheng-gong-liao-na-wo-men-jiu-ke-yi-kai-shi-kai-fa-wo-men-de-shi-pin-cao-zuo" class="header-anchor">#</a></h2><p>执行结果：</p>
+<p>略….</p>
+<h2><span id="9-shi-xian-shi-pin-de-jie-tu-jie-shang-mian-de-php-dai-ma">9.实现视频的截图。（接上面的php代码）</span><a href="#9-shi-xian-shi-pin-de-jie-tu-jie-shang-mian-de-php-dai-ma" class="header-anchor">#</a></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ff_frame = $ffmpegInstance-&gt;getFrame(<span class="number">20</span>);<span class="comment">//截取视频第20帧的图像</span></span><br><span class="line">$gd_image = $ff_frame-&gt;toGDImage(); </span><br><span class="line">$img=$_SERVER[<span class="string">'DOCUMENT_ROOT'</span>].<span class="string">"/test2.jpg"</span>;<span class="comment">//要生成图片的绝对路径     </span></span><br><span class="line">imagejpeg($gd_image, $img);<span class="comment">//创建jpg图像     </span></span><br><span class="line">imagedestroy($gd_image);<span class="comment">//销毁一图像</span></span><br></pre></td></tr></table></figure>
+<h2><span id="10-guan-yu-ffmpeg-php-de-api">10.关于ffmpeg-php的API。</span><a href="#10-guan-yu-ffmpeg-php-de-api" class="header-anchor">#</a></h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ffmpeg_movie object methods</span><br><span class="line">Method	Description</span><br><span class="line">$movie = <span class="keyword">new</span> ffmpeg_movie(String path_to_media, boolean persistent)	Open a video <span class="keyword">or</span> audio file <span class="keyword">and</span> <span class="keyword">return</span> it <span class="keyword">as</span> an object.</span><br><span class="line">path_to_media - File path of video <span class="keyword">or</span> audio file to open.</span><br><span class="line">persistent - Whether to open this media <span class="keyword">as</span> a persistent resource. See the PHP documentation <span class="keyword">for</span> more info about persistent resources</span><br><span class="line">$movie-&gt;getDuration()	<span class="keyword">Return</span> the duration of a movie <span class="keyword">or</span> audio file in seconds.</span><br><span class="line">$movie-&gt;getFrameCount()	<span class="keyword">Return</span> the number of frames in a movie <span class="keyword">or</span> audio file.</span><br><span class="line">$movie-&gt;getFrameRate()	<span class="keyword">Return</span> the frame rate of a movie in fps.</span><br><span class="line">$movie-&gt;getFilename()	<span class="keyword">Return</span> the path <span class="keyword">and</span> name of the movie file <span class="keyword">or</span> audio file.</span><br><span class="line">$movie-&gt;getComment()	<span class="keyword">Return</span> the comment field from the movie <span class="keyword">or</span> audio file.</span><br><span class="line">$movie-&gt;getTitle()	<span class="keyword">Return</span> the title field from the movie <span class="keyword">or</span> audio file.</span><br><span class="line">$movie-&gt;getAuthor() alias $movie-&gt;getArtist()	<span class="keyword">Return</span> the author field from the movie <span class="keyword">or</span> the artist ID3 field from an mp3 file.</span><br><span class="line">$movie-&gt;getCopyright()	<span class="keyword">Return</span> the copyright field from the movie <span class="keyword">or</span> audio file.</span><br><span class="line">$movie-&gt;getArtist()	<span class="keyword">Return</span> the artist ID3 field from an mp3 file.</span><br><span class="line">$movie-&gt;getGenre()	<span class="keyword">Return</span> the genre ID3 field from an mp3 file.</span><br><span class="line">$movie-&gt;getTrackNumber()	<span class="keyword">Return</span> the track ID3 field from an mp3 file.</span><br><span class="line">$movie-&gt;getYear()	<span class="keyword">Return</span> the year ID3 field from an mp3 file.</span><br><span class="line">$movie-&gt;getFrameHeight()	<span class="keyword">Return</span> the height of the movie in pixels.</span><br><span class="line">$movie-&gt;getFrameWidth()	<span class="keyword">Return</span> the width of the movie in pixels.</span><br><span class="line">$movie-&gt;getPixelFormat()	<span class="keyword">Return</span> the pixel format of the movie.</span><br><span class="line">$movie-&gt;getBitRate()	<span class="keyword">Return</span> the bit rate of the movie <span class="keyword">or</span> audio file in bits per second.</span><br><span class="line">$movie-&gt;getVideoBitRate()	<span class="keyword">Return</span> the bit rate of the video in bits per second.</span><br><span class="line">NOTE: This only works <span class="keyword">for</span> files with constant bit rate.</span><br><span class="line"></span><br><span class="line">$movie-&gt;getAudioBitRate()	<span class="keyword">Return</span> the audio bit rate of the media file in bits per second.</span><br><span class="line">$movie-&gt;getAudioSampleRate()	<span class="keyword">Return</span> the audio sample rate of the media file in bits per second.</span><br><span class="line">$movie-&gt;getFrameNumber()	<span class="keyword">Return</span> the current frame index.</span><br><span class="line">$movie-&gt;getVideoCodec()	<span class="keyword">Return</span> the name of the video codec used to encode this movie <span class="keyword">as</span> a string.</span><br><span class="line">$movie-&gt;getAudioCodec()	<span class="keyword">Return</span> the name of the audio codec used to encode this movie <span class="keyword">as</span> a string.</span><br><span class="line">$movie-&gt;getAudioChannels()	<span class="keyword">Return</span> the number of audio channels in this movie <span class="keyword">as</span> an integer.</span><br><span class="line">$movie-&gt;hasAudio()	<span class="keyword">Return</span> boolean value indicating whether the movie has an audio stream.</span><br><span class="line">$movie-&gt;hasVideo()	<span class="keyword">Return</span> boolean value indicating whether the movie has a video stream.</span><br><span class="line">$movie-&gt;getFrame([Integer framenumber])	Returns a frame from the movie <span class="keyword">as</span> an ffmpeg_frame object. Returns <span class="keyword">false</span> <span class="keyword">if</span> the frame was not found.</span><br><span class="line">framenumber - Frame from the movie to <span class="keyword">return</span>. <span class="keyword">If</span> no framenumber is specified, returns the next frame of the movie.</span><br><span class="line">$movie-&gt;getNextKeyFrame()	Returns the next key frame from the movie <span class="keyword">as</span> an ffmpeg_frame object. Returns <span class="keyword">false</span> <span class="keyword">if</span> the frame was not found.</span><br><span class="line">==============================================================</span><br><span class="line">ffmpeg_frame object methods</span><br><span class="line">Method	Description</span><br><span class="line">$frame = <span class="keyword">new</span> ffmpeg_frame(Resource gd_image)	Create a frame object from a GD image.</span><br><span class="line">NOTE: This <span class="function"><span class="keyword">function</span> <span class="title">will</span> <span class="title">not</span> <span class="title">be</span> <span class="title">available</span> <span class="title">if</span> <span class="title">GD</span> <span class="title">is</span> <span class="title">not</span> <span class="title">enabled</span>.</span></span><br><span class="line"><span class="function"></span></span><br><span class="line">$frame-&gt;getWidth()	Return the width of the frame.</span><br><span class="line">$frame-&gt;getHeight()	<span class="keyword">Return</span> the height of the frame.</span><br><span class="line">$frame-&gt;getPTS() alias $frame-&gt;getPresentationTimestamp()	<span class="keyword">Return</span> the presentation time stamp of the frame.</span><br><span class="line">$frame-&gt;resize(Integer width, Integer height [, Integer crop_top [, Integer crop_bottom [, Integer crop_left [, Integer crop_right ]]]])	Resize <span class="keyword">and</span> optionally crop the frame. (Cropping is built into ffmpeg resizing so I<span class="string">'m providing it here for completeness.)</span></span><br><span class="line"><span class="string">width - New width of the frame (must be an even number).</span></span><br><span class="line"><span class="string">height - New height of the frame (must be an even number).</span></span><br><span class="line"><span class="string">croptop - Remove [croptop] rows of pixels from the top of the frame.</span></span><br><span class="line"><span class="string">cropbottom - Remove [cropbottom] rows of pixels from the bottom of the frame.</span></span><br><span class="line"><span class="string">cropleft - Remove [cropleft] rows of pixels from the left of the frame.</span></span><br><span class="line"><span class="string">cropright - Remove [cropright] rows of pixels from the right of the frame.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">NOTE: Cropping is always applied to the frame before it is resized. Crop values must be even numbers.</span></span><br><span class="line"><span class="string">$frame-&gt;crop(Integer crop_top [, Integer crop_bottom [, Integer crop_left [, Integer crop_right ]]])	Crop the frame.</span></span><br><span class="line"><span class="string">croptop - Remove [croptop] rows of pixels from the top of the frame.</span></span><br><span class="line"><span class="string">cropbottom - Remove [cropbottom] rows of pixels from the bottom of the frame.</span></span><br><span class="line"><span class="string">cropleft - Remove [cropleft] rows of pixels from the left of the frame.</span></span><br><span class="line"><span class="string">cropright - Remove [cropright] rows of pixels from the right of the frame.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">NOTE: Crop values must be even numbers.</span></span><br><span class="line"><span class="string">$frame-&gt;toGDImage()	Returns a truecolor GD image of the frame.</span></span><br><span class="line"><span class="string">NOTE: This function will not be available if GD is not enabled.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">==============================================================</span></span><br><span class="line"><span class="string">ffmpeg_animated_gif object methods</span></span><br><span class="line"><span class="string">Method	Description</span></span><br><span class="line"><span class="string">$gif = new ffmpeg_animated_gif(String output_file_path, Integer width, Integer height, Integer frame_rate, [Integer loop_count])	create a new ffmpeg_animated_gif object</span></span><br><span class="line"><span class="string">output_file_path - Location in the filesystem where the animated gif will be written.</span></span><br><span class="line"><span class="string">width - Width of the animated gif.</span></span><br><span class="line"><span class="string">height - Height of the animated gif.</span></span><br><span class="line"><span class="string">frame_rate - Frame rate of the animated gif in frames per second..</span></span><br><span class="line"><span class="string">loop_count - Number of times to loop the animation. Put a zero here to loop forever or omit this parameter to disable looping.</span></span><br><span class="line"><span class="string">$frame-&gt;addFrame(ffmpeg_frame frame_to_add)	Add a frame to the end of the animated gif.</span></span><br><span class="line"><span class="string">frame_to_add - The ffmpeg_frame object to add to the end of the animated gif.</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-28T06:20:30.547Z" itemprop="dateUpdated">2018-05-28 14:20:30</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/07/13/php/2015071301/" target="_blank" rel="external">http://srests.github.io/2015/07/13/php/2015071301/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/07/13/php/2015071301/&title=《FFmpegPHP的安装使用详解》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/07/13/php/2015071301/&title=《FFmpegPHP的安装使用详解》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/07/13/php/2015071301/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《FFmpegPHP的安装使用详解》 — Srests的博客&url=http://srests.github.io/2015/07/13/php/2015071301/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/07/13/php/2015071301/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/07/17/java/filemd5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">java 文件摘要md5</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/07/01/mysql/use/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">mysql 使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/07/13/php/2015071301/&title=《FFmpegPHP的安装使用详解》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/07/13/php/2015071301/&title=《FFmpegPHP的安装使用详解》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/07/13/php/2015071301/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《FFmpegPHP的安装使用详解》 — Srests的博客&url=http://srests.github.io/2015/07/13/php/2015071301/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/07/13/php/2015071301/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3ay44DIQxE0fz/T3e2sxjoKhdIwdxeRZ0EcVhYfvD5yM8zeP5+O/q9svL8zbIHBgwYxzKe6TP6zY6DUN4P9wADBowLGPNQOFp6vt0kuOt7gwEDBgxl6XmyOILpgR4GDBgwEsZ8u8rWfyLgwoAB4xCGHviUIjM/jo21OAwYMA5kJIXl7s9b5hswYMA4ivGYj75abeRQ3BUMGDBaM/QAp8NqSWR+ZDBgwLiB4ZagCiApa+2BKAwYMFozVl2Y0DftXt1wL3zAgAHjNoZbfOrFrXsE0iATBgwY7RhuaZoH07zBZ3QNYcCA0YKRzwT1RC0pR4v/hQEDRguG21zTN6pcLHPHBsPPMGDAuIAxT/sUjJsyuiH1JcTDgAGjNUMfUrrtMHfTbkvun/VhwIDRlKFfwHJh7gWv5FBgwIDRm7EjsNbSO72pZzTgYMCA0Y5Ra3WtbdjpIdiYacCAAeNwxjz86cmiW3wmVy6kKhwGDBiNGLVhZFJ81kpcd8wAAwaMfgwlEXTL0aQ9Z1+2gAEDxpWM+XJ6EKylm8VxBQwYMC5g1BphSZFZ6w6+XLmAAQNGO0bS9nKL1fy8X5JCGDBgNGXUBpw1zPyN2zdzjwYGDBinM1ZdycpbaXrANaYZMGDAaMTQi8xakrc2cXwZDMCAAeN6Ro6ptf4XB1wYMGC0ZiRhNAFIRSwMGDBaM/RrFi6y9q3S2oMBA8Y9jFrpWBt55u28aJAJAwaM8xhfqHjk83MdqmkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

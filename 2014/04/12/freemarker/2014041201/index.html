@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Freemarker中如何遍历List | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="freemarker">
+    <meta name="description" content="关键词(Keyword)：Freemarker,Freemarker遍历list在Freemarker应用中经常会遍历List获取需要的数据，并对需要的数据进行排序加工后呈现给用户。那么在Freemarker中如何遍历List，并对List中数据进行适当的排序呢？通过下文的介绍，相信您一定会找到答案。一、  Freemarker中list指令简单介绍要想在Freemarker中遍历list,必须通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Freemarker中如何遍历List">
+<meta property="og:url" content="http://srests.github.io/2014/04/12/freemarker/2014041201/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="关键词(Keyword)：Freemarker,Freemarker遍历list在Freemarker应用中经常会遍历List获取需要的数据，并对需要的数据进行排序加工后呈现给用户。那么在Freemarker中如何遍历List，并对List中数据进行适当的排序呢？通过下文的介绍，相信您一定会找到答案。一、  Freemarker中list指令简单介绍要想在Freemarker中遍历list,必须通">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2014-04-12T09:52:00.000Z">
+<meta property="article:modified_time" content="2018-05-25T08:44:03.326Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="freemarker">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Freemarker中如何遍历List</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Freemarker中如何遍历List</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2014-04-12T09:52:00.000Z" itemprop="datePublished" class="page-time">
+  2014-04-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-freemarker/2014041201"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Freemarker中如何遍历List</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2014-04-12 17:52:00" datetime="2014-04-12T09:52:00.000Z"  itemprop="datePublished">2014-04-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>关键词(Keyword)：Freemarker,Freemarker遍历list<br>在Freemarker应用中经常会遍历List获取需要的数据，并对需要的数据进行排序加工后呈现给用户。那么在Freemarker中如何遍历List，并对List中数据进行适当的排序呢？<br>通过下文的介绍，相信您一定会找到答案。<br>一、  Freemarker中list指令简单介绍<br>要想在Freemarker中遍历list,必须通过使用list指令,即&lt;#list sequence as item&gt;…&lt;/#list&gt;<br>sequence是集合(collection)的表达式，item是循环变量的名字，不能是表达式。<br>当在遍历sequence时，会将遍历变量的值保存到item中。</p>
+<a id="more"></a>
+<p>举个例子说明吧：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span> <span class="attr">as</span> <span class="attr">user</span>&gt;</span></span><br><span class="line">…</span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>userList中封装了很多个User对象，我们在遍历userList时候，会将遍历的User对象的值，保存到上述的user变量中。那么在取值时，我们可以通过${user.userName }来获取User对象的userName属性值。<br>List指令还隐含了两个循环变量：<br>item_index:当前迭代项在所有迭代项中的位置，是数字值。<br>item_has_next:用于判断当前迭代项是否是所有迭代项中的最后一项。<br>注意：在使用上述两个循环变量时，一定要将item换成你自己定义的循环变量名,item其实就是前缀罢了。<br>例如，如果你使用&lt;# list list as l&gt;..&lt;/#list&gt;定义，那么就要使用l_index,l_has_next。</p>
+<p>在循环过程中，如果您想跳出循环，那么可以使用结合break指令，即&lt;#break&gt;来完成。<br>二、  Freemarker中对List进行排序<br>通常我们的排序操作都是通过DAO层来实现的，如果我们想随时更改我们的排序，那么就必须修改我们的DAO层代码，确实不方便。但Freemarker为我们提供了这样的排序方法，解决了这个问题。</p>
+<ol>
+<li>sort升序排序函数<br>sort对序列(sequence)进行排序，要求序列中的变量必须是：字符串（按首字母排序）,数字，日期值。<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">list</span>?<span class="attr">sort</span> <span class="attr">as</span> <span class="attr">l</span>&gt;</span>…<span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>sort_by函数<br>sort_by有一个参数,该参数用于指定想要排序的子变量，排序是按照变量对应的值进行排序,如：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span>?<span class="attr">sort_by</span>(“<span class="attr">age</span>”) <span class="attr">as</span> <span class="attr">user</span>&gt;</span>…<span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+age是User对象的属性，排序是按age的值进行的。</li>
+<li>reverse降序排序函数<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">list</span>? <span class="attr">reverse</span> <span class="attr">as</span> <span class="attr">l</span>&gt;</span>…<span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+reverse使用同sort相同。reverse还可以同sort_by一起使用<br>如：想让用户按年龄降序排序，那么可以这个样写<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span>?<span class="attr">sort_by</span>(“<span class="attr">age</span>”)?<span class="attr">reverse</span> <span class="attr">as</span> <span class="attr">user</span>&gt;</span>…<span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+三、  Freemarker如何遍历List实例应用<br>创通过上面的介绍，相信您已经对Freemarker如何遍历List有了了解，那么我们就废话少说，开始做一个应用吧。<br>User类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line"> <span class="keyword">private</span> String username;</span><br><span class="line"> <span class="keyword">private</span></span><br><span class="line">（省略set和get方法）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+user.ftl<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#--Freemarker遍历list--</span>&gt;</span></span><br><span class="line">简单遍历list:</span><br><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span> <span class="attr">as</span> <span class="attr">user</span>&gt;</span></span><br><span class="line">用户名：$&#123;user.userName&#125;</span><br><span class="line">密  码：$&#123;user.userPassword&#125;</span><br><span class="line">年  龄: $&#123;user.age&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">#--Freemarker遍历list并应用list隐含变量item_index--</span>&gt;</span></span><br><span class="line">item_index使用：</span><br><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span> <span class="attr">as</span> <span class="attr">user</span>&gt;</span></span><br><span class="line">第$&#123;user_index+1&#125;个用户</span><br><span class="line">用户名：$&#123;user.userName&#125;</span><br><span class="line">密  码：$&#123;user.userPassword&#125;</span><br><span class="line">年  龄: $&#123;user.age&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">#--Freemarker遍历list并应用list隐含变量item_has_next--</span>&gt;</span></span><br><span class="line">item_has_next,size使用：</span><br><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span> <span class="attr">as</span> <span class="attr">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">用户名：$&#123;user.userName&#125;</span><br><span class="line">密  码：$&#123;user.userPassword&#125;</span><br><span class="line">年  龄: $&#123;user.age&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">#if</span> !<span class="attr">user_has_next</span>&gt;</span></span><br><span class="line">共有$&#123;userList?size&#125;最后一个用户是:$&#123;user.userName&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">#if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">#--Freemarker遍历list并按用户年龄升序排序--</span>&gt;</span></span><br><span class="line">按用户年龄升序排序：</span><br><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span>?<span class="attr">sort_by</span>("<span class="attr">age</span>") <span class="attr">as</span> <span class="attr">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">用户名：$&#123;user.userName&#125;</span><br><span class="line">密  码：$&#123;user.userPassword&#125;</span><br><span class="line">年  龄: $&#123;user.age&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">#--Freemarker遍历list并按用户年龄降序排序--</span>&gt;</span></span><br><span class="line"></span><br><span class="line">按用户年龄降序排序：</span><br><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span>?<span class="attr">sort_by</span>("<span class="attr">age</span>")?<span class="attr">reverse</span> <span class="attr">as</span> <span class="attr">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">用户名：$&#123;user.userName&#125;</span><br><span class="line">密  码：$&#123;user.userPassword&#125;</span><br><span class="line">年  龄: $&#123;user.age&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">#--Freemarker遍历list当用户年龄大于21岁时，停止输出--</span>&gt;</span></span><br><span class="line">list中应用break:</span><br><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">userList</span>?<span class="attr">sort_by</span>("<span class="attr">age</span>")?<span class="attr">reverse</span> <span class="attr">as</span> <span class="attr">user</span>&gt;</span></span><br><span class="line"></span><br><span class="line">用户名：$&#123;user.userName&#125;</span><br><span class="line">密  码：$&#123;user.userPassword&#125;</span><br><span class="line">年  龄: $&#123;user.age&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">#if</span> (<span class="attr">user.age</span>&gt;</span>21) &gt;</span><br><span class="line"> <span class="tag">&lt;<span class="name">#break</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">#if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>ClientTest类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientTest</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;User&gt; <span class="title">initUserList</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">User user1=<span class="keyword">new</span> User();</span><br><span class="line"> user1.setUserName(<span class="string">"张三"</span>);</span><br><span class="line"> user1.setUserPassword(<span class="string">"123"</span>);</span><br><span class="line"> user1.setAge(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">User user2=<span class="keyword">new</span> User();</span><br><span class="line"> user2.setUserName(<span class="string">"李四"</span>);</span><br><span class="line"> user2.setUserPassword(<span class="string">"123"</span>);</span><br><span class="line"> user2.setAge(<span class="number">22</span>);</span><br><span class="line"></span><br><span class="line">User user3=<span class="keyword">new</span> User();</span><br><span class="line"> user3.setUserName(<span class="string">"王五"</span>);</span><br><span class="line"> user3.setUserPassword(<span class="string">"123"</span>);</span><br><span class="line"> user3.setAge(<span class="number">21</span>);</span><br><span class="line"></span><br><span class="line">List&lt;User&gt; list=<span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line"> list.add(user1);</span><br><span class="line"> list.add(user2);</span><br><span class="line">list.add(user3);</span><br><span class="line"><span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">List&lt;User&gt; list=ClientTest.initUserList();</span><br><span class="line">Map&lt;String,Object&gt; root=<span class="keyword">new</span> HashMap&lt;String,Object&gt;();</span><br><span class="line">root.put(“userList”,list);</span><br><span class="line">FreeMarkertUtil.analysisTemplate(“user.ftl”,”UTF-<span class="number">8</span>”,root);</span><br><span class="line"><span class="comment">//FreeMarkUtil类可以参考我上传得源码。</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好了，到这里程序就结束了，您可以运行ClientTest类来查看输出结果了。</p>
+<p>希望通过本文的介绍，可以让您对FreeMarker如何遍历List有一个清楚的了解。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-25T08:44:03.326Z" itemprop="dateUpdated">2018-05-25 16:44:03</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2014/04/12/freemarker/2014041201/" target="_blank" rel="external">http://srests.github.io/2014/04/12/freemarker/2014041201/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freemarker/" rel="tag">freemarker</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/04/12/freemarker/2014041201/&title=《Freemarker中如何遍历List》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/04/12/freemarker/2014041201/&title=《Freemarker中如何遍历List》 — Srests的博客&source=关键词(Keyword)：Freemarker,Freemarker遍历list在Freemarker应用中经常会遍历List获取需要的数据，并对需要的数..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/04/12/freemarker/2014041201/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Freemarker中如何遍历List》 — Srests的博客&url=http://srests.github.io/2014/04/12/freemarker/2014041201/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/04/12/freemarker/2014041201/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/04/24/java/image/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">java基础图像处理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/04/10/java/2014041001/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">map遍历</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/04/12/freemarker/2014041201/&title=《Freemarker中如何遍历List》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/04/12/freemarker/2014041201/&title=《Freemarker中如何遍历List》 — Srests的博客&source=关键词(Keyword)：Freemarker,Freemarker遍历list在Freemarker应用中经常会遍历List获取需要的数据，并对需要的数..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/04/12/freemarker/2014041201/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Freemarker中如何遍历List》 — Srests的博客&url=http://srests.github.io/2014/04/12/freemarker/2014041201/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/04/12/freemarker/2014041201/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3a227CQAxFUf7/p1OpT5XopPvYodJ4dp4QUOIF0tS31wtf1/e1ev7nq++PV8+8v3p/rwcuGTJkbMu4bq/VewiPhJXed4WXIUPGCQwSCgmIv/8ew2OTIUOGDH6AkkOzc18ZMmTIqDFWwaXPk5JYhgwZMkgx2W/G1VLDh2txGTJkbMhIBwP/+fiD8w0ZMmRswrjCi6R0/fFkHJUMGTJGM2pN+fvytT/I5MjWbEGGDBkbMtLg0hUNTuV/9cuBK0OGjNGMfkCdVC8lyZAh4xwGL1D5gfhUcy1gy5Ah4wBGuipBGmq8AOZfSrAtIkOGjKGMTmnKg0sLWvRpMmTIGM2oHZFpmki+LPLJf0QlQ4aMoYx0DJAukJEBZLqcsWy3yZAhYyijluqlTbraJmpa7sqQIWMqIw0uXdVKU8NiU0+GDBnHMJ4aNNYGAK1UUoYMGQcwaoA0uPtiuHP4ypAhYzaDNLbS4SIPurNsgX4ZGTJkDGLwJbA0ZeyviwX/DGTIkDGUwcOtlaz8gCYLHMs7ypAh43hGrenWWZ5IC10ZMmTMZtSWIYLKuNQT67f2ZMiQMYlxhRdfsCAHcS1BDFJDGTJkjGB84qh9ai3j2SNehgwZuzPIgRi3wHB6R45pGTJkyOArEXw9gieUtQIYbYvIkCHjSEZttaKzqMGHBDJkyJCRpnR8PMnbcDJkyJDBi1hyM/IJ/a9DhgwZ5zD6g4HWBkeYGhYBMmTI2JXxBZs9POIRM0eUAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

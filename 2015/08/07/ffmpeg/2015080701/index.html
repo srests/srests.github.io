@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Ffmpeg使用 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="ffmpeg">
+    <meta name="description" content="Ffmpeg使用语法ffmpeg [[options][&#96;-i’ input_file]]… {[options] output_file}…如果没有输入文件，那么视音频捕捉（只在Linux下有效，因为Linux下把音视频设备当作文件句柄来处理）就会起作用。作为通用的规则，选项一 般用于下一个特定的文件。如果你给 –b 64选项，改选会设置下一个视频速率。对于原始输入文件，格式选项可能是需要的。缺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ffmpeg使用">
+<meta property="og:url" content="http://srests.github.io/2015/08/07/ffmpeg/2015080701/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="Ffmpeg使用语法ffmpeg [[options][&#96;-i’ input_file]]… {[options] output_file}…如果没有输入文件，那么视音频捕捉（只在Linux下有效，因为Linux下把音视频设备当作文件句柄来处理）就会起作用。作为通用的规则，选项一 般用于下一个特定的文件。如果你给 –b 64选项，改选会设置下一个视频速率。对于原始输入文件，格式选项可能是需要的。缺">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-08-07T05:21:00.000Z">
+<meta property="article:modified_time" content="2018-06-04T08:53:57.612Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="ffmpeg">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ffmpeg使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ffmpeg使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-07T05:21:00.000Z" itemprop="datePublished" class="page-time">
+  2015-08-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-ffmpeg/2015080701"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ffmpeg使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-07 13:21:00" datetime="2015-08-07T05:21:00.000Z"  itemprop="datePublished">2015-08-07</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Ffmpeg使用语法<br>ffmpeg [[options][`-i’ input_file]]… {[options] output_file}…<br>如果没有输入文件，那么视音频捕捉（只在Linux下有效，因为Linux下把音视频设备当作文件句柄来处理）就会起作用。作为通用的规则，选项一 般用于下一个特定的文件。如果你给 –b 64选项，改选会设置下一个视频速率。对于原始输入文件，格式选项可能是需要的。缺省情况下，ffmpeg试图尽可能的无损转换，采用与输入同样的音频视 频参数来输出。</p>
+<p>ffmpeg转换所涉及到的选项较多，可参考ffmpeg选项详解。</p>
+<p>ffmpeg保存流为文件<br>ffmpeg -i <a href="http://test.m3u8" target="_blank" rel="noopener">http://test.m3u8</a> -bsf:a aac_adtstoasc -acodec copy -vcodec copy -f mp4 test.mp4</p>
+<p>ffmpeg支持多种文件格式和多种音频、视频编码器，可参考ffmepg格式详解，（附：常见视频文件格式详解）<br>[编辑] 视频文件截图<br>截取一张352x240尺寸大小的，格式为jpg的图片</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i test.asf -y -f image2 -t 0.001 -s 352x240 a.jpg</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>把视频的前３０帧转换成一个Animated Gif</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i test.asf -vframes 30 -y -f gif a.gif</span><br></pre></td></tr></table></figure>
+<p>截取指定时间的缩微图</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i test.avi -y -f image2 -ss 8 -t 0.001 -s 350x240 test.jpg</span><br></pre></td></tr></table></figure>
+<p>-ss后跟的时间单位为秒<br>转换文件为3GP格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i test.mpeg -bitexact -vcodec h263 -b 128 -r 15 -s 176x144 </span><br><span class="line"> -acodec aac -ac 2 -ar 22500 -ab 24 -f 3gp test.3gp</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i test.mpeg -ac 1 -acodec amr_nb -ar 8000 -s 176x144 -b 128 -r 15 test.3gp</span><br></pre></td></tr></table></figure>
+<p>[编辑] 视频格式转换<br>如何使用 ffmpeg 编码得到高质量的视频</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i <span class="string">"D:\Video\Fearless\Fearless.avi"</span> -target film-dvd -s 720x352</span><br><span class="line"> -padtop 64 -padbottom 64 -maxrate 7350000 -b 3700000 -sc_threshold 1000000000 </span><br><span class="line"> -trellis -cgop -g 12 -bf 2 -qblur 0.3 -qcomp 0.7 -me full -dc 10 -mbd 2</span><br><span class="line"> -aspect 16:9 -pass 2 -passlogfile <span class="string">"D:\Video\ffmpegencode"</span> -an -f mpeg2video <span class="string">"D:\Fearless.m2v"</span></span><br></pre></td></tr></table></figure>
+<p>转换指定格式文件到FLV格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i test.mp3 -ab 56 -ar 22050 -b 500 -r 15 -s 320x240 f:\test.flv </span><br><span class="line">ffmpeg.exe -i test.wmv -ab 56 -ar 22050 -b 500 -r 15 -s 320x240 f:\test.flv</span><br></pre></td></tr></table></figure>
+<p>转码解密的VOB</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i snatch_1.vob -f avi -vcodec mpeg4 -b 800 -g 300 -bf 2 -acodec mp3 -ab 128 snatch.avi</span><br></pre></td></tr></table></figure>
+<p>上面的命令行将vob的文件转化成avi文件，mpeg4的视频和mp3的音频。注意命令中使用了B帧，所以mpeg4流是divx5兼容的。GOP大小是300意味着29.97帧频下每10秒就有INTRA帧。该映射在音频语言的DVD转码时候尤其有用。<br>同时编码到几种格式并且在输入流和输出流之间建立映射</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i /tmp/a.wav -ab 64 /tmp/a.mp2 -ab 128 /tmp/b.mp2 -map 0:0 -map 0:0</span><br></pre></td></tr></table></figure>
+<p>上面的命令行转换一个64Kbits 的a.wav到128kbits的a.mp2 ‘-map file:index’在输出流的顺序上定义了哪一路输入流是用于每一个输出流的。<br>转换文件为3GP格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i test.avi -y -b 20 -s sqcif -r 10 -acodec amr_wb -ab 23.85 -ac 1 -ar 16000 test.3gp</span><br></pre></td></tr></table></figure>
+<p>注：如果要转换为3GP格式，则ffmpeg在编译时必须加上–enable-amr_nb –enable-amr_wb，详细内容可参考：转换视频为3GPP格式<br>[编辑] 屏幕录制<br>使用ffmpeg录像屏幕</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -vcodec mpeg4 -b 1000 -r 10 -g 300 -vd x11:0,0 -s 1024x768 ~/test.avi</span><br></pre></td></tr></table></figure>
+<p>：其中，-vd x11:0,0 指录制所使用的偏移为 x=0 和 y=0，-s 1024×768 指录制视频的大小为 1024×768。录制的视频文件为 test.avi，将保存到用户主目录中<br>如果你只想录制一个应用程序窗口或者桌面上的一个固定区域，那么可以指定偏移位置和区域大小。使用xwininfo -frame命令可以完成查找上述参数。</p>
+<p>重新调整视频尺寸大小</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -vcodec mpeg4 -b 1000 -r 10 -g 300 -i ~/test.avi -s 800×600 ~/<span class="built_in">test</span>-800-600.avi</span><br></pre></td></tr></table></figure>
+<p>注：ffmpeg的屏幕录制功能只能在Linux环境下有效。<br>[编辑] 视频采集<br>把摄像头的实时视频录制下来，存储为文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg  -f video4linux -s 320*240 -r 10 -i /dev/video0  test.asf</span><br></pre></td></tr></table></figure>
+<p>更多信息可参考ffmpeg工程组论坛的讨论贴：有关ffmpeg的视频采集<br>注：ffmpeg的视频采集功能只能在Linux环境下使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i F:\闪客之家\闪客之歌.mp3 -ab 56 -ar 22050 -b 500 -r 15 -s 320x240 f:\11.flv </span><br><span class="line">ffmpeg -i F:\01.wmv -ab 56 -ar 22050 -b 500 -r 15 -s 320x240 f:\test.flv</span><br></pre></td></tr></table></figure>
+<p>使用-ss参数 作用（time_off set the start time offset），可以从指定时间点开始转换任务。如:<br>转换文件格式的同时抓缩微图：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">"test.avi"</span> -y -f image2 -ss 8 -t 0.001 -s 350x240 <span class="string">'test.jpg'</span></span><br></pre></td></tr></table></figure>
+<p>对已有flv抓图：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">"test.flv"</span> -y -f image2 -ss 8 -t 0.001 -s 350x240 <span class="string">'test.jpg'</span></span><br></pre></td></tr></table></figure>
+<p>-ss后跟的时间单位为秒<br>Ffmpeg转换命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i test.mpeg -bitexact -vcodec h263 -b 128 -r 15 -s 176x144 -acodec aac -ac 2 -ar 22500 </span><br><span class="line">-ab 24 -f 3gp test.3gp</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i test.mpeg -ac 1 -acodec amr_nb -ar 8000 -s 176x144 -b 128 -r 15 test.3gp</span><br></pre></td></tr></table></figure>
+<p>===========================================</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i F:\闪客之家\闪客之歌.mp3 -ab 56 -ar 22050 -b 500 -r 15 -s 320x240 f:\11.flv ffmpeg -i F:\01.wmv -ab 56 -ar 22050 -b</span><br></pre></td></tr></table></figure>
+
+<p>500 -r 15 -s 320x240 f:\test.flv 使用-ss参数 作用（time_off set the start time offset），可以从指定时间点开始转换任务。如:<br>转换文件格式的同时抓缩微图：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">"test.avi"</span> -y -f image2 -ss 8 -t 0.001 -s 350x240 <span class="string">'test.jpg'</span></span><br></pre></td></tr></table></figure>
+<p>对已有flv抓图：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">"test.flv"</span> -y -f image2 -ss 8 -t 0.001 -s 350x240 <span class="string">'test.jpg'</span></span><br></pre></td></tr></table></figure>
+<p>-ss后跟的时间单位为秒 Ffmpeg转换命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i test.mpeg -bitexact -vcodec h263 -b 128 -r 15 -s 176x144 -acodec aac -ac 2 -ar 22500 -ab 24 -f 3gp test.3gp</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i test.mpeg -ac 1 -acodec amr_nb -ar 8000 -s 176x144 -b 128 -r 15 test.3gp</span><br></pre></td></tr></table></figure>
+
+<p>ffmpeg参数设定解说</p>
+<blockquote>
+<p>-bitexact 使用标准比特率<br>-vcodec xvid 使用xvid压缩<br>-s 320x240 指定分辨率<br>-r 29.97 桢速率（可以改，确认非标准桢率会导致音画不同步，所以只能设定为15或者29.97）</p>
+<p>画面部分，选其一<br>-b &lt;比特率&gt; 指定压缩比特率，似乎ffmpeg是自动VBR的，指定了就大概是平均比特率，比如768，1500这样的就是原来默认项目中有的<br>-qscale &lt;数值&gt; 以&lt;数值&gt;质量为基础的VBR，取值0.01-255，约小质量越好<br>-qmin &lt;数值&gt; 设定最小质量，与-qmax（设定最大质量）共用，比如-qmin 10 -qmax 31<br>-sameq 使用和源同样的质量 声音部分<br>-acodec aac 设定声音编码<br>-ac &lt;数值&gt; 设定声道数，1就是单声道，2就是立体声，转换单声道的TVrip可以用1（节省一半容量），高品质的DVDrip就可以用2<br>-ar &lt;采样率&gt; 设定声音采样率，PSP只认24000<br>-ab &lt;比特率&gt; 设定声音比特率，前面-ac设为立体声时要以一半比特率来设置，比如192kbps的就设成96，转换君默认比特率都较小，要听到较高品</p>
+<p>质声音的话建议设到160kbps（80）以上<br>-vol &lt;百分比&gt; 设定音量，某些DVDrip的AC3轨音量极小，转换时可以用这个提高音量，比如200就是原来的2倍 这样，要得到一个高画质音质低容</p>
+<p>量的MP4的话，首先画面最好不要用固定比特率，而用VBR参数让程序自己去判断，而音质参数可以在原来的基础上提升一 点，听起来要舒服很多，</p>
+<p>也不会太大（看情况调整 例子：ffmpeg -y -i “1.avi” -title “Test” -vcodec xvid -s 368x208 -r 29.97 -b 1500 -acodec aac -ac 2 -ar</p>
+<p>24000 -ab 128 -vol 200 -f psp -muxvb 768 “1.***”</p>
+<p>解释：以上命令可以在Dos命令行中输入，也可以创建到批处理文件中运行。不过，前提是：要在ffmpeg所在的目录中执行（转换君所在目录下面的</p>
+<p>cores子目录）。<br>参数：<br>-y（覆盖输出文件，即如果1.***文件已经存在的话，不经提示就覆盖掉了）<br>-i “1.avi”（输入文件是和ffmpeg在同一目录下的1.avi文件，可以自己加路径，改名字）<br>-title “Test”（在PSP中显示的影片的标题）<br>-vcodec xvid（使用XVID编码压缩视频，不能改的）<br>-s 368x208（输出的分辨率为368x208，注意片源一定要是16:9的不然会变形）<br>-r 29.97（帧数，一般就用这个吧）<br>-b 1500（视频数据流量，用-b xxxx的指令则使用固定码率，数字随便改，1500以上没效果；还可以用动态码率如：-qscale 4和-qscale 6，4的质</p>
+<p>量比6高）<br>-acodec aac（音频编码用AAC）<br>-ac 2（声道数1或2）<br>-ar 24000（声音的采样频率，好像PSP只能支持24000Hz）<br>-ab 128（音频数据流量，一般选择32、64、96、128）<br>-vol 200（200%的音量，自己改）<br>-f psp（输出psp专用格式）<br>-muxvb 768（好像是给PSP机器识别的码率，一般选择384、512和768，我改成1500，PSP就说文件损坏了）<br>“1.***”（输出文件名，也可以加路径改文件名）</p>
+<p>P.S. 版主机器强劲的话，可以多开几个批处理文件，让它们并行处理。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\ffmpeg.exe -i I:\1.wmv -b 360 -r 25 -s 320x240 -hq -deinterlace -ab 56 -ar 22050 -ac 1 D:\2.flv </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>Ffmpeg使用语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg [[options][`-i<span class="string">' input_file]]... &#123;[options] output_file&#125;...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">如果没有输入文件，那么视音频捕捉就会起作用。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">作为通用的规则，选项一般用于下一个特定的文件。如果你给 -b 64选项，改选会设置下一个视频速率。对于原始输入文件，格式选项可能是需要</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">的。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">缺省情况下，ffmpeg试图尽可能的无损转换，采用与输入同样的音频视频参数来输出。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3．选项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">a) 通用选项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-L license</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-h 帮助</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-fromats 显示可用的格式，编解码的，协议的。。。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-f fmt 强迫采用格式fmt</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-I filename 输入文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-y 覆盖输出文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-t duration 设置纪录时间 hh:mm:ss[.xxx]格式的记录时间也支持</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-ss position 搜索到指定的时间 [-]hh:mm:ss[.xxx]的格式也支持</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-title string 设置标题</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-author string 设置作者</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-copyright string 设置版权</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-comment string 设置评论</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-target type 设置目标文件类型(vcd,svcd,dvd) 所有的格式选项（比特率，编解码以及缓冲区大小）自动设置 ，只需要输入如下的就可以了：</span></span><br><span class="line"><span class="string">ffmpeg -i myfile.avi -target vcd /tmp/vcd.mpg</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-hq 激活高质量设置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-itsoffset offset 设置以秒为基准的时间偏移，该选项影响所有后面的输入文件。该偏移被加到输入文件的时戳，定义一个正偏移意味着相应的</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">流被延迟了 offset秒。 [-]hh:mm:ss[.xxx]的格式也支持</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">b) 视频选项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-b bitrate 设置比特率，缺省200kb/s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-r fps 设置帧频 缺省25</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-s size 设置帧大小 格式为WXH 缺省160X128.下面的简写也可以直接使用：</span></span><br><span class="line"><span class="string">Sqcif 128X96 qcif 176X144 cif 252X288 4cif 704X576</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-aspect aspect 设置横纵比 4:3 16:9 或 1.3333 1.7777</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-croptop size 设置顶部切除带大小 像素单位</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-cropbottom size -cropleft size -cropright size</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-padtop size 设置顶部补齐的大小 像素单位</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-padbottom size -padleft size -padright size -padcolor color 设置补齐条颜色(hex,6个16进制的数，红:绿:兰排列，比如 000000代表黑色)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-vn 不做视频记录</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-bt tolerance 设置视频码率容忍度kbit/s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-maxrate bitrate设置最大视频码率容忍度</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-minrate bitreate 设置最小视频码率容忍度</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-bufsize size 设置码率控制缓冲区大小</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-vcodec codec 强制使用codec编解码方式。 如果用copy表示原始编解码数据必须被拷贝。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-sameq 使用同样视频质量作为源（VBR）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-pass n 选择处理遍数（1或者2）。两遍编码非常有用。第一遍生成统计信息，第二遍生成精确的请求的码率</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-passlogfile file 选择两遍的纪录文件名为file</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">c)高级视频选项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-g gop_size 设置图像组大小</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-intra 仅适用帧内编码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-qscale q 使用固定的视频量化标度(VBR)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-qmin q 最小视频量化标度(VBR)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-qmax q 最大视频量化标度(VBR)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-qdiff q 量化标度间最大偏差 (VBR)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-qblur blur 视频量化标度柔化(VBR)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-qcomp compression 视频量化标度压缩(VBR)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-rc_init_cplx complexity 一遍编码的初始复杂度</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-b_qfactor factor 在p和b帧间的qp因子</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-i_qfactor factor 在p和i帧间的qp因子</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-b_qoffset offset 在p和b帧间的qp偏差</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-i_qoffset offset 在p和i帧间的qp偏差</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-rc_eq equation 设置码率控制方程 默认tex^qComp</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-rc_override override 特定间隔下的速率控制重载</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-me method 设置运动估计的方法 可用方法有 zero phods log x1 epzs(缺省) full</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-dct_algo algo 设置dct的算法 可用的有 0 FF_DCT_AUTO 缺省的DCT 1 FF_DCT_FASTINT 2 FF_DCT_INT 3 FF_DCT_MMX 4 FF_DCT_MLIB 5</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">FF_DCT_ALTIVEC</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-idct_algo algo 设置idct算法。可用的有 0 FF_IDCT_AUTO 缺省的IDCT 1 FF_IDCT_INT 2 FF_IDCT_SIMPLE 3 FF_IDCT_SIMPLEMMX 4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">FF_IDCT_LIBMPEG2MMX 5 FF_IDCT_PS2 6 FF_IDCT_MLIB 7 FF_IDCT_ARM 8 FF_IDCT_ALTIVEC 9 FF_IDCT_SH4 10 FF_IDCT_SIMPLEARM</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-er n 设置错误残留为n 1 FF_ER_CAREFULL 缺省 2 FF_ER_COMPLIANT 3 FF_ER_AGGRESSIVE 4 FF_ER_VERY_AGGRESSIVE</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-ec bit_mask 设置错误掩蔽为bit_mask,该值为如下值的位掩码 1 FF_EC_GUESS_MVS (default=enabled) 2 FF_EC_DEBLOCK (default=enabled)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-bf frames 使用frames B 帧，支持mpeg1,mpeg2,mpeg4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-mbd mode 宏块决策 0 FF_MB_DECISION_SIMPLE 使用mb_cmp 1 FF_MB_DECISION_BITS 2 FF_MB_DECISION_RD</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-4mv 使用4个运动矢量 仅用于mpeg4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-part 使用数据划分 仅用于mpeg4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-bug param 绕过没有被自动监测到编码器的问题</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-strict strictness 跟标准的严格性</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-aic 使能高级帧内编码 h263+</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-umv 使能无限运动矢量 h263+</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-deinterlace 不采用交织方法</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-interlace 强迫交织法编码 仅对mpeg2和mpeg4有效。当你的输入是交织的并且你想要保持交织以最小图像损失的时候采用该选项。可选的方法是</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">不交织，但是损失更大</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-psnr 计算压缩帧的psnr</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-vstats 输出视频编码统计到vstats_hhmmss.log</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-vhook module 插入视频处理模块 module 包括了模块名和参数，用空格分开</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">D)音频选项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-ab bitrate 设置音频码率</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-ar freq 设置音频采样率</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-ac channels 设置通道 缺省为1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-an 不使能音频纪录</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-acodec codec 使用codec编解码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">E)音频/视频捕获选项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-vd device 设置视频捕获设备。比如/dev/video0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-vc channel 设置视频捕获通道 DV1394专用</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-tvstd standard 设置电视标准 NTSC PAL(SECAM)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-dv1394 设置DV1394捕获</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-av device 设置音频设备 比如/dev/dsp</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">F)高级选项</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-map file:stream 设置输入流映射</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-debug 打印特定调试信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-benchmark 为基准测试加入时间</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-hex 倾倒每一个输入包</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-bitexact 仅使用位精确算法 用于编解码测试</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-ps size 设置包大小，以bits为单位</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-re 以本地帧频读数据，主要用于模拟捕获设备</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-loop 循环输入流。只工作于图像流，用于ffserver测试</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-04T08:53:57.612Z" itemprop="dateUpdated">2018-06-04 16:53:57</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/08/07/ffmpeg/2015080701/" target="_blank" rel="external">http://srests.github.io/2015/08/07/ffmpeg/2015080701/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ffmpeg/" rel="tag">ffmpeg</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/&title=《Ffmpeg使用》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/&title=《Ffmpeg使用》 — Srests的博客&source=Ffmpeg使用语法ffmpeg [[options][`-i’ input_file]]… {[options] output_file}…如果没有输入..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/08/07/ffmpeg/2015080701/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ffmpeg使用》 — Srests的博客&url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/08/18/html/2015081801/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">让低版本的IE浏览器 强制渲染为IE8 或者 以上 浏览器模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/07/28/html/2015072801/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">css使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/&title=《Ffmpeg使用》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/&title=《Ffmpeg使用》 — Srests的博客&source=Ffmpeg使用语法ffmpeg [[options][`-i’ input_file]]… {[options] output_file}…如果没有输入..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/08/07/ffmpeg/2015080701/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ffmpeg使用》 — Srests的博客&url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/08/07/ffmpeg/2015080701/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aS3KDMBAFwNz/0s4BEuP3NHiB1KxShiA1i6n56Ocnvl5/rnd33/1y/ebrX267MDAwHst4XV7X28q3nrw5v/vPKhgYGAcwrkNhGzrXgm++LgYGBkayrTxkT57HwMDAmATceUidBHoMDIwzGXngS1LA+Xu+WItjYGA8kDEpLL/991fmGxgYGI9ivMqrLWLbu4u7wsDA2JrRNv3zhG8+qqzLYAwMjK0ZeRPtuuk2b6hdh/JRJouBgfFYRjJovKvgbNfKwzoGBsbejDyZuxfWHr8oMlwMDIztGHkqljfI8lDbtuHevg0DA+MYRrtAG5ST0nfxwBkGBsbWjBzWhs57Rwt1GoqBgbEpo03gJltvm3RFIMbAwNiOkQS1vGU2GQ/k49K6X4iBgfFwxuTIxV1LzoteDAyMExhrS65tYq0wHh22wMDAeDhj7XRGnpwl5WtxKmQSajEwMB7OyGHtSOCuAcAHNgYGxtaM/NX1LHRwhGLxCBoGBsYxjLWmWBKCk6Ccp6r/7AQDA+MYxr0jgUnR24ZmDAyM0xhtU+yuIcEaEgMDY2/Gq7wmY4C1kUD0mTAwMLZmTIJdcjcvbtsgXgw4MTAwtmC0w4D2oEaRpZYBFwMD4zTGWoGaF65rH6II/RgYGBjx1ifNu/YZDAwMjLWAe718/kx9IAMDA+MARlLE5q2x9rhGUtx++BwYGBhbM9q863oT+fLtSHLtvzAwMB7O+AXJzSLgdyEh9wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

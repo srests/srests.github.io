@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>MySQL 5.5 -- innodb_lock_wait 锁 等待 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="记得以前，当出现：ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction，要解决是一件麻烦的事情 ；特别是当一个SQL执行完了，但未COMMIT，后面的SQL想要执行就是被锁，超时结束；DBA光从数据库无法着手找出源头是哪个SQL锁住了；有时候看看show engine innodb status , 并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 5.5 -- innodb_lock_wait 锁 等待">
+<meta property="og:url" content="http://srests.github.io/2017/07/24/mysql/lockwait/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="记得以前，当出现：ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction，要解决是一件麻烦的事情 ；特别是当一个SQL执行完了，但未COMMIT，后面的SQL想要执行就是被锁，超时结束；DBA光从数据库无法着手找出源头是哪个SQL锁住了；有时候看看show engine innodb status , 并">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-07-24T01:28:00.000Z">
+<meta property="article:modified_time" content="2020-06-09T09:50:19.043Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MySQL 5.5 -- innodb_lock_wait 锁 等待</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">MySQL 5.5 -- innodb_lock_wait 锁 等待</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-24T01:28:00.000Z" itemprop="datePublished" class="page-time">
+  2017-07-24
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-mysql/lockwait"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MySQL 5.5 -- innodb_lock_wait 锁 等待</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-24 09:28:00" datetime="2017-07-24T01:28:00.000Z"  itemprop="datePublished">2017-07-24</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>记得以前，当出现：ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction，<br>要解决是一件麻烦的事情 ；<br>特别是当一个SQL执行完了，但未COMMIT，后面的SQL想要执行就是被锁，超时结束；<br>DBA光从数据库无法着手找出源头是哪个SQL锁住了；<br>有时候看看show engine innodb status , 并结合 show full processlist; 能暂时解决问题；但一直不能精确定位；</p>
+<p>在5.5中，information_schema 库中增加了三个关于锁的表（MEMORY引擎）；<br>innodb_trx ## 当前运行的所有事务<br>innodb_locks ## 当前出现的锁<br>innodb_lock_waits ## 锁等待的对应关系</p>
+<p>看到这个就非常激动 ； 这可是解决了一个大麻烦，先来看一下表结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line">root@127.0.0.1 : information_schema 13:28:38&gt; desc innodb_locks;</span><br><span class="line">+-------------+---------------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type | Null | Key | Default | Extra |</span><br><span class="line">+-------------+---------------------+------+-----+---------+-------+</span><br><span class="line">| lock_id | varchar(81) | NO | | | |#锁ID</span><br><span class="line">| lock_trx_id | varchar(18) | NO | | | |#拥有锁的事务ID</span><br><span class="line">| lock_mode | varchar(32) | NO | | | |#锁模式</span><br><span class="line">| lock_type | varchar(32) | NO | | | |#锁类型</span><br><span class="line">| lock_table | varchar(1024) | NO | | | |#被锁的表</span><br><span class="line">| lock_index | varchar(1024) | YES | | NULL | |#被锁的索引</span><br><span class="line">| lock_space | bigint(21) unsigned | YES | | NULL | |#被锁的表空间号</span><br><span class="line">| lock_page | bigint(21) unsigned | YES | | NULL | |#被锁的页号</span><br><span class="line">| lock_rec | bigint(21) unsigned | YES | | NULL | |#被锁的记录号</span><br><span class="line">| lock_data | varchar(8192) | YES | | NULL | |#被锁的数据</span><br><span class="line">+-------------+---------------------+------+-----+---------+-------+</span><br><span class="line">10 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">root@127.0.0.1 : information_schema 13:28:56&gt; desc innodb_lock_waits;</span><br><span class="line">+-------------------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type | Null | Key | Default | Extra |</span><br><span class="line">+-------------------+-------------+------+-----+---------+-------+</span><br><span class="line">| requesting_trx_id | varchar(18) | NO | | | |#请求锁的事务ID</span><br><span class="line">| requested_lock_id | varchar(81) | NO | | | |#请求锁的锁ID</span><br><span class="line">| blocking_trx_id | varchar(18) | NO | | | |#当前拥有锁的事务ID</span><br><span class="line">| blocking_lock_id | varchar(81) | NO | | | |#当前拥有锁的锁ID</span><br><span class="line">+-------------------+-------------+------+-----+---------+-------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">root@127.0.0.1 : information_schema 13:29:05&gt; desc innodb_trx ;</span><br><span class="line">+----------------------------+---------------------+------+-----+---------------------+-------+</span><br><span class="line">| Field | Type | Null | Key | Default | Extra |</span><br><span class="line">+----------------------------+---------------------+------+-----+---------------------+-------+</span><br><span class="line">| trx_id | varchar(18) | NO | | | |#事务ID</span><br><span class="line">| trx_state | varchar(13) | NO | | | |#事务状态：</span><br><span class="line">| trx_started | datetime | NO | | 0000-00-00 00:00:00 | |#事务开始时间；</span><br><span class="line">| trx_requested_lock_id | varchar(81) | YES | | NULL | |#innodb_locks.lock_id</span><br><span class="line">| trx_wait_started | datetime | YES | | NULL | |#事务开始等待的时间</span><br><span class="line">| trx_weight | bigint(21) unsigned | NO | | 0 | |#</span><br><span class="line">| trx_mysql_thread_id | bigint(21) unsigned | NO | | 0 | |#事务线程ID</span><br><span class="line">| trx_query | varchar(1024) | YES | | NULL | |#具体SQL语句</span><br><span class="line">| trx_operation_state | varchar(64) | YES | | NULL | |#事务当前操作状态</span><br><span class="line">| trx_tables_in_use | bigint(21) unsigned | NO | | 0 | |#事务中有多少个表被使用</span><br><span class="line">| trx_tables_locked | bigint(21) unsigned | NO | | 0 | |#事务拥有多少个锁</span><br><span class="line">| trx_lock_structs | bigint(21) unsigned | NO | | 0 | |#</span><br><span class="line">| trx_lock_memory_bytes | bigint(21) unsigned | NO | | 0 | |#事务锁住的内存大小（B）</span><br><span class="line">| trx_rows_locked | bigint(21) unsigned | NO | | 0 | |#事务锁住的行数</span><br><span class="line">| trx_rows_modified | bigint(21) unsigned | NO | | 0 | |#事务更改的行数</span><br><span class="line">| trx_concurrency_tickets | bigint(21) unsigned | NO | | 0 | |#事务并发票数</span><br><span class="line">| trx_isolation_level | varchar(16) | NO | | | |#事务隔离级别</span><br><span class="line">| trx_unique_checks | int(1) | NO | | 0 | |#是否唯一性检查</span><br><span class="line">| trx_foreign_key_checks | int(1) | NO | | 0 | |#是否外键检查</span><br><span class="line">| trx_last_foreign_key_error | varchar(256) | YES | | NULL | |#最后的外键错误</span><br><span class="line">| trx_adaptive_hash_latched | int(1) | NO | | 0 | |#</span><br><span class="line">| trx_adaptive_hash_timeout | bigint(21) unsigned | NO | | 0 | |#</span><br><span class="line">+----------------------------+---------------------+------+-----+---------------------+-------+</span><br><span class="line">22 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">下面我们来动手看看数据吧：</span><br><span class="line">##建立测试数据：</span><br><span class="line">use test;</span><br><span class="line">create table tx1</span><br><span class="line">(id int primary key ,</span><br><span class="line">c1 varchar(20),</span><br><span class="line">c2 varchar(30))</span><br><span class="line">engine&#x3D;innodb default charset &#x3D; utf8 ;</span><br><span class="line"></span><br><span class="line">insert into tx1 values</span><br><span class="line">(1,&#39;aaaa&#39;,&#39;aaaaa2&#39;),</span><br><span class="line">(2,&#39;bbbb&#39;,&#39;bbbbb2&#39;),</span><br><span class="line">(3,&#39;cccc&#39;,&#39;ccccc2&#39;);</span><br><span class="line"></span><br><span class="line">commit;</span><br><span class="line"></span><br><span class="line">###产生事务；</span><br><span class="line">### Session1</span><br><span class="line">start transaction;</span><br><span class="line">update tx1 set c1&#x3D;&#39;heyf&#39;,c2&#x3D;&#39;heyf&#39; where id &#x3D;3 ;</span><br><span class="line"></span><br><span class="line">## 产生事务，在innodb_trx就有数据 ；</span><br><span class="line">root@127.0.0.1 : information_schema 13:38:21&gt; select * from innodb_trx G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">trx_id: 3669D82</span><br><span class="line">trx_state: RUNNING</span><br><span class="line">trx_started: 2010-12-24 13:38:06</span><br><span class="line">trx_requested_lock_id: NULL</span><br><span class="line">trx_wait_started: NULL</span><br><span class="line">trx_weight: 3</span><br><span class="line">trx_mysql_thread_id: 2344</span><br><span class="line">trx_query: NULL</span><br><span class="line">trx_operation_state: NULL</span><br><span class="line">trx_tables_in_use: 0</span><br><span class="line">trx_tables_locked: 0</span><br><span class="line">trx_lock_structs: 2</span><br><span class="line">trx_lock_memory_bytes: 376</span><br><span class="line">trx_rows_locked: 1</span><br><span class="line">trx_rows_modified: 1</span><br><span class="line">trx_concurrency_tickets: 0</span><br><span class="line">trx_isolation_level: REPEATABLE READ</span><br><span class="line">trx_unique_checks: 1</span><br><span class="line">trx_foreign_key_checks: 1</span><br><span class="line">trx_last_foreign_key_error: NULL</span><br><span class="line">trx_adaptive_hash_latched: 0</span><br><span class="line">trx_adaptive_hash_timeout: 10000</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">### 由于没有产生锁等待，下面两个表没有数据 ；</span><br><span class="line">root@127.0.0.1 : information_schema 13:38:31&gt; select * from innodb_lock_waits G</span><br><span class="line">Empty set (0.00 sec)</span><br><span class="line"></span><br><span class="line">root@127.0.0.1 : information_schema 13:38:57&gt; select * from innodb_locks G</span><br><span class="line">Empty set (0.00 sec)</span><br><span class="line"></span><br><span class="line">#### 产生锁等待</span><br><span class="line">#### session 2</span><br><span class="line">start transaction;</span><br><span class="line">update tx1 set c1&#x3D;&#39;heyfffff&#39;,c2&#x3D;&#39;heyffffff&#39; where id &#x3D;3 ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@127.0.0.1 : information_schema 13:39:01&gt; select * from innodb_trx G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">trx_id: 3669D83 ##第2个事务</span><br><span class="line">trx_state: LOCK WAIT ## 处于等待状态</span><br><span class="line">trx_started: 2010-12-24 13:40:07</span><br><span class="line">trx_requested_lock_id: 3669D83:49:3:4 ##请求的锁ID</span><br><span class="line">trx_wait_started: 2010-12-24 13:40:07</span><br><span class="line">trx_weight: 2</span><br><span class="line">trx_mysql_thread_id: 2346 ##线程 ID</span><br><span class="line">trx_query: update tx1 set c1&#x3D;&#39;heyfffff&#39;,c2&#x3D;&#39;heyffffff&#39; where id &#x3D;3</span><br><span class="line">trx_operation_state: starting index read</span><br><span class="line">trx_tables_in_use: 1 ##需要用到1个表</span><br><span class="line">trx_tables_locked: 1 ##有1个表被锁</span><br><span class="line">trx_lock_structs: 2</span><br><span class="line">trx_lock_memory_bytes: 376</span><br><span class="line">trx_rows_locked: 1</span><br><span class="line">trx_rows_modified: 0</span><br><span class="line">trx_concurrency_tickets: 0</span><br><span class="line">trx_isolation_level: REPEATABLE READ</span><br><span class="line">trx_unique_checks: 1</span><br><span class="line">trx_foreign_key_checks: 1</span><br><span class="line">trx_last_foreign_key_error: NULL</span><br><span class="line">trx_adaptive_hash_latched: 0</span><br><span class="line">trx_adaptive_hash_timeout: 10000</span><br><span class="line">*************************** 2. row ***************************</span><br><span class="line">trx_id: 3669D82 ##第1个事务</span><br><span class="line">trx_state: RUNNING</span><br><span class="line">trx_started: 2010-12-24 13:38:06</span><br><span class="line">trx_requested_lock_id: NULL</span><br><span class="line">trx_wait_started: NULL</span><br><span class="line">trx_weight: 3</span><br><span class="line">trx_mysql_thread_id: 2344</span><br><span class="line">trx_query: NULL</span><br><span class="line">trx_operation_state: NULL</span><br><span class="line">trx_tables_in_use: 0</span><br><span class="line">trx_tables_locked: 0</span><br><span class="line">trx_lock_structs: 2</span><br><span class="line">trx_lock_memory_bytes: 376</span><br><span class="line">trx_rows_locked: 1</span><br><span class="line">trx_rows_modified: 1</span><br><span class="line">trx_concurrency_tickets: 0</span><br><span class="line">trx_isolation_level: REPEATABLE READ</span><br><span class="line">trx_unique_checks: 1</span><br><span class="line">trx_foreign_key_checks: 1</span><br><span class="line">trx_last_foreign_key_error: NULL</span><br><span class="line">trx_adaptive_hash_latched: 0</span><br><span class="line">trx_adaptive_hash_timeout: 10000</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">root@127.0.0.1 : information_schema 13:40:12&gt; select * from innodb_locks G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">lock_id: 3669D83:49:3:4 ## 第2个事务需要的锁</span><br><span class="line">lock_trx_id: 3669D83</span><br><span class="line">lock_mode: X</span><br><span class="line">lock_type: RECORD</span><br><span class="line">lock_table: &#96;test&#96;.&#96;tx1&#96;</span><br><span class="line">lock_index: &#96;PRIMARY&#96;</span><br><span class="line">lock_space: 49</span><br><span class="line">lock_page: 3</span><br><span class="line">lock_rec: 4</span><br><span class="line">lock_data: 3</span><br><span class="line">*************************** 2. row ***************************</span><br><span class="line">lock_id: 3669D82:49:3:4 ## 第1个事务需要的锁</span><br><span class="line">lock_trx_id: 3669D82</span><br><span class="line">lock_mode: X</span><br><span class="line">lock_type: RECORD</span><br><span class="line">lock_table: &#96;test&#96;.&#96;tx1&#96;</span><br><span class="line">lock_index: &#96;PRIMARY&#96;</span><br><span class="line">lock_space: 49</span><br><span class="line">lock_page: 3</span><br><span class="line">lock_rec: 4</span><br><span class="line">lock_data: 3</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">root@127.0.0.1 : information_schema 13:40:15&gt; select * from innodb_lock_waits G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">requesting_trx_id: 3669D83 ## 请求锁的事务</span><br><span class="line">requested_lock_id: 3669D83:49:3:4 ## 请求锁的锁ID</span><br><span class="line">blocking_trx_id: 3669D82 ## 拥有锁的事务</span><br><span class="line">blocking_lock_id: 3669D82:49:3:4 ## 拥有锁的锁ID</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>哈哈，有了以上这些信息，以下问题就迎刃而解啦。<br>当前有哪些事务在等待锁？ 这些锁需要锁哪些表，锁哪些索引，锁哪些记录和值 ？<br>处于等待状态的相关SQL是什么？<br>在等待哪些事务完成 ？<br>拥有当前锁的SQL是什么？</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-06-09T09:50:19.043Z" itemprop="dateUpdated">2020-06-09 17:50:19</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/07/24/mysql/lockwait/" target="_blank" rel="external">http://srests.github.io/2017/07/24/mysql/lockwait/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2017/07/24/mysql/lockwait/&title=《MySQL 5.5 -- innodb_lock_wait 锁 等待》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2017/07/24/mysql/lockwait/&title=《MySQL 5.5 -- innodb_lock_wait 锁 等待》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2017/07/24/mysql/lockwait/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL 5.5 -- innodb_lock_wait 锁 等待》 — Srests的博客&url=http://srests.github.io/2017/07/24/mysql/lockwait/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2017/07/24/mysql/lockwait/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/30/java/StackOverflowError/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【Error】java.lang.StackOverflowError</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/17/html/2016031701/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">CSS样式表初始化代码</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2017/07/24/mysql/lockwait/&title=《MySQL 5.5 -- innodb_lock_wait 锁 等待》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2017/07/24/mysql/lockwait/&title=《MySQL 5.5 -- innodb_lock_wait 锁 等待》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2017/07/24/mysql/lockwait/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL 5.5 -- innodb_lock_wait 锁 等待》 — Srests的博客&url=http://srests.github.io/2017/07/24/mysql/lockwait/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2017/07/24/mysql/lockwait/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHElEQVR42u3aQXLDIAwF0Nz/0ukBEsdfkpOp4XnlmcbAY6EipMcjfp4vz+tfj36fjPl5tMseDAyM2zKeH58eozpLPu/hBmFgYGzAOJr46D2ZeBLc87VhYGBgTKj5ETB5x8DAwLiK8fmr5IiJgYGBMUliq4xeUP56Lo6BgXFDxiSx/Pb7V+obGBgYt2L0LuvzsmUvlJdXhYGBsTSjV4CcX7pVS6TRejAwMJZmXFVE7DVn5MH3R7VQDAyMf8ZIhugdBKu8yW8wMDD2YfxoyvGmvBkBAwNjaUZviGqzRZWdhO/DXBwDA2M5Rh5w560P1YNjM4nFwMBYjtErDPQWPd+gkzIqBgbGoozk+j4BVMNoNWaeBGIMDIwNGJOmil7DRLW0GWXhGBgYGzCqrV0XtG0NGjuiITAwMJZgVD+Y8Mr1ismMGBgYizKqH1xwz3fR1R4GBsbajGoSWy4rtsB5CMbAwNiBUQ24ScKZb1O1jax8tsXAwFiIMVlcvk/JETOnvlktBgbGBoxJcOwd8iaJ62HAxcDA2IaRJ5C9AmevMHnSpoaBgbEo41l88ku0fIQ8+EaHQgwMjOUYl8XsuMxQLXPOG9QwMDDWYPTaJnpFhUlCGxUvMTAwlmbki5untb2CaKG+gYGBgTG49J80apx8i4GBgRFPnF/S5YBoHAwMjA0Y1daKpAns2sCNgYGxM6OXOlav+yeLnvwbwMDAuDnjD5qCLLrL853uAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="spring,error">
+    <meta name="description" content="最近使用Spring + SpringMvc + Quartz搭建的零配置系统中，使用@annotation注解方式, 直接在类的方法上使用@Scheduled(cron&#x3D;”0 &#x2F;5 * * ?”)来实现定时任务，在使用debug日志级别时，启动提示Could not find default TaskScheduler bean异常： 12345678910111213141516[DEBUG]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理">
+<meta property="og:url" content="http://srests.github.io/2018/06/08/spring/2018060802/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="最近使用Spring + SpringMvc + Quartz搭建的零配置系统中，使用@annotation注解方式, 直接在类的方法上使用@Scheduled(cron&#x3D;”0 &#x2F;5 * * ?”)来实现定时任务，在使用debug日志级别时，启动提示Could not find default TaskScheduler bean异常： 12345678910111213141516[DEBUG]">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-08T03:54:00.000Z">
+<meta property="article:modified_time" content="2019-11-12T07:21:00.546Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="error">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-08T03:54:00.000Z" itemprop="datePublished" class="page-time">
+  2018-06-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-spring/2018060802"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-08 11:54:00" datetime="2018-06-08T03:54:00.000Z"  itemprop="datePublished">2018-06-08</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最近使用Spring + SpringMvc + Quartz搭建的零配置系统中，使用@annotation注解方式, 直接在类的方法上使用@Scheduled(cron=”0 /5 * * ?”)来实现定时任务，在使用debug日志级别时，启动提示Could not find default TaskScheduler bean异常：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[DEBUG][2016-10-17 17:04:19] - [org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor] - Could not find default TaskScheduler bean</span><br><span class="line">org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of <span class="built_in">type</span> [org.springframework.scheduling.TaskScheduler] is defined</span><br><span class="line">    at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:371) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]</span><br><span class="line">    at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:368) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]</span><br><span class="line">    ……</span><br><span class="line">    at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]</span><br><span class="line">    at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]</span><br><span class="line">[DEBUG][2016-10-17 17:04:19] - [org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor] - Could not find default ScheduledExecutorService bean</span><br><span class="line">org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of <span class="built_in">type</span> [org.springframework.scheduling.TaskScheduler] is defined</span><br><span class="line">    at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:371) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]</span><br><span class="line">    at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:368) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]</span><br><span class="line">    at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:331) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]</span><br><span class="line">    ……</span><br><span class="line">    at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:615) [na:1.7.0_79]</span><br><span class="line">    at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]</span><br><span class="line">[DEBUG][2016-10-17 17:04:19] - [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching <span class="keyword">for</span> key <span class="string">'spring.liveBeansView.mbeanDomain'</span> <span class="keyword">in</span> [servletConfigInitParams]</span><br></pre></td></tr></table></figure>
+<p>我很困惑，配置都没有问题啊？通过在stackoverflow辛苦的寻找才发现其实是定时任务框架的一个机制<br>原来在org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.inishRegistration():这个方法中，是这样处理的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.registrar.hasTasks() &amp;&amp; <span class="keyword">this</span>.registrar.getScheduler() == <span class="keyword">null</span>) &#123;</span><br><span class="line">    Assert.state(<span class="keyword">this</span>.beanFactory != <span class="keyword">null</span>, <span class="string">"BeanFactory must be set to find scheduler by type"</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// Search for TaskScheduler bean...</span></span><br><span class="line">        <span class="keyword">this</span>.registrar.setTaskScheduler(<span class="keyword">this</span>.beanFactory.getBean(TaskScheduler<span class="class">.<span class="keyword">class</span>))</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (NoSuchBeanDefinitionException ex) &#123;</span><br><span class="line">        logger.debug(<span class="string">"Could not find default TaskScheduler bean"</span>, ex);</span><br><span class="line">        <span class="comment">// Search for ScheduledExecutorService bean next...</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.registrar.setScheduler(<span class="keyword">this</span>.beanFactory.getBean(ScheduledExecutorService<span class="class">.<span class="keyword">class</span>))</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (NoSuchBeanDefinitionException ex2) &#123;</span><br><span class="line">            logger.debug(<span class="string">"Could not find default ScheduledExecutorService bean"</span>, ex);</span><br><span class="line">            <span class="comment">// Giving up -&gt; falling back to default scheduler within the registrar...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，程序通过beanfactory.getbean方法找到在Spring中注册的调度器，<br>如果ScheduledExecutorService没有找到，就使用默认的调度器。所以，这个过程中如果没有找到ScheduledExecutorService，就会在debug级别的日志输出一个异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.debug(<span class="string">"Could not find default TaskScheduler bean"</span>, ex);</span><br></pre></td></tr></table></figure>
+<p>当然，这个你所看到的异常并不影响应用程序运行，如果你不想看到这个异常，就可以通过提升org.springframework.scheduling这个包下日志级别来屏蔽这个不合理的异常:</p>
+<p>logback &amp; log4j xml：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">"org.springframework.scheduling"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">level</span> <span class="attr">value</span>=<span class="string">"info"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">logger</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>log4j.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">log4j.logger.org.springframework.scheduling</span>=<span class="string">INFO</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-12T07:21:00.546Z" itemprop="dateUpdated">2019-11-12 15:21:00</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/08/spring/2018060802/" target="_blank" rel="external">http://srests.github.io/2018/06/08/spring/2018060802/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/" rel="tag">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2018/06/08/spring/2018060802/&title=《【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2018/06/08/spring/2018060802/&title=《【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2018/06/08/spring/2018060802/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理》 — Srests的博客&url=http://srests.github.io/2018/06/08/spring/2018060802/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2018/06/08/spring/2018060802/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/09/19/docker/error01/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【Error】解决docker 容器内访问宿主机“No route to host”的问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/08/tomcat/2018060801/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【Error】Tomcat:ZipException</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2018/06/08/spring/2018060802/&title=《【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2018/06/08/spring/2018060802/&title=《【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2018/06/08/spring/2018060802/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【Error】Spring定时任务 Could not find default TaskScheduler bean异常处理》 — Srests的博客&url=http://srests.github.io/2018/06/08/spring/2018060802/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2018/06/08/spring/2018060802/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3a227CQAwFQP7/p6nU15bl2A5I2Z08oQLZDJUs3x6P+Hr+Xq/+8vd1/u76bhdfGBgYt2U8l1fvmPWDVs9dfwYDA+McxvpR1p/pPWI1lL95ZgwMDIz4caMjg7wOAwMDYx5w1wnc5P4YGBgYkyI2SRDX4TUJqR+vxTEwMG7IqA4Gvvn6g/MNDAyMmzCerevaArU6DPjnWxgYGFszkrQvb5/l4F4y+uYJMTAwNmXko8fk3Xl+2lzpwMDA2JrRa8QnDbUJuzkWxcDAOICRH58kcEnrP18IiwYVGBgYxzDyG1XDZXXJrDwixcDA2JRRLhSLzbU8pPZSzJe1OAYGxkaMq0rN3lpGb5BQSA0xMDC2YORBM0n18nCZjE4LJ2JgYBzAyG/aG1L28IUlMwwMjAMY82DaW7aotvMu6BdiYGDckJEvWOTfra5uJMlo9NNgYGAcychL0GoTv7n4tW72YWBgHMDIV7uqx+eFcfUniPpzGBgYWzCqixTVYUA1TcwHBlFZi4GBsQWjV2rOQ2e16fbmP4CBgXEAo1qmfoI3GVFgYGDszcjTsmqJ22vGTRJWDAyM/RiTINgLl3l5nAT6l2thGBgYGzHyq1pqVscAyboGBgbGyYxJMZkfWf1MeYyKgYFxAKN6ZLUQzQNus8DGwMDAiMeK1YbdaGyJgYGBUQyRc9JkXQwDA+MERj4MmITj3rmFjiAGBsamjMlgoPcQ1W/NC2AMDIzbMn4A/aKyUEoKfkgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

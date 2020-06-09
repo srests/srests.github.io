@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>java移动文件 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="java">
+    <meta name="description" content="一： 123456789101112&#x2F;&#x2F;文件原地址 File oldFile &#x3D; new File(&quot;c:&#x2F;test.xls&quot;); &#x2F;&#x2F;文件新（目标）地址 String newPath &#x3D; &quot;c:&#x2F;test&#x2F;&quot;; &#x2F;&#x2F;new一个新文件夹 File fnewpath &#x3D; new File(newPath); &#x2F;&#x2F;判断文件夹是否存在 if(!fnewpath.exists()) fnewpath.mk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java移动文件">
+<meta property="og:url" content="http://srests.github.io/2014/06/04/java/movefile/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="一： 123456789101112&#x2F;&#x2F;文件原地址 File oldFile &#x3D; new File(&quot;c:&#x2F;test.xls&quot;); &#x2F;&#x2F;文件新（目标）地址 String newPath &#x3D; &quot;c:&#x2F;test&#x2F;&quot;; &#x2F;&#x2F;new一个新文件夹 File fnewpath &#x3D; new File(newPath); &#x2F;&#x2F;判断文件夹是否存在 if(!fnewpath.exists()) fnewpath.mk">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2014-06-04T02:51:00.000Z">
+<meta property="article:modified_time" content="2019-11-12T07:06:17.725Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">java移动文件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">java移动文件</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2014-06-04T02:51:00.000Z" itemprop="datePublished" class="page-time">
+  2014-06-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-java/movefile"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">java移动文件</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2014-06-04 10:51:00" datetime="2014-06-04T02:51:00.000Z"  itemprop="datePublished">2014-06-04</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文件原地址 </span></span><br><span class="line">File oldFile = <span class="keyword">new</span> File(<span class="string">"c:/test.xls"</span>); </span><br><span class="line"><span class="comment">//文件新（目标）地址 </span></span><br><span class="line">String newPath = <span class="string">"c:/test/"</span>; </span><br><span class="line"><span class="comment">//new一个新文件夹 </span></span><br><span class="line">File fnewpath = <span class="keyword">new</span> File(newPath); </span><br><span class="line"><span class="comment">//判断文件夹是否存在 </span></span><br><span class="line"><span class="keyword">if</span>(!fnewpath.exists()) </span><br><span class="line">fnewpath.mkdirs(); </span><br><span class="line"><span class="comment">//将文件移到新文件里 </span></span><br><span class="line">File fnew = <span class="keyword">new</span> File(newPath +oldFile.getName()); </span><br><span class="line">oldFile.renameTo(fnew);</span><br></pre></td></tr></table></figure>
+<p>二：（使用ｊａｖａ复制移动文件 ）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/** </span></span><br><span class="line"><span class="comment">    * Moving a File to Another Directory </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> srcFile  eg: c:\windows\abc.txt </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> destPath eg: c:\temp </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> success </span></span><br><span class="line"><span class="comment">    */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">move</span><span class="params">(String srcFile, String destPath)</span></span>&#123; </span><br><span class="line"><span class="comment">// File (or directory) to be moved </span></span><br><span class="line">File file = <span class="keyword">new</span> File(srcFile); </span><br><span class="line"></span><br><span class="line"><span class="comment">// Destination directory </span></span><br><span class="line">File dir = <span class="keyword">new</span> File(destPath); </span><br><span class="line"></span><br><span class="line"><span class="comment">// Move file to new directory </span></span><br><span class="line"><span class="keyword">boolean</span> success = file.renameTo(<span class="keyword">new</span> File(dir, file.getName())); </span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> success; </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>三：(ｊａｖａ删除 移动文件)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">File f=<span class="keyword">new</span> File(<span class="string">"c:\\Autoexec.bat"</span>); </span><br><span class="line">f.renameTo(<span class="string">"d:\\Autoexec.bat"</span>);<span class="comment">//移动 </span></span><br><span class="line">f.delete();<span class="comment">//删除 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> ｊａｖａ.io.*; </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoveFile</span> </span>&#123; </span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="keyword">throws</span> IOException</span>&#123; </span><br><span class="line">      File f=<span class="keyword">new</span> File(<span class="string">"d:\\myHomework\\Work"</span>); </span><br><span class="line">      File fileList[]=f.listFiles(); </span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fileList.length ;i++) &#123; </span><br><span class="line">   fileList[i].renameTo(<span class="keyword">new</span> File(<span class="string">"d:\\myHomework\\Backup\\"</span> + fileList[i].getName()));</span><br><span class="line">      &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>四：ｊａｖａ操作文件(创建,删除,复制,剪切） </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> OALogic.sql.data; </span><br><span class="line"><span class="keyword">import</span> ｊａｖａ.io.*; </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileOperate</span> </span>&#123; </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">FileOperate</span><span class="params">()</span> </span>&#123; </span><br><span class="line">   &#125; </span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123; </span><br><span class="line">       newFolder(<span class="string">"D:/100"</span>); </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 新建目录 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> folderPath String 如 c:/fqf </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> boolean </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newFolder</span><span class="params">(String folderPath)</span> </span>&#123; </span><br><span class="line">       <span class="keyword">try</span> &#123; </span><br><span class="line">           String filePath = folderPath; </span><br><span class="line">           filePath = filePath.toString(); </span><br><span class="line">           ｊａｖａ.io.File myFilePath = <span class="keyword">new</span> ｊａｖａ.io.File(filePath); </span><br><span class="line">           <span class="keyword">if</span> (!myFilePath.exists()) &#123; </span><br><span class="line">               myFilePath.mkdir(); </span><br><span class="line">           &#125; </span><br><span class="line">       &#125; </span><br><span class="line">       <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">           System.out.println(<span class="string">"新建目录操作出错"</span>); </span><br><span class="line">           e.printStackTrace(); </span><br><span class="line">       &#125; </span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 新建文件 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> filePathAndName String 文件路径及名称 如c:/fqf.txt </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fileContent String 文件内容 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> boolean </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">newFile</span><span class="params">(String filePathAndName, String fileContent)</span> </span>&#123; </span><br><span class="line"></span><br><span class="line">       <span class="keyword">try</span> &#123; </span><br><span class="line">           String filePath = filePathAndName; </span><br><span class="line">           filePath = filePath.toString(); </span><br><span class="line">           File myFilePath = <span class="keyword">new</span> File(filePath); </span><br><span class="line">           <span class="keyword">if</span> (!myFilePath.exists()) &#123; </span><br><span class="line">               myFilePath.createNewFile(); </span><br><span class="line">           &#125; </span><br><span class="line">           FileWriter resultFile = <span class="keyword">new</span> FileWriter(myFilePath); </span><br><span class="line">           PrintWriter myFile = <span class="keyword">new</span> PrintWriter(resultFile); </span><br><span class="line">           String strContent = fileContent; </span><br><span class="line">           myFile.println(strContent); </span><br><span class="line">           resultFile.close(); </span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line">       <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">           System.out.println(<span class="string">"新建目录操作出错"</span>); </span><br><span class="line">           e.printStackTrace(); </span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 删除文件 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> filePathAndName String 文件路径及名称 如c:/fqf.txt </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fileContent String </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> boolean </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delFile</span><span class="params">(String filePathAndName)</span> </span>&#123; </span><br><span class="line">       <span class="keyword">try</span> &#123; </span><br><span class="line">           String filePath = filePathAndName; </span><br><span class="line">           filePath = filePath.toString(); </span><br><span class="line">           ｊａｖａ.io.File myDelFile = <span class="keyword">new</span> ｊａｖａ.io.File(filePath); </span><br><span class="line">           myDelFile.delete(); </span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line">       <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">           System.out.println(<span class="string">"删除文件操作出错"</span>); </span><br><span class="line">           e.printStackTrace(); </span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 删除文件夹 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> filePathAndName String 文件夹路径及名称 如c:/fqf </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fileContent String </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> boolean </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delFolder</span><span class="params">(String folderPath)</span> </span>&#123; </span><br><span class="line">       <span class="keyword">try</span> &#123; </span><br><span class="line">           delAllFile(folderPath); <span class="comment">//删除完里面所有内容 </span></span><br><span class="line">           String filePath = folderPath; </span><br><span class="line">           filePath = filePath.toString(); </span><br><span class="line">           ｊａｖａ.io.File myFilePath = <span class="keyword">new</span> ｊａｖａ.io.File(filePath); </span><br><span class="line">           myFilePath.delete(); <span class="comment">//删除空文件夹 </span></span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line">       <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">           System.out.println(<span class="string">"删除文件夹操作出错"</span>); </span><br><span class="line">           e.printStackTrace(); </span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 删除文件夹里面的所有文件 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> path String 文件夹路径 如 c:/fqf </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delAllFile</span><span class="params">(String path)</span> </span>&#123; </span><br><span class="line">       File file = <span class="keyword">new</span> File(path); </span><br><span class="line">       <span class="keyword">if</span> (!file.exists()) &#123; </span><br><span class="line">           <span class="keyword">return</span>; </span><br><span class="line">       &#125; </span><br><span class="line">       <span class="keyword">if</span> (!file.isDirectory()) &#123; </span><br><span class="line">           <span class="keyword">return</span>; </span><br><span class="line">       &#125; </span><br><span class="line">       String[] tempList = file.list(); </span><br><span class="line">       File temp = <span class="keyword">null</span>; </span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tempList.length; i++) &#123; </span><br><span class="line">           <span class="keyword">if</span> (path.endsWith(File.separator)) &#123; </span><br><span class="line">               temp = <span class="keyword">new</span> File(path + tempList[i]); </span><br><span class="line">           &#125; </span><br><span class="line">           <span class="keyword">else</span> &#123; </span><br><span class="line">               temp = <span class="keyword">new</span> File(path + File.separator + tempList[i]); </span><br><span class="line">           &#125; </span><br><span class="line">           <span class="keyword">if</span> (temp.isFile()) &#123; </span><br><span class="line">               temp.delete(); </span><br><span class="line">           &#125; </span><br><span class="line">           <span class="keyword">if</span> (temp.isDirectory()) &#123; </span><br><span class="line">               delAllFile(path+<span class="string">"/"</span>+ tempList[i]);<span class="comment">//先删除文件夹里面的文件 </span></span><br><span class="line">               delFolder(path+<span class="string">"/"</span>+ tempList[i]);<span class="comment">//再删除空文件夹 </span></span><br><span class="line">           &#125; </span><br><span class="line">       &#125; </span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 复制单个文件 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> oldPath String 原文件路径 如：c:/fqf.txt </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> newPath String 复制后路径 如：f:/fqf.txt </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> boolean </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span><span class="params">(String oldPath, String newPath)</span> </span>&#123; </span><br><span class="line">       <span class="keyword">try</span> &#123; </span><br><span class="line">           <span class="keyword">int</span> bytesum = <span class="number">0</span>; </span><br><span class="line">           <span class="keyword">int</span> byteread = <span class="number">0</span>; </span><br><span class="line">           File oldfile = <span class="keyword">new</span> File(oldPath); </span><br><span class="line">           <span class="keyword">if</span> (oldfile.exists()) &#123; <span class="comment">//文件存在时 </span></span><br><span class="line">               ｉｎｐｕｔStream inStream = <span class="keyword">new</span> FileｉｎｐｕｔStream(oldPath); <span class="comment">//读入原文件 </span></span><br><span class="line">               FileOutputStream fs = <span class="keyword">new</span> FileOutputStream(newPath); </span><br><span class="line">               <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1444</span>]; </span><br><span class="line">               <span class="keyword">int</span> length; </span><br><span class="line">               <span class="keyword">while</span> ( (byteread = inStream.read(buffer)) != -<span class="number">1</span>) &#123; </span><br><span class="line">                   bytesum += byteread; <span class="comment">//字节数 文件大小 </span></span><br><span class="line">                   System.out.println(bytesum); </span><br><span class="line">                   fs.write(buffer, <span class="number">0</span>, byteread); </span><br><span class="line">               &#125; </span><br><span class="line">               inStream.close(); </span><br><span class="line">           &#125; </span><br><span class="line">       &#125; </span><br><span class="line">       <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">           System.out.println(<span class="string">"复制单个文件操作出错"</span>); </span><br><span class="line">           e.printStackTrace(); </span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 复制整个文件夹内容 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> oldPath String 原文件路径 如：c:/fqf </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> newPath String 复制后路径 如：f:/fqf/ff </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> boolean </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFolder</span><span class="params">(String oldPath, String newPath)</span> </span>&#123; </span><br><span class="line"></span><br><span class="line">       <span class="keyword">try</span> &#123; </span><br><span class="line">           (<span class="keyword">new</span> File(newPath)).mkdirs(); <span class="comment">//如果文件夹不存在 则建立新文件夹 </span></span><br><span class="line">           File a=<span class="keyword">new</span> File(oldPath); </span><br><span class="line">           String[] file=a.list(); </span><br><span class="line">           File temp=<span class="keyword">null</span>; </span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; file.length; i++) &#123; </span><br><span class="line">               <span class="keyword">if</span>(oldPath.endsWith(File.separator))&#123; </span><br><span class="line">                   temp=<span class="keyword">new</span> File(oldPath+file[i]); </span><br><span class="line">               &#125; </span><br><span class="line">               <span class="keyword">else</span>&#123; </span><br><span class="line">                   temp=<span class="keyword">new</span> File(oldPath+File.separator+file[i]); </span><br><span class="line">               &#125; </span><br><span class="line"></span><br><span class="line">               <span class="keyword">if</span>(temp.isFile())&#123; </span><br><span class="line">                   FileｉｎｐｕｔStream ｉｎｐｕｔ = <span class="keyword">new</span> FileｉｎｐｕｔStream(temp); </span><br><span class="line">                   FileOutputStream output = <span class="keyword">new</span> FileOutputStream(newPath + <span class="string">"/"</span> +</span><br><span class="line">                            (temp.getName()).toString()); </span><br><span class="line">                   <span class="keyword">byte</span>[] b = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">5</span>]; </span><br><span class="line">                   <span class="keyword">int</span> len; </span><br><span class="line">                   <span class="keyword">while</span> ( (len = ｉｎｐｕｔ.read(b)) != -<span class="number">1</span>) &#123; </span><br><span class="line">                       output.write(b, <span class="number">0</span>, len); </span><br><span class="line">                   &#125; </span><br><span class="line">                   output.flush(); </span><br><span class="line">                   output.close(); </span><br><span class="line">                   ｉｎｐｕｔ.close(); </span><br><span class="line">               &#125; </span><br><span class="line">               <span class="keyword">if</span>(temp.isDirectory())&#123;<span class="comment">//如果是子文件夹 </span></span><br><span class="line">                   copyFolder(oldPath+<span class="string">"/"</span>+file[i],newPath+<span class="string">"/"</span>+file[i]); </span><br><span class="line">               &#125; </span><br><span class="line">           &#125; </span><br><span class="line">       &#125; </span><br><span class="line">       <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">           System.out.println(<span class="string">"复制整个文件夹内容操作出错"</span>); </span><br><span class="line">           e.printStackTrace(); </span><br><span class="line"></span><br><span class="line">       &#125; </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 移动文件到指定目录 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> oldPath String 如：c:/fqf.txt </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> newPath String 如：d:/fqf.txt </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">moveFile</span><span class="params">(String oldPath, String newPath)</span> </span>&#123; </span><br><span class="line">       copyFile(oldPath, newPath); </span><br><span class="line">       delFile(oldPath); </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line"></span><br><span class="line">   <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 移动文件到指定目录 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> oldPath String 如：c:/fqf.txt </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> newPath String 如：d:/fqf.txt </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">moveFolder</span><span class="params">(String oldPath, String newPath)</span> </span>&#123; </span><br><span class="line">       copyFolder(oldPath, newPath); </span><br><span class="line">       delFolder(oldPath); </span><br><span class="line"></span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-12T07:06:17.725Z" itemprop="dateUpdated">2019-11-12 15:06:17</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2014/06/04/java/movefile/" target="_blank" rel="external">http://srests.github.io/2014/06/04/java/movefile/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/06/04/java/movefile/&title=《java移动文件》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/06/04/java/movefile/&title=《java移动文件》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/06/04/java/movefile/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java移动文件》 — Srests的博客&url=http://srests.github.io/2014/06/04/java/movefile/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/06/04/java/movefile/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/06/10/cpp/2014061001/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C++CMap使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/05/26/js/2014052601/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js按键监听ctrl shift alt</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/06/04/java/movefile/&title=《java移动文件》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/06/04/java/movefile/&title=《java移动文件》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/06/04/java/movefile/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java移动文件》 — Srests的博客&url=http://srests.github.io/2014/06/04/java/movefile/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/06/04/java/movefile/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3a3YrCQAwG0H3/l3ZhrxZE/ZKo0MmZqyKlndOLOPn5+YnX7W89+v3/ev578uTn948WBgbGZRm3p+v+0dXr+7fknyzZGwYGxh5G/rg8OOafI7n/xXsxMDAw4iCYBMdeQMfAwMDoHdHyhPY5AAMDAyNhJEnspHyWPPlLuTgGBsYFGdXGwDevP9jfwMDAuAijl4jOX189Yr7YFQYGxtGM6rhDcmTstQqqSe9oagMDA+OCjPwg2Etcq8NkvRENDAyMDYy8iJa/eN4kSEI2BgbG2Yxqs3AOqDYhoj1gYGAsYHxiSKI3hNE8VmJgYCxj5AWy3oBFMsBRvRMDA2MPYzJgMSmTTY6SGBgYexiTTffS2uTDFYIyBgbGAka16DYJytWeanRgxcDAWMDopY6jAtlg1CNqYWJgYBzH6G00x1SbB3lAf1E1xMDAOIJRLXg1j25xWlsNtRgYGHsYyVBXNSxWi3TVMY6HR0wMDIxDGZPSf/SF3nrcfPgHgIGBcSijl8T2Wpi9xDUa3cDAwFjA6A1sTT5HPjoWvQsDA+NoRnV4Kx+5qLYq88ELDAyMbYxbceVF/96dSUMCAwNjG6Ma7Oa/5xutlgIxMDDOZkxGH6qYPHEttygwMDAWMOapaS+iv+1ODAwMjPF1Nbmt/gFgYGBg5E2CeXit8jAwMPYw8mbAZPA0L+7no2kYGBgbGNVAOW9n5rxqGxUDA+M4xi/XX3+tTr/C0gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

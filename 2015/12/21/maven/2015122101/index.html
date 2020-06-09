@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>使用Maven管理Spring | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="spring,maven">
+    <meta name="description" content="概述本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访问  mvnrepository：org.springframework.  使用Maven管理基本的Spring依赖关系Spring被设计为可高度模块化的 ―― 使用Spring中的一部分,不应该也不需要引用另一个不相关的部分. 例如, 使用基">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Maven管理Spring">
+<meta property="og:url" content="http://srests.github.io/2015/12/21/maven/2015122101/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="概述本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访问  mvnrepository：org.springframework.  使用Maven管理基本的Spring依赖关系Spring被设计为可高度模块化的 ―― 使用Spring中的一部分,不应该也不需要引用另一个不相关的部分. 例如, 使用基">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-12-21T10:42:00.000Z">
+<meta property="article:modified_time" content="2020-06-09T09:09:11.493Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="maven">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">使用Maven管理Spring</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">使用Maven管理Spring</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-12-21T10:42:00.000Z" itemprop="datePublished" class="page-time">
+  2015-12-21
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-maven/2015122101"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">使用Maven管理Spring</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-12-21 18:42:00" datetime="2015-12-21T10:42:00.000Z"  itemprop="datePublished">2015-12-21</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ol>
+<li><p>概述<br>本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访问  mvnrepository：org.springframework.</p>
+</li>
+<li><p>使用Maven管理基本的Spring依赖关系<br>Spring被设计为可高度模块化的 ―― 使用Spring中的一部分,不应该也不需要引用另一个不相关的部分. 例如, 使用基本的Spring Context可以不使用 Persistence或MVC相关的Spring库.<br>让我们从一个非常简单的Maven设置开始,这里只使用 spring-context 依赖 :</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">org.springframework.version</span>&gt;</span>3.2.8.RELEASE<span class="tag">&lt;/<span class="name">org.springframework.version</span>&gt;</span>  </span><br><span class="line">    <span class="comment">&lt;!-- &lt;org.springframework.version&gt;4.0.2.RELEASE&lt;/org.springframework.version&gt; --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.springframework.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>spring-context 包定义了Spring注入(Injection)容器,并依赖很少的Spring包: spring-core, spring-expression, spring-aop 和 spring-beans. 通过启用支持一些 Spring的核心技术增强了Spring容器: Spring表达式语言 (SpEL), 面向切面编程 支持以及 JavaBeans机制.<br>注意,我们将spring-context依赖的范围指定为 runtime scope ―― 这将确保在编译时没有任何依赖Spring特定api的部分. 对于一些底层开发的情况,可以将 runtime scope 从选定的Spring依赖项中移除(Maven 默认是compile),但对于简单的项目来说,并不需要在编码时对Spring 的整个框架进行调用.<br>还要注意,从Spring 3.2开始, 不需要定义CGLIB 依赖关系(现在升级到了CGLIB3.0)―― 它已经被重新打包(现在所有 net.sf.cglib 包变成了 org.springframework.cglib包)并直接集成在 spring-core 这个 JAR包中(详情请参考 JIRA计划文档).</p>
+</li>
+<li><p>Spring Persistence与Maven<br>现在让我们看看 Spring持久化依赖项 ―― 主要是 spring-orm :</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-orm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.springframework.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>它提供了Hibernate和JPA支持,如 HibernateTemplate 和 JpaTemplate ―― 以及持久性相关的一些依赖关系: spring-jdbc 和 spring-tx.<br>JDBC Data Access库定义了 Spring JDBC支持 以及 JdbcTemplate, 而 spring-tx 代表了非常灵活的 事务管理的抽象(Transaction Management Abstraction).</p>
+</li>
+<li><p>Spring MVC与Maven<br>要使用Spring Web和Servlet支持,需要在pom中添加两个依赖项, 当然,也需要上面所说的核心依赖:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.springframework.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.springframework.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>spring-web 依赖包含Servlet和Portlet环境中常用的web特定工具,而 spring-webmvc 对Servlet环境提供了MVC支持.<br>因为 spring-webmvc 将 spring-web 作为一个依赖,所以在使用 spring-webmvc时不需要显式地定义 spring-web.</p>
+</li>
+<li><p>Spring Security与Maven<br>关于 Security Maven依赖的深入讨论请参考 Spring Security 3.2.x与Spring 4.0.x的Maven依赖管理.</p>
+</li>
+<li><p>Spring Test与Maven<br>Spring Test框架可以通过以下依赖引入到项目中:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>从Spring 3.2开始,Spring MVC Test项目 作为一个独立的项目在github上提供下载 ,并且已被列入 core Test框架,只需要依赖 spring-test 就够了.<br>注意,那些仍然依赖Spring 3.1及以下版本的较老的项目,独立的旧的Maven依赖仍然存在并可继续使用,几乎是一样的结果. 但不是在Maven Central仓库中,所以使用他们需要添加一个自定义仓库到项目的pom中.</p>
+</li>
+<li><p>使用里程碑版本(Milestones)<br>Spring的release版本托管在Maven中央仓库中. 但是,如果一个项目需要使用里程碑版本,那么需要在pom中添加Spring自己的Maven库:</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>repository.springframework.maven.milestone<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Spring Framework Maven Milestone Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo.spring.io/milestone/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>添加这个仓库以后,项目就可以定义如下的依赖关系:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.0.RC2<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li><p>使用Snapshots(快照)<br>和milestons版本一样, Spring的快照版也托管在自己的仓库中:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>repository.springframework.maven.snapshot<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Spring Framework Maven Snapshot Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo.spring.io/snapshot/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只要在pom中启用了 SNAPSHOT 仓库,就可以引用以下的依赖关系:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.0.BUILD-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然, 4.x 也是一样的:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.3.BUILD-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>总结<br>本文讨论了使用Maven管理 Spring的实际情况. 主要介绍的是Maven依赖,还有其他一些知识点. 这应该是在项目中使用Spring的一篇很好的入门文章.</p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-06-09T09:09:11.493Z" itemprop="dateUpdated">2020-06-09 17:09:11</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/12/21/maven/2015122101/" target="_blank" rel="external">http://srests.github.io/2015/12/21/maven/2015122101/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/12/21/maven/2015122101/&title=《使用Maven管理Spring》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/12/21/maven/2015122101/&title=《使用Maven管理Spring》 — Srests的博客&source=
+概述本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/12/21/maven/2015122101/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Maven管理Spring》 — Srests的博客&url=http://srests.github.io/2015/12/21/maven/2015122101/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/12/21/maven/2015122101/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/01/28/code/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">世界各国和地区名称代码</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/12/06/java/jdkinstall/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">jdk安装</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/12/21/maven/2015122101/&title=《使用Maven管理Spring》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/12/21/maven/2015122101/&title=《使用Maven管理Spring》 — Srests的博客&source=
+概述本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/12/21/maven/2015122101/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Maven管理Spring》 — Srests的博客&url=http://srests.github.io/2015/12/21/maven/2015122101/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/12/21/maven/2015122101/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aS27jMBAFQN//0p5tgIyV95pKAJGllZHIMkuLRv9er/h6f7mSe77e+f3z9+d8uv/mCwMD47GM9+U1e/Sng14/P/n7xxeKgYFxAOP6KMmx8tCcv4LkbBgYGBjJ5zaMztJKDAwMjISRFJ+zMP2nARcDA+OxjDx0rhTA18f6o1ocAwPjgYyVwvK3P//KfAMDA+NRjHd5rTT6Zw276FQYGBhbM+4aYc5Capt6/lDKYmBgHMBo865ZSy5ZyMgTRAwMjBMY7arE7L93hdqP38LAwDiGkSeF7QAgOfpKMoqBgbE3YxYo7xoo5iVr9FsYGBhbM+5azErCdN1EC+7HwMDYmzErYtvNh7wobd/9Ui2OgYHxKEZ+lHyRYraQMQzoGBgYWzPaRDBf/Gpf0EqbDwMD40xG3t5aWZhoj15X3hgYGFswVoaO7UpE+7RiGICBgbE1Iw+++Xfz0jQvX+sLAwNjO0YbEFdSwHaBo0BiYGAcwMjbam1jLg/x+Rj1P/dgYGAcw2hL1tlooX1xUaDHwMA4gJG3wPJw2aZ9baGLgYFxDmNlbLA+Tmiba/W3MDAwHs6YBcc2jWsbZzckhRgYGBsxZmHu+nErBWo+flhawsDAwHggIw+ys/C6MlrAwMDASB630pIbDiNHoR8DAwNjNhho23DtuPSV18QYGBiHMWZh964XVOyXYWBgbMfIC9Q2sWsHCe3wAAMD4wTGbPFitkLRtt6SpBMDA2Nrxj+ioYSaa5WWnQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

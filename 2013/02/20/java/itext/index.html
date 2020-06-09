@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>itext对水印图片的旋转、放大、缩小等操作的示例 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="java,itext">
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:type" content="article">
+<meta property="og:title" content="itext对水印图片的旋转、放大、缩小等操作的示例">
+<meta property="og:url" content="http://srests.github.io/2013/02/20/java/itext/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2013-02-20T09:58:00.000Z">
+<meta property="article:modified_time" content="2019-11-12T06:58:34.517Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="itext">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">itext对水印图片的旋转、放大、缩小等操作的示例</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">itext对水印图片的旋转、放大、缩小等操作的示例</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2013-02-20T09:58:00.000Z" itemprop="datePublished" class="page-time">
+  2013-02-20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-java/itext"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">itext对水印图片的旋转、放大、缩小等操作的示例</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2013-02-20 17:58:00" datetime="2013-02-20T09:58:00.000Z"  itemprop="datePublished">2013-02-20</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.Color;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.Document;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.DocumentException;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.Font;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.HeaderFooter;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.Image;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.PageSize;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.Paragraph;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.Phrase;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.Rectangle;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.pdf.BaseFont;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.pdf.PdfContentByte;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.pdf.PdfGState;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.pdf.PdfReader;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.pdf.PdfStamper;</span><br><span class="line"><span class="keyword">import</span> com.lowagie.text.pdf.PdfWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PdfConvertor</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">   <span class="comment">// txt原始文件的路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String txtFilePath = <span class="string">"c:/test/01.txt"</span>;</span><br><span class="line">    <span class="comment">// 生成的pdf文件路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String pdfFilePath = <span class="string">"c:/test/01.pdf"</span>;</span><br><span class="line">    <span class="comment">// 添加水印图片路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String imageFilePath = <span class="string">"c:/test/images/psue.jpg"</span>;</span><br><span class="line">    <span class="comment">// 生成临时文件前缀</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String prefix = <span class="string">"tempFile"</span>;</span><br><span class="line">    <span class="comment">// 所有者密码</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String OWNERPASSWORD = <span class="string">"123456"</span>;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">generatePDFWithTxt</span><span class="params">(String txtFile, String pdfFile,</span></span></span><br><span class="line"><span class="function"><span class="params">            String userPassWord, String waterMarkName, <span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 生成临时文件</span></span><br><span class="line">            File file = File.createTempFile(prefix, <span class="string">".pdf"</span>);</span><br><span class="line">            <span class="comment">// 创建pdf文件到临时文件</span></span><br><span class="line">            <span class="keyword">if</span> (createPDFFile(txtFile, file)) &#123;</span><br><span class="line">                <span class="comment">// 增加水印和加密</span></span><br><span class="line">                waterMark(file.getPath(), pdfFile, userPassWord, OWNERPASSWORD,</span><br><span class="line">                        waterMarkName, permission);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">createPDFFile</span><span class="params">(String txtFilePath, File file)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 设置纸张</span></span><br><span class="line">        Rectangle rect = <span class="keyword">new</span> Rectangle(PageSize.A4);</span><br><span class="line">        <span class="comment">// 设置页码</span></span><br><span class="line">        HeaderFooter footer = <span class="keyword">new</span> HeaderFooter(<span class="keyword">new</span> Phrase(<span class="string">"页码:"</span>, PdfConvertor</span><br><span class="line">                .setChineseFont()), <span class="keyword">true</span>);</span><br><span class="line">        footer.setBorder(Rectangle.NO_BORDER);</span><br><span class="line">        <span class="comment">// step1</span></span><br><span class="line">        Document doc = <span class="keyword">new</span> Document(rect, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">        doc.setFooter(footer);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileReader fileRead = <span class="keyword">new</span> FileReader(txtFilePath);</span><br><span class="line">            BufferedReader read = <span class="keyword">new</span> BufferedReader(fileRead);</span><br><span class="line">            <span class="comment">// 设置pdf文件生成路径 step2</span></span><br><span class="line">            PdfWriter.getInstance(doc, <span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">            <span class="comment">// 打开pdf文件 step3</span></span><br><span class="line">            doc.open();</span><br><span class="line">            <span class="comment">// 实例化Paragraph 获取写入pdf文件的内容，调用支持中文的方法. step4</span></span><br><span class="line">            <span class="keyword">while</span> (read.ready()) &#123;</span><br><span class="line">                <span class="comment">// 添加内容到pdf(这里将会按照txt文件的原始样式输出)</span></span><br><span class="line">                doc.add(<span class="keyword">new</span> Paragraph(read.readLine(), PdfConvertor</span><br><span class="line">                        .setChineseFont()));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 关闭pdf文件 step5</span></span><br><span class="line">            doc.close();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">waterMark</span><span class="params">(String inputFile, String outputFile,</span></span></span><br><span class="line"><span class="function"><span class="params">            String userPassWord, String ownerPassWord, String waterMarkName,</span></span></span><br><span class="line"><span class="function"><span class="params">            <span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PdfReader reader = <span class="keyword">new</span> PdfReader(inputFile);</span><br><span class="line">            PdfStamper stamper = <span class="keyword">new</span> PdfStamper(reader, <span class="keyword">new</span> FileOutputStream(</span><br><span class="line">                    outputFile));</span><br><span class="line">            <span class="comment">// 设置密码</span></span><br><span class="line">            <span class="comment">//stamper.setEncryption(userPassWord.getBytes(), ownerPassWord.getBytes(), permission, false);</span></span><br><span class="line">            BaseFont base = BaseFont.createFont(<span class="string">"STSong-Light"</span>, <span class="string">"UniGB-UCS2-H"</span>,</span><br><span class="line">                    BaseFont.NOT_EMBEDDED);</span><br><span class="line">            <span class="keyword">int</span> total = reader.getNumberOfPages() + <span class="number">1</span>;</span><br><span class="line">            Image image = Image.getInstance(imageFilePath);</span><br><span class="line">            image.setAbsolutePosition(<span class="number">50</span>, <span class="number">400</span>);<span class="comment">//坐标</span></span><br><span class="line">            image.setRotation(-<span class="number">20</span>);<span class="comment">//旋转 弧度</span></span><br><span class="line">            image.setRotationDegrees(-<span class="number">45</span>);<span class="comment">//旋转 角度</span></span><br><span class="line"><span class="comment">//            image.scaleAbsolute(200,100);//自定义大小</span></span><br><span class="line">            image.scalePercent(<span class="number">50</span>);<span class="comment">//依照比例缩放</span></span><br><span class="line">            PdfContentByte under;</span><br><span class="line">            <span class="keyword">int</span> j = waterMarkName.length();</span><br><span class="line">            <span class="keyword">char</span> c = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> rise = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; total; i++) &#123;</span><br><span class="line">                rise = <span class="number">500</span>;</span><br><span class="line">                under = stamper.getUnderContent(i);</span><br><span class="line">                <span class="comment">// 添加图片</span></span><br><span class="line">                under.addImage(image);</span><br><span class="line">                PdfGState gs = <span class="keyword">new</span> PdfGState();</span><br><span class="line">                gs.setFillOpacity(<span class="number">0.2f</span>);<span class="comment">// 设置透明度为0.2</span></span><br><span class="line">                under.setGState(gs);</span><br><span class="line">                under.beginText();</span><br><span class="line">                under.setColorFill(Color.CYAN);</span><br><span class="line">                under.setFontAndSize(base, <span class="number">30</span>);</span><br><span class="line">                <span class="comment">// 设置水印文字字体倾斜 开始</span></span><br><span class="line">                <span class="keyword">if</span> (j &gt;= <span class="number">15</span>) &#123;</span><br><span class="line">                    under.setTextMatrix(<span class="number">200</span>, <span class="number">120</span>);</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; j; k++) &#123;</span><br><span class="line">                        under.setTextRise(rise);</span><br><span class="line">                        c = waterMarkName.charAt(k);</span><br><span class="line">                        under.showText(c + <span class="string">""</span>);</span><br><span class="line">                        rise -= <span class="number">20</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    under.setTextMatrix(<span class="number">180</span>, <span class="number">100</span>);</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; j; k++) &#123;</span><br><span class="line">                        under.setTextRise(rise);</span><br><span class="line">                        c = waterMarkName.charAt(k);</span><br><span class="line">                        under.showText(c + <span class="string">""</span>);</span><br><span class="line">                        rise -= <span class="number">18</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 字体设置结束</span></span><br><span class="line">                under.endText();</span><br><span class="line">                <span class="comment">// 画一个圆</span></span><br><span class="line">                <span class="comment">// under.ellipse(250, 450, 350, 550);</span></span><br><span class="line">                <span class="comment">// under.setLineWidth(1f);</span></span><br><span class="line">                <span class="comment">// under.stroke();</span></span><br><span class="line">            &#125;</span><br><span class="line">            stamper.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Font <span class="title">setChineseFont</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        BaseFont base = <span class="keyword">null</span>;</span><br><span class="line">        Font fontChinese = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            base = BaseFont.createFont(<span class="string">"STSong-Light"</span>, <span class="string">"UniGB-UCS2-H"</span>,</span><br><span class="line">                    BaseFont.EMBEDDED);</span><br><span class="line">            fontChinese = <span class="keyword">new</span> Font(base, <span class="number">12</span>, Font.NORMAL);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (DocumentException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fontChinese;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        generatePDFWithTxt(txtFilePath, pdfFilePath, <span class="string">"123"</span>, <span class="string">""</span>, <span class="number">16</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-12T06:58:34.517Z" itemprop="dateUpdated">2019-11-12 14:58:34</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2013/02/20/java/itext/" target="_blank" rel="external">http://srests.github.io/2013/02/20/java/itext/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/itext/" rel="tag">itext</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2013/02/20/java/itext/&title=《itext对水印图片的旋转、放大、缩小等操作的示例》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2013/02/20/java/itext/&title=《itext对水印图片的旋转、放大、缩小等操作的示例》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2013/02/20/java/itext/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《itext对水印图片的旋转、放大、缩小等操作的示例》 — Srests的博客&url=http://srests.github.io/2013/02/20/java/itext/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2013/02/20/java/itext/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2013/12/19/js/2013121901/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">CKEditer上传配置</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2011/06/21/oracle/2011062101/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">oracle导表</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2013/02/20/java/itext/&title=《itext对水印图片的旋转、放大、缩小等操作的示例》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2013/02/20/java/itext/&title=《itext对水印图片的旋转、放大、缩小等操作的示例》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2013/02/20/java/itext/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《itext对水印图片的旋转、放大、缩小等操作的示例》 — Srests的博客&url=http://srests.github.io/2013/02/20/java/itext/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2013/02/20/java/itext/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACG0lEQVR42u3aMXKFMAwFwH//S5M2xcfzJJHMYK+rDCHgpVAkWZ9PvK5f6+7K+v71k9dXHlsYGBivZVzLtb5n8pbkt8neMDAwzmGsQ2HvxTkvf+/tdQwMDIxlEMzv7wV6DAwMjDkj30SegGJgYGBMAl81KcyDcvWTYWBgnMOolpr/+fOfnG9gYGC8inEVV8KrhsvqX315DgYGxtaMPMAlB5C9JG8yooGBgXEOIy9Bq+253mhFD4aBgbE3o9qOT5K5Km9yDwYGxsmM3vX8qDKJls0jTAwMjI0YZXHck88312vw3XYNMTAwtmbkqV6vSq4mjvlOMDAwTmDkpWy1QM1L0PzY4MsVDAyMAxjVZK7XSluH5t4RAgYGxmmMeajNC+D880UDHxgYGMcwejMMSaB8ajqiPiOGgYGxA2Oy3Xnyl3+OwhsxMDC2Y/RCZ486wUdBFgMD42BGLyBGxWdQJEflMQYGxtaMedpXDZfPjpFhYGCcyegF0MkYWXXw4naHGBgYhzGa41lFcJ4+FvJcDAyMrRm9IJiE2rzRXz2dxMDAOIFxFddTxWq+3ceSQgwMjNcy8tUD51eqQbn6aTAwMN7OyDdUbc9Nwnc54GJgYBzAqBac1Q1NhsOixhwGBgZGr2gssquF8SjgYmBgbM3IhyqSJ0+ad4/938DAwHgJI2+c9dj5oWbzOBMDA2NrxiRRy9v91U3kIyAYGBhbM34Agu2odpcI2c0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

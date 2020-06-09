@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>docker使用说明 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="docker">
+    <meta name="description" content="http:&#x2F;&#x2F;www.docker.org.cn&#x2F;book&#x2F;install&#x2F;install-docker-on-rhel-29.htmlhttp:&#x2F;&#x2F;get.daocloud.io&#x2F;#install-docker-for-mac-windows docker-io(旧版本)Windows  http:&#x2F;&#x2F;get.daocloud.io&#x2F;#install-docker-for-mac-windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker使用说明">
+<meta property="og:url" content="http://srests.github.io/2018/01/22/docker/instructions/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="http:&#x2F;&#x2F;www.docker.org.cn&#x2F;book&#x2F;install&#x2F;install-docker-on-rhel-29.htmlhttp:&#x2F;&#x2F;get.daocloud.io&#x2F;#install-docker-for-mac-windows docker-io(旧版本)Windows  http:&#x2F;&#x2F;get.daocloud.io&#x2F;#install-docker-for-mac-windows">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-22T01:53:00.000Z">
+<meta property="article:modified_time" content="2020-06-09T07:50:10.216Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">docker使用说明</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">docker使用说明</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-22T01:53:00.000Z" itemprop="datePublished" class="page-time">
+  2018-01-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text">docker-io(旧版本)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text">Docker-CE</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">使用官方安装脚本自动安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">手动安装帮助</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">安装指定版本的Docker-CE:</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用阿里云加速</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Ubuntu\CentOs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Mac</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">安装／升级你的Docker客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">如何配置镜像加速器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Windows</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">4.</span> <span class="post-toc-text">Docker - 升级 from 1.12 to 1.13</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">5.</span> <span class="post-toc-text">Docker命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">6.</span> <span class="post-toc-text">Docker管理工具</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">7.</span> <span class="post-toc-text">Docker安装、运行相关容器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">Mysql</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">Redis</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">Jenkins</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">Nexus3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">Gitlab</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">Rabbitmq</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-docker/instructions"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">docker使用说明</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-22 09:53:00" datetime="2018-01-22T01:53:00.000Z"  itemprop="datePublished">2018-01-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="http://www.docker.org.cn/book/install/install-docker-on-rhel-29.html" target="_blank" rel="noopener">http://www.docker.org.cn/book/install/install-docker-on-rhel-29.html</a><br><a href="http://get.daocloud.io/#install-docker-for-mac-windows" target="_blank" rel="noopener">http://get.daocloud.io/#install-docker-for-mac-windows</a></p>
+<h1><span id="docker-io-jiu-ban-ben">docker-io(旧版本)</span><a href="#docker-io-jiu-ban-ben" class="header-anchor">#</a></h1><p>Windows</p>
+<blockquote>
+<p><a href="http://get.daocloud.io/#install-docker-for-mac-windows" target="_blank" rel="noopener">http://get.daocloud.io/#install-docker-for-mac-windows</a></p>
+<p>win7 64位<br>解决办法：<br>1， win+r 快捷键打开 “运行”，输入regedit 打开注册表<br>2，找到 HKEY_CLASSES_ROOT\CLSID{00020420-0000-0000-C000-000000000046}<br>InprocServer32 修改 第一行（默认）的值为 C:\Windows\system32\oleaut32.dll<br>3，找到HKEY_CLASSES_ROOT\CLSID{00020424-0000-0000-C000-000000000046}<br>InprocServer32  修改 第一行（默认）的值为 C:\Windows\system32\oleaut32.dll<br>4，完事。（我修改了完了 也没试用，直接重启电脑 然后成功了）</p>
+</blockquote>
+<a id="more"></a>
+<p>CentOS7</p>
+<blockquote>
+<p>Docker要求64位的系统且内核版本至少为3.10</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加yum源。</span></span><br><span class="line">yum install epel-release –y</span><br><span class="line">yum clean all</span><br><span class="line">yum list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装并运行Docker</span></span><br><span class="line">yum install docker-io –y</span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="comment">#检查安装结果。</span></span><br><span class="line">docker info </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h1><span id="docker-ce">Docker-CE</span><a href="#docker-ce" class="header-anchor">#</a></h1><h2><span id="shi-yong-guan-fang-an-zhuang-jiao-ben-zi-dong-an-zhuang">使用官方安装脚本自动安装</span><a href="#shi-yong-guan-fang-an-zhuang-jiao-ben-zi-dong-an-zhuang" class="header-anchor">#</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+<h2><span id="shou-dong-an-zhuang-bang-zhu">手动安装帮助</span><a href="#shou-dong-an-zhuang-bang-zhu" class="header-anchor">#</a></h2><p>Ubuntu 14.04 16.04 (使用apt-get进行安装)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line"><span class="comment"># step 2: 安装GPG证书</span></span><br><span class="line">curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"><span class="comment"># Step 3: 写入软件源信息</span></span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu <span class="variable">$(lsb_release -cs)</span> stable"</span></span><br><span class="line"><span class="comment"># Step 4: 更新并安装 Docker-CE</span></span><br><span class="line">sudo apt-get -y update</span><br><span class="line">sudo apt-get -y install docker-ce</span><br></pre></td></tr></table></figure>
+
+<p>CentOS 7 (使用yum进行安装)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"><span class="comment"># Step 3: 更新并安装 Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure>
+
+<p>注意：<br>官方软件源默认启用了最新的软件，您可以通过编辑软件源的方式获取各个版本的软件包。例如官方并没有将测试版本的软件源置为可用，你可以通过以下方式开启。同理可以开启各种测试版本等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"><span class="comment">#将 [docker-ce-test] 下方的 enabled=0 修改为 enabled=1</span></span><br></pre></td></tr></table></figure>
+<h2><span id="an-zhuang-zhi-ding-ban-ben-de-docker-ce">安装指定版本的Docker-CE:</span><a href="#an-zhuang-zhi-ding-ban-ben-de-docker-ce" class="header-anchor">#</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Step 1: 查找Docker-CE的版本:</span></span><br><span class="line">yum list docker-ce.x86_64 --showduplicates | sort -r</span><br><span class="line"><span class="comment">#   Loading mirror speeds from cached hostfile</span></span><br><span class="line"><span class="comment">#   Loaded plugins: branch, fastestmirror, langpacks</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            docker-ce-stable</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.1.ce-1.el7.centos            @docker-ce-stable</span></span><br><span class="line"><span class="comment">#   docker-ce.x86_64            17.03.0.ce-1.el7.centos            docker-ce-stable</span></span><br><span class="line"><span class="comment">#   Available Packages</span></span><br><span class="line"><span class="comment"># Step2 : 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.0.ce.1-1.el7.centos)</span></span><br><span class="line">sudo yum -y install docker-ce-[VERSION]</span><br></pre></td></tr></table></figure>
+<p>安装校验</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@iZbp12adskpuoxodbkqzjfZ:$ docker version</span><br><span class="line">Client:</span><br><span class="line"> Version:      17.03.0-ce</span><br><span class="line"> API version:  1.26</span><br><span class="line"> Go version:   go1.7.5</span><br><span class="line"> Git commit:   3a232c8</span><br><span class="line"> Built:        Tue Feb 28 07:52:04 2017</span><br><span class="line"> OS/Arch:      linux/amd64</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Version:      17.03.0-ce</span><br><span class="line"> API version:  1.26 (minimum version 1.12)</span><br><span class="line"> Go version:   go1.7.5</span><br><span class="line"> Git commit:   3a232c8</span><br><span class="line"> Built:        Tue Feb 28 07:52:04 2017</span><br><span class="line"> OS/Arch:      linux/amd64</span><br><span class="line"> Experimental: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+
+<h1><span id="shi-yong-a-li-yun-jia-su">使用阿里云加速</span><a href="#shi-yong-a-li-yun-jia-su" class="header-anchor">#</a></h1><h2><span id="ubuntu-centos">Ubuntu\CentOs</span><a href="#ubuntu-centos" class="header-anchor">#</a></h2><blockquote>
+<p>您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">'EOF'</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="string">"registry-mirrors"</span>: [<span class="string">"https://807js1b0.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2><span id="mac">Mac</span><a href="#mac" class="header-anchor">#</a></h2><blockquote>
+<h3><span id="an-zhuang-sheng-ji-ni-de-docker-ke-hu-duan">安装／升级你的Docker客户端</span><a href="#an-zhuang-sheng-ji-ni-de-docker-ke-hu-duan" class="header-anchor">#</a></h3><p>对于10.10.3以下的用户 推荐使用 Docker Toolbox<br>Toolbox的介绍和帮助：mirrors.aliyun.com/help/docker-toolbox<br>Mac系统的安装文件目录：<a href="http://mirrors.aliyun.com/docker-toolbox/mac/docker-toolbox/" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-toolbox/mac/docker-toolbox/</a><br>对于10.10.3以上的用户 推荐使用 Docker for Mac<br>Mac系统的安装文件目录：<a href="http://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/</a></p>
+<h3><span id="ru-he-pei-zhi-jing-xiang-jia-su-qi">如何配置镜像加速器</span><a href="#ru-he-pei-zhi-jing-xiang-jia-su-qi" class="header-anchor">#</a></h3><p>   针对安装了Docker Toolbox的用户，您可以参考以下配置步骤：<br>       创建一台安装有Docker环境的Linux虚拟机，指定机器名称为default，同时配置Docker加速器地址。<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine create --engine-registry-mirror=https://807js1b0.mirror.aliyuncs.com -d virtualbox default </span><br></pre></td></tr></table></figure><br>       查看机器的环境配置，并配置到本地，并通过Docker客户端访问Docker服务。<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker-machine env default</span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(docker-machine env default)</span>"</span></span><br><span class="line">docker info </span><br></pre></td></tr></table></figure><br>   针对安装了Docker for Mac的用户，您可以参考以下配置步骤：<br>       右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon 标签（Docker 17.03 之前版本为 Advanced 标签）下的 Registry mirrors 列表中将<br>       <a href="https://807js1b0.mirror.aliyuncs.com加到&quot;registry-mirrors&quot;的数组里，点击" target="_blank" rel="noopener">https://807js1b0.mirror.aliyuncs.com加到&quot;registry-mirrors&quot;的数组里，点击</a> Apply &amp; Restart按钮，等待Docker重启并应用配置的镜像加速器。</p>
+</blockquote>
+<h2><span id="windows">Windows</span><a href="#windows" class="header-anchor">#</a></h2><blockquote>
+<p>安装／升级你的Docker客户端<br>对于Windows 10以下的用户 推荐使用 Docker Toolbox<br>Toolbox的介绍和帮助：mirrors.aliyun.com/help/docker-toolbox<br>Windows系统的安装文件目录：<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/</a><br>对于Windows 10以上的用户 推荐使用 Docker for Windows<br>Windows系统的安装文件目录：<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-for-windows/" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-toolbox/windows/docker-for-windows/</a><br>如何配置镜像加速器<br>针对安装了Docker Toolbox的用户，您可以参考以下配置步骤：<br>创建一台安装有Docker环境的Linux虚拟机，指定机器名称为default，同时配置Docker加速器地址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine create --engine-registry-mirror=https://807js1b0.mirror.aliyuncs.com -d virtualbox default </span><br></pre></td></tr></table></figure>
+<p>  查看机器的环境配置，并配置到本地，并通过Docker客户端访问Docker服务。<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker-machine env default</span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(docker-machine env default)</span>"</span></span><br><span class="line">docker info </span><br></pre></td></tr></table></figure><br>  针对安装了Docker for Windows的用户，您可以参考以下配置步骤：<br>  在系统右下角托盘图标内右键菜单选择 Settings，打开配置窗口后左侧导航菜单选择 Docker Daemon。编辑窗口内的JSON串，填写加速器地址，如下所示：<br>  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://807js1b0.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><br>  编辑完成，点击 Apply 保存按钮，等待Docker重启并应用配置的镜像加速器。<br>注意<br>Docker for Windows 和 Docker Toolbox是不兼容，如果同时安装两者的话，需要使用hyperv的参数启动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine create --engine-registry-mirror=https://807js1b0.mirror.aliyuncs.com -d hyperv default </span><br></pre></td></tr></table></figure>
+<p>Docker for Windows 有两种运行模式，一种运行Windows相关容器，一种运行传统的Linux容器。同一时间只能选择一种模式运行。</p>
+</blockquote>
+<h1><span id="docker-sheng-ji-from-1-12-to-1-13">Docker - 升级 from 1.12 to 1.13</span><a href="#docker-sheng-ji-from-1-12-to-1-13" class="header-anchor">#</a></h1><p>引言<br>历经半年，docker的更新终于来了，看着新版本中各种诱人的新特性，我们也第一时间来尝试一下。</p>
+<p>升级<br>之前一直使用的是1.12，所以这次尝试的是从原来的版本升级到新版本。</p>
+<ol>
+<li><p>更新 yum package index.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum makecache fast</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看 yum package 中 docker 的版本信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum list docker-engine.x86_64 --showduplicates |sort -r</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装指定版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y install docker-engine-&lt;VERSION_STRING&gt;</span><br><span class="line"></span><br><span class="line">yum -y install docker-engine-1.13.0-1.el7.centos</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>之后就由 yum 来更新和安装啦，我们就等呀等呀…</p>
+<ol start="4">
+<li>查看版本信息<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker --verion</span><br></pre></td></tr></table></figure>
+<h1><span id="docker-ming-ling">Docker命令</span><a href="#docker-ming-ling" class="header-anchor">#</a></h1>推送<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker tag [imageid] srests/image</span><br><span class="line">docker push srests/image</span><br></pre></td></tr></table></figure>
+1、停用全部运行中的容器:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -q)</span><br></pre></td></tr></table></figure>
+<p>2、删除全部容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+<p>3、一条命令实现停用并删除容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -q) &amp; docker rm $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+
+<h1><span id="docker-guan-li-gong-ju">Docker管理工具</span><a href="#docker-guan-li-gong-ju" class="header-anchor">#</a></h1><p>rancher 全栈化容器管理平台<br>Kubernetes、Swarm 容器编排</p>
+<h1><span id="docker-an-zhuang-yun-xing-xiang-guan-rong-qi">Docker安装、运行相关容器</span><a href="#docker-an-zhuang-yun-xing-xiang-guan-rong-qi" class="header-anchor">#</a></h1><h2><span id="mysql">Mysql</span><a href="#mysql" class="header-anchor">#</a></h2><p>获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql --restart=always -p 3306:3306 -v /mysql/conf.d:/etc/mysql/conf.d -v /mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="mypassword" -d mysql</span><br></pre></td></tr></table></figure>
+<p>连接查看容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql bash</span><br></pre></td></tr></table></figure>
+
+<h2><span id="redis">Redis</span><a href="#redis" class="header-anchor">#</a></h2><p>获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull  redis</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=redis -p 6379:6379  -d redis --requirepass "mypassword"</span><br></pre></td></tr></table></figure>
+<p>连接查看容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it redis redis-cli</span><br></pre></td></tr></table></figure>
+
+<h2><span id="jenkins">Jenkins</span><a href="#jenkins" class="header-anchor">#</a></h2><p>获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull  jenkins</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -itd -p 8080:8080 -p 50000:50000 --name jenkins --privileged=true -v /docker/jenkins/jenkins_home:/var/jenkins_home -v /docker/jenkins/jenkins.war:/usr/share/jenkins/jenkins.war -v /var/maven_jar:/var/maven_jar jenkins</span><br><span class="line">sudo docker run -itd -p 8080:8080 -p 50000:50000 --name jenkins --privileged=true  -v /docker/jenkins:/var/jenkins_home jenkins</span><br></pre></td></tr></table></figure>
+
+<h2><span id="nexus3">Nexus3</span><a href="#nexus3" class="header-anchor">#</a></h2><p>获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull sonatype/nexus3</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /nexus</span><br><span class="line">chmod 777 /nexus</span><br><span class="line">docker run -d -p 80:8081 -p 8082:8082 -p 8083:8083 --name nexus3 -v /nexus:/nexus-data --restart=always sonatype/nexus3</span><br></pre></td></tr></table></figure>
+
+<h2><span id="gitlab">Gitlab</span><a href="#gitlab" class="header-anchor">#</a></h2><p>获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull  gitlab</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach --privileged=true \</span><br><span class="line">--hostname gitlab.cctbn.com --publish 443:443 --publish 80:80 --publish 8022:22 \</span><br><span class="line">--name gitlab  \</span><br><span class="line">--restart always \</span><br><span class="line">--volume /docker/gitlab/config:/etc/gitlab \</span><br><span class="line">--volume /docker/gitlab/logs:/var/log/gitlab \</span><br><span class="line">--volume /docker/gitlab/data:/var/opt/gitlab \</span><br><span class="line">docker.io/gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
+
+<h2><span id="rabbitmq">Rabbitmq</span><a href="#rabbitmq" class="header-anchor">#</a></h2><p>获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:management</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name rabbitmq -p 5672:5672 -p 80:15672 -v  /rabbitmq:/var/lib/rabbitmq --hostname rabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS="mypassword" rabbitmq:management</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-06-09T07:50:10.216Z" itemprop="dateUpdated">2020-06-09 15:50:10</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/01/22/docker/instructions/" target="_blank" rel="external">http://srests.github.io/2018/01/22/docker/instructions/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2018/01/22/docker/instructions/&title=《docker使用说明》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2018/01/22/docker/instructions/&title=《docker使用说明》 — Srests的博客&source=http://www.docker.org.cn/book/install/install-docker-on-rhel-29.htmlhttp://ge..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2018/01/22/docker/instructions/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker使用说明》 — Srests的博客&url=http://srests.github.io/2018/01/22/docker/instructions/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2018/01/22/docker/instructions/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/02/23/linux/2018022301/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Centos升级Git到Git</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/13/docker/error03/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【Error】SunCertPathBuilderException docker-machine</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2018/01/22/docker/instructions/&title=《docker使用说明》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2018/01/22/docker/instructions/&title=《docker使用说明》 — Srests的博客&source=http://www.docker.org.cn/book/install/install-docker-on-rhel-29.htmlhttp://ge..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2018/01/22/docker/instructions/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker使用说明》 — Srests的博客&url=http://srests.github.io/2018/01/22/docker/instructions/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2018/01/22/docker/instructions/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aSW7DMAwF0Nz/0i7QbWvlU1SDhnlaZeFBzwEIcXg84nV9r5+/19fcXXl31/r5BxYGBsbbMq7lWm8xvz7fdPVdGBgYn8PIA2gSfNebuAvK+fMxMDAw8kCZrOTgWP1MGBgYGPmL17DOcRADAwNjL4ntpKnrDSXvPZaLY2BgvCGj0xj4698v6m9gYGD8Y8ZVXOswmr++E2R/uQsDA2M0ozrukB/vEkC1hfnkY2FgYAxl5KX5TjjuFNeilBUDA2M0Iwlw+TU5u9paiGAYGBijGXsP3Wth5tfkYx8YGBizGckLTm2lP5Bx+wQMDIzRjOQ4uNcA6I9ulJudGBgYoxmdw2Le4MxbBTkMAwPjMxnVjXbmtfKnYWBgYFQbA/2DYHWMIwrTGBgYQxmnyv2doJlMTRT+BwwMjHGMBJBvsZqsni3JYWBgTGXkh8JqIM7vSkbBnsAwMDBGMzrF+k5pLAm7/WIfBgbGPEZ/wKvQHd1KoctJLAYGxghGkkYm36Az4JUH03LfFQMDYxCjmpTm7YEEnx83yz1YDAyMEYzqgSzfxF57ci89xsDAmM24iquaxObNhk5rAQMDYzajGuz2Etckee6nxBgYGLMZeehsnUDbyCeFOQwMjA9g9Ovt+VhGOd4nCTAGBgZGsVWQf4JTiTEGBgZGPhxWTYbzhLnQj8XAwBjKyMPc2bGMvXLbbcDFwMAYyugnkNWCXb9heaCFiYGB8R6ML/+lGQaWlVG2AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

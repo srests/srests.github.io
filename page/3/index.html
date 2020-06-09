@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="后端,java,springboot,mybatis,redis,docker">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Srests的博客">
+<meta property="og:url" content="http://srests.github.io/page/3/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="后端">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="mybatis">
+<meta property="article:tag" content="redis">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Srests的博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Srests的博客</h1>
+        <h5 class="subtitle">
+            
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-html/2016031701"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-17 12:39:04" datetime="2016-03-17T04:39:04.000Z"  itemprop="datePublished">2016-03-17</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/03/17/html/2016031701/">CSS样式表初始化代码</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        CSS为什么要初始化？建站老手都知道，这是为了考虑到浏览器的兼容问题，其实不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面差异。当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。
+最简单的初始化方法就是： * {padding: 0; margin: 0;} 。有很多人也是这样写的。这确实很简单，但有人就会感到疑问：*号这样一个通用符在编写代码的时候是快，但如果网站很大，CSS样式表文件很大，这样写的话，他会把所有的标签都初始化一遍，这样就大大的加强了网站运行的负载，会使网站加载的时候需要很长一段时间。
+写过css的都知道每个网页引进的css首先都需要初始化，而出名的css reset有YUI css reset（QQ、淘宝等都出现他的影子），业内用的最多的还有Erik Meyer’s CSS Reset。
+    
+
+        <a href="/2016/03/17/html/2016031701/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-code"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-01-28 14:03:00" datetime="2016-01-28T06:03:00.000Z"  itemprop="datePublished">2016-01-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/01/28/code/">世界各国和地区名称代码</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        世界各国和地区名称代码代码    国家和地区004    阿富汗008    阿尔巴尼亚010    南极洲012    安道尔016    美属萨摩亚012    安道尔024    安哥拉028    安提瓜032    阿根廷036    澳大利亚　152    智利156    中国162    圣诞岛166    可可(基林)群岛170    哥伦比亚174    科摩罗178  ...
+    
+
+        <a href="/2016/01/28/code/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9C%B0%E5%8C%BA%E4%BB%A3%E7%A0%81/" rel="tag">地区代码</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-maven/2015122101"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-12-21 18:42:00" datetime="2015-12-21T10:42:00.000Z"  itemprop="datePublished">2015-12-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/12/21/maven/2015122101/">使用Maven管理Spring</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+概述本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访问  mvnrepository：org.springframework.
+
+使用Maven管理基本的Spring依赖关系Spring被设计为可高度模块化的 ―― 使用Spring中的一部分,不应该也不需要引用另一个不相关的部分. 例如, 使用基本的Spring Context可以不使用 Persistence或MVC相关的Spring库.让我们从一个非常简单的Maven设置开始,这里只使用 spring-context 依赖 :
+12345678910&lt;properties&gt;      &lt;org.springframework.version&gt;3.2.8.RELEASE&lt;/org.springframework.version&gt;      &lt;!-- &lt;org.springframework.version&gt;4.0.2.RELEASE&lt;/org.springframework.version&gt; --&gt;  &lt;/properties&gt;  &lt;dependency&gt;      &lt;groupId&gt;org.springframework&lt;/groupId&gt;      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;      &lt;version&gt;$&#123;org.springframework.version&#125;&lt;/version&gt;      &lt;scope&gt;runtime&lt;/scope&gt;  &lt;/dependency&gt;
+    
+
+        <a href="/2015/12/21/maven/2015122101/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/" rel="tag">spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/jdkinstall"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-12-06 17:27:00" datetime="2015-12-06T09:27:00.000Z"  itemprop="datePublished">2015-12-06</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/12/06/java/jdkinstall/">jdk安装</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        RPM安装JDKrpm   -i  jdk-7u4-linux-i586.rpm
+# vi /etc/profile
+export JAVA_HOME = /home/myuser/jdk1.7.0_03
+export PATH = $JAVA_HOME/bin:$PATHexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tool...
+    
+
+        <a href="/2015/12/06/java/jdkinstall/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jdk/" rel="tag">jdk</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-apache/2015110601"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-11-06 15:10:00" datetime="2015-11-06T07:10:00.000Z"  itemprop="datePublished">2015-11-06</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/11/06/apache/2015110601/">apache的443端口被占用解决方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        今天使用xampp，apache无法启动，由于使用xampp-control-3-beta.exe无法看到错误，就是无法启动。
+windows用cmd，执行xampp/apache/bin中的httpd.exe，看到：
+(OS 10048)通常每个套接字地址(协议/网络地址/端口)只允许使用一次。  : make_sock: could not bind to address [::]:443
+    
+
+        <a href="/2015/11/06/apache/2015110601/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/" rel="tag">apache</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-tomcat/install"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-11-06 11:59:00" datetime="2015-11-06T03:59:00.000Z"  itemprop="datePublished">2015-11-06</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/11/06/tomcat/install/">win tomcat安装服务</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一般情况下Tomcat服务需要手动运行批命令启动服务。在windows操作系统下如果需要将Tomcat变成自动启动的服务,只需按以下步骤操作即可：
+方法/步骤1在环境变量中设置JAVA_HOME(假设我们缺省的JDK目录为d:\j2sdk1.4.2_04)   A、进入windows桌面，右键选择“我的电脑”–&gt;“属性”   B、选择“高级”页签，点开“环境变量”   C、在“系统变量...
+    
+
+        <a href="/2015/11/06/tomcat/install/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-java/hazelcast"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-10-13 10:37:00" datetime="2015-10-13T02:37:00.000Z"  itemprop="datePublished">2015-10-13</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/10/13/java/hazelcast/">Hazelcast：Java分布式内存网格框架(平台)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Hazelcast: Java分布式内存网格框架(平台)网址: http://www.hazelcast.com/下边是它的宣传内容：
+hazelcast是一个开放源码集群和高度可扩展的数据分发平台，这是为Java：
+
+快如闪电;数以千计的运算/秒。
+故障安全;崩溃后没有丢失数据。
+作为新服务器的动态调整 。
+超级简单的使用 ，包括一个单独的jar。
+
+Hazelcast与各种分布式数据结构...
+    
+
+        <a href="/2015/10/13/java/hazelcast/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hazelcast/" rel="tag">hazelcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-apache/2015100802"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-10-08 17:38:00" datetime="2015-10-08T09:38:00.000Z"  itemprop="datePublished">2015-10-08</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/10/08/apache/2015100802/">Apache2.2和Apache2.4中httpd.conf配置文件的异同</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Apache2.2和Apache2.4中httpd.conf配置文件的异同编辑: upupw发布时间: 2013-08-09 11:32:01来源: UPUPW绿色服务器平台热度: 7511
+Windows环境从Apache2.2改成Apache2.4后httpd.conf中的设置异同。
+    
+
+        <a href="/2015/10/08/apache/2015100802/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/" rel="tag">apache</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-apache/2015100801"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-10-08 17:13:00" datetime="2015-10-08T09:13:00.000Z"  itemprop="datePublished">2015-10-08</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/10/08/apache/2015100801/">apache Cannotload php5apache2_4.dll</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        安装好Apache服务器，一开始正常，但安装PHP配置完成之后，再次启动apache的时候出现了错误 the requested operation has failed.
+Apache服务无法启动。
+    
+
+        <a href="/2015/10/08/apache/2015100801/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/" rel="tag">apache</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-apache/2015092201"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-09-22 09:35:00" datetime="2015-09-22T01:35:00.000Z"  itemprop="datePublished">2015-09-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/apache/">apache</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2015/09/22/apache/2015092201/">apache配置相关</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        下面说下禁止禁止Apache显示目录索引的常见的3种方法。要实现禁止Apache显示目录索引,只需将Option中的Indexes去掉即可,具体方法看下面说明
+禁止Apache显示目录索引，禁止Apache显示目录结构列表，禁止Apache浏览目录，这是网上提问比较多的，其实都是一个意思。下面说下禁止禁止Apache显示目录索引的常见的3种方法。要实现禁止Apache显示目录索引，只需将 Option 中的 Indexes 去掉即可。
+    
+
+        <a href="/2015/09/22/apache/2015092201/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/" rel="tag">apache</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/page/3/&title=Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/page/3/&title=Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/page/3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Srests的博客&url=http://srests.github.io/page/3/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/page/3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABu0lEQVR42u3aO47DMAwFwNz/0llg2yDKIykrRjCqDBfyyAUhfh6PeD3/17vn11Xdc/PCxcUdc5/Ltea+7rB+v94/OjwuLu5BbhK8eqEqP0YU7HBxcW/GzcPT+ki4uLi/xF2/qV6YcHFx78+dfyA5TDUU4uLifos7L5jOn4/Wd3FxcQddiV7xtBrICl/HxcU9wk0uK733ObSaDuHi4p7k5u3PXY2T6pFwcXHPcEelh2I4y4PX231wcXG/xO2NZPXqGNVWLi4u7hlur8maN1bztGf9Oz6URXBxcS/g5kXMSeqyd7QLFxf3Om5++ZiAkuONmqy4uLhbuaNLRrxbFf3hx+Hi4h7h5iWPyVDFpGyKi4t7kpuEpzz0zJOoqJWCi4t7Mffqgml+jMJIBy4u7sXcZ7zyYYvk89VSCy4u7nlub/CiCuqVR3Fxcb/F7YWzPHHK06Rm5wcXF3crd9LZzEcrJt3SbY1YXFzcIjcvaiSFzt7Byj1hXFzcI9xewbQaznrJT7O3g4uLe4Tbu8RUk6htTVZcXNzj3AmuebnBxcU9zp0MUV0xFbIhV8PFxR1wewXTfAgjH+PAxcW9AfcPrQ/dRHVEvl0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

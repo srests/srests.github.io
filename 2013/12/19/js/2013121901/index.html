@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CKEditer上传配置 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="java,js,ckediter">
+    <meta name="description" content="config.js: 12&#x2F;&#x2F; 图片上传config.filebrowserImageUploadUrl &#x3D; basePath+ &quot;vsd&#x2F;wdzx&#x2F;wdzxAction_uploadPic?type&#x3D;Images&quot;; java代码: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CKEditer上传配置">
+<meta property="og:url" content="http://srests.github.io/2013/12/19/js/2013121901/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="config.js: 12&#x2F;&#x2F; 图片上传config.filebrowserImageUploadUrl &#x3D; basePath+ &quot;vsd&#x2F;wdzx&#x2F;wdzxAction_uploadPic?type&#x3D;Images&quot;; java代码: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2013-12-19T03:07:00.000Z">
+<meta property="article:modified_time" content="2018-05-28T01:20:01.205Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="ckediter">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CKEditer上传配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CKEditer上传配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2013-12-19T03:07:00.000Z" itemprop="datePublished" class="page-time">
+  2013-12-19
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-js/2013121901"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CKEditer上传配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2013-12-19 11:07:00" datetime="2013-12-19T03:07:00.000Z"  itemprop="datePublished">2013-12-19</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>config.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图片上传</span></span><br><span class="line">config.filebrowserImageUploadUrl = basePath+ <span class="string">"vsd/wdzx/wdzxAction_uploadPic?type=Images"</span>;</span><br></pre></td></tr></table></figure>
+<p>java代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> VsdResult <span class="title">uploadPic</span><span class="params">(Map&lt;String, String&gt; map)</span> <span class="keyword">throws</span> VsdSessionException,</span></span><br><span class="line"><span class="function">    IOException </span>&#123;</span><br><span class="line">    String fileUploadName = (String) getSessionAttribute(StaticUtil.FILEUPLOADNAME);</span><br><span class="line">    String fileUploadPath = (String) getSessionAttribute(StaticUtil.FILEUPLOADPATH);</span><br><span class="line">    String picPath = StaticUtil.UPLOAD_PIC_PATH+ <span class="string">"/"</span> + <span class="keyword">this</span>.getYgxx().getGh();</span><br><span class="line">    String basePath = PathUtil.getProjectInPath(picPath);</span><br><span class="line">    <span class="comment">// 文件类型</span></span><br><span class="line">    String type = fileUploadName.substring(fileUploadName.lastIndexOf(<span class="string">"."</span>));</span><br><span class="line">    String filename=  <span class="string">"wdtp_"</span>+System.currentTimeMillis()+type;</span><br><span class="line">    <span class="comment">// 移动文件</span></span><br><span class="line">    FileUtils.moveFile(<span class="keyword">new</span> File(fileUploadPath + <span class="string">"/"</span> + fileUploadName), <span class="keyword">new</span> File(basePath+<span class="string">"/"</span> +filename));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取上传类型</span></span><br><span class="line">    String uploadtype = map.get(<span class="string">"type"</span>).toUpperCase();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取CkEdior回调函数代码</span></span><br><span class="line">    String CKEditorFuncNum = map.get(<span class="string">"CKEditorFuncNum"</span>);</span><br><span class="line"></span><br><span class="line">    type = type.toLowerCase();</span><br><span class="line">    <span class="comment">// 判断图片的格式</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"IMAGES"</span>.equals(uploadtype)</span><br><span class="line">            &amp;&amp; (type.indexOf(<span class="string">"jpg"</span>) == -<span class="number">1</span> &amp;&amp; type.indexOf(<span class="string">"png"</span>) == -<span class="number">1</span></span><br><span class="line">                    &amp;&amp; type.indexOf(<span class="string">"gif"</span>) == -<span class="number">1</span> &amp;&amp; type.indexOf(<span class="string">"bmp"</span>) == -<span class="number">1</span>)) &#123;</span><br><span class="line">        String path = <span class="string">""</span>;</span><br><span class="line">        String alt_msg = <span class="string">"不是图片格式，只能上传JPG、PNG、GIF、BMP格式的图片。"</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> VsdResult(<span class="string">"&lt;script type='text/javascript'&gt;window.parent.CKEDITOR.tools.callFunction("</span></span><br><span class="line">                + CKEditorFuncNum</span><br><span class="line">                + <span class="string">", '"</span></span><br><span class="line">                + path</span><br><span class="line">                + <span class="string">"' , '"</span></span><br><span class="line">                + alt_msg</span><br><span class="line">                + <span class="string">"');&lt;/script&gt;"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 返回结果</span></span><br><span class="line">        String webpath = VsdContext.getRequest().getContextPath()+<span class="string">"/vsd/qxlx/qxlxAction_write?filepath="</span> + picPath + <span class="string">"/"</span> + filename;</span><br><span class="line">        <span class="comment">// 结果</span></span><br><span class="line">        String alt_msg = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> VsdResult(<span class="string">"&lt;script type='text/javascript'&gt;window.parent.CKEDITOR.tools.callFunction("</span></span><br><span class="line">                + CKEditorFuncNum</span><br><span class="line">                + <span class="string">", '"</span></span><br><span class="line">                + webpath</span><br><span class="line">                + <span class="string">"' , '"</span></span><br><span class="line">                + alt_msg</span><br><span class="line">                + <span class="string">"');&lt;/script&gt;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-28T01:20:01.205Z" itemprop="dateUpdated">2018-05-28 09:20:01</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2013/12/19/js/2013121901/" target="_blank" rel="external">http://srests.github.io/2013/12/19/js/2013121901/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ckediter/" rel="tag">ckediter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2013/12/19/js/2013121901/&title=《CKEditer上传配置》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2013/12/19/js/2013121901/&title=《CKEditer上传配置》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2013/12/19/js/2013121901/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CKEditer上传配置》 — Srests的博客&url=http://srests.github.io/2013/12/19/js/2013121901/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2013/12/19/js/2013121901/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/01/12/mybatis/2014011201/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">MyBatis Ibatis if判断字符串</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2013/02/20/java/itext/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">itext对水印图片的旋转、放大、缩小等操作的示例</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2013/12/19/js/2013121901/&title=《CKEditer上传配置》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2013/12/19/js/2013121901/&title=《CKEditer上传配置》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2013/12/19/js/2013121901/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CKEditer上传配置》 — Srests的博客&url=http://srests.github.io/2013/12/19/js/2013121901/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2013/12/19/js/2013121901/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aMY7DMAwF0dz/0tl2gUDKfDIuJI4rw3FsPhcEKer1wsf74/h/fXX+ef/qyfsrPztkyJBxLOO9PXhYq19Xz9m/nccmQ4aMOYx9KlwFxxMxT6P79y6vy5AhQwZIsjw58vtlyJAho8Yg56Rw7H8+GTJkTGOkpV4tgRLS4724DBkyDmR0Gsunzx+Zb8iQIeMoxjs8OlRe5MVRyZAh42oGT3B8qFkbFdQ+mQwZMiYw0s0T5ApPsmQBDsFkyJAxgEE2T9TSIg+9lbJlyJAxgLEKl2QzHm7auPKxqAwZMuYw0uDSzRMksRaTvgwZMgYweNDpncWmNE3iMmTIuJpRexBZ9eKLd53tX61tGTJkyDiE0Vm+3weUBkfa3Xi5TYYMGVcwSFidwvFXnyaoc2XIkHEdg9zaKenSgpIPEuI5gwwZMo5loJILlGi1//IPEZSGMmTIuJTRaTj7RWRcyaa1pwwZMg5n8JaSfwjSHncKSpRkZciQcRGjv+UiXeLnyTrtT2XIkDGHQVJwWg52xpxBYSpDhowBDD5WJI/uFJq1rRgyZMiYw+gvxvGyLy0Tv7xdhgwZlzJqi1+df9VGFHFRKEOGjIsY/QEnL+k4r7OxQ4YMGbcyOuky3YrxxIKdDBky5jB4k0kW12pbLjqFowwZMmTw4DiglsqL28JkyJAxjFFc6ioNDIKxhAwZMgYwasMAgict65eyb1sgypAhYwKjlih/1YiSZbvOFg0ZMmQczvgDAZnRP/Z05WAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
