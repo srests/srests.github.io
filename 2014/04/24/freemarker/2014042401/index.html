@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="freemarker">
-    <meta name="description" content="Freemarker_内置函数_数字、字符串、日期格式化  一、  Sequence的内置函数#引用1.sequence?first 返回sequence的第一个值。  2.sequence?last  返回sequence的最后一个值。  3.sequence?reverse 将sequence的现有顺序反转，即倒序排序  4.sequence?size    返回sequence的大小  5.">
+    <meta name="description" content="Freemarker_内置函数_数字、字符串、日期格式化  一、  Sequence的内置函数 引用 1.sequence?first 返回sequence的第一个值。 2.sequence?last  返回sequence的最后一个值。 3.sequence?reverse 将sequence的现有顺序反转，即倒序排序 4.sequence?size    返回sequence的大小 5.seq">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Freemarker使用">
 <meta property="og:url" content="http://srests.github.io/2014/04/24/freemarker/2014042401/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="Freemarker_内置函数_数字、字符串、日期格式化  一、  Sequence的内置函数#引用1.sequence?first 返回sequence的第一个值。  2.sequence?last  返回sequence的最后一个值。  3.sequence?reverse 将sequence的现有顺序反转，即倒序排序  4.sequence?size    返回sequence的大小  5.">
+<meta property="og:description" content="Freemarker_内置函数_数字、字符串、日期格式化  一、  Sequence的内置函数 引用 1.sequence?first 返回sequence的第一个值。 2.sequence?last  返回sequence的最后一个值。 3.sequence?reverse 将sequence的现有顺序反转，即倒序排序 4.sequence?size    返回sequence的大小 5.seq">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2014-04-24T10:31:00.000Z">
 <meta property="article:modified_time" content="2018-07-25T03:52:38.427Z">
@@ -149,7 +149,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、  Sequence的内置函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、Hash的内置函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、操作字符串函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、          操作数字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、操作布尔值</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 一、  Sequence的内置函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 二、Hash的内置函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 三、操作字符串函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 四、          操作数字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">5.</span> <span class="post-toc-text"> 五、操作布尔值</span></a></li></ol>
         </nav>
     </aside>
 
@@ -173,80 +173,81 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>Freemarker_内置函数_数字、字符串、日期格式化 </p>
-<h1><span id="yi-sequence-de-nei-zhi-han-shu">一、  Sequence的内置函数</span><a href="#yi-sequence-de-nei-zhi-han-shu" class="header-anchor">#</a></h1><p>引用<br>1.sequence?first 返回sequence的第一个值。 </p>
-<p>2.sequence?last  返回sequence的最后一个值。 </p>
-<p>3.sequence?reverse 将sequence的现有顺序反转，即倒序排序 </p>
-<p>4.sequence?size    返回sequence的大小 </p>
-<p>5.sequence?sort    将sequence中的对象转化为字符串后顺序排序 </p>
-<p>6.sequence?sort_by(value) 按sequence中对象的属性value进行排序 </p>
-<h1><span id="er-hash-de-nei-zhi-han-shu">二、Hash的内置函数</span><a href="#er-hash-de-nei-zhi-han-shu" class="header-anchor">#</a></h1><p>引用<br>1.hash?keys 返回hash里的所有key,返回结果为sequence </p>
-<p>2.hash?values 返回hash里的所有value,返回结果为sequence </p>
+            <p>Freemarker_内置函数_数字、字符串、日期格式化</p>
+<h1><span id="yi-sequence-de-nei-zhi-han-shu"> 一、  Sequence的内置函数</span><a href="#yi-sequence-de-nei-zhi-han-shu" class="headerlink"></a></h1>
+<p>引用<br>
+1.sequence?first 返回sequence的第一个值。</p>
+<p>2.sequence?last  返回sequence的最后一个值。</p>
+<p>3.sequence?reverse 将sequence的现有顺序反转，即倒序排序</p>
+<p>4.sequence?size    返回sequence的大小</p>
+<p>5.sequence?sort    将sequence中的对象转化为字符串后顺序排序</p>
+<p>6.sequence?sort_by(value) 按sequence中对象的属性value进行排序</p>
+<h1><span id="er-hash-de-nei-zhi-han-shu"> 二、Hash的内置函数</span><a href="#er-hash-de-nei-zhi-han-shu" class="headerlink"></a></h1>
+<p>引用<br>
+1.hash?keys 返回hash里的所有key,返回结果为sequence</p>
+<p>2.hash?values 返回hash里的所有value,返回结果为sequence</p>
 <p>例如：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#assign</span> <span class="attr">user</span>=<span class="string">&#123;“name”:“hailang”,</span> “<span class="attr">sex</span>”<span class="attr">:</span>“<span class="attr">man</span>”&#125;&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">#assign</span> <span class="attr">keys</span>=<span class="string">user?keys</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">#list</span> <span class="attr">keys</span> <span class="attr">as</span> <span class="attr">key</span>&gt;</span> </span><br><span class="line"></span><br><span class="line">$&#123;key&#125;=$&#123;user[key]&#125; </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1><span id="san-cao-zuo-zi-fu-chuan-han-shu">三、操作字符串函数</span><a href="#san-cao-zuo-zi-fu-chuan-han-shu" class="header-anchor">#</a></h1><p>引用<br>1.substring（start,end）从一个字符串中截取子串 </p>
-<p>start:截取子串开始的索引，start必须大于等于0，小于等于end </p>
-<p>end: 截取子串的长度，end必须大于等于0，小于等于字符串长度，如果省略该参数，默认为字符串长度。 </p>
-<p>例子： </p>
+<h1><span id="san-cao-zuo-zi-fu-chuan-han-shu"> 三、操作字符串函数</span><a href="#san-cao-zuo-zi-fu-chuan-han-shu" class="headerlink"></a></h1>
+<p>引用<br>
+1.substring（start,end）从一个字符串中截取子串</p>
+<p>start:截取子串开始的索引，start必须大于等于0，小于等于end</p>
+<p>end: 截取子串的长度，end必须大于等于0，小于等于字符串长度，如果省略该参数，默认为字符串长度。</p>
+<p>例子：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$&#123;‘str’?substring(0)&#125;à结果为str </span><br><span class="line"></span><br><span class="line">$&#123;‘str’?substring(1)&#125;à结果为tr </span><br><span class="line"></span><br><span class="line">$&#123;‘str’?substring(2)&#125;à结果为r </span><br><span class="line"></span><br><span class="line">$&#123;‘str’?substring(3)&#125;à结果为 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$&#123;‘str’?substring(0,0)&#125;à结果为 </span><br><span class="line"></span><br><span class="line">$&#123;‘str’?substring(0,1)&#125;à结果为s </span><br><span class="line"></span><br><span class="line">$&#123;‘str’?substring(0,2)&#125;à结果为st </span><br><span class="line"></span><br><span class="line">$&#123;‘str’?substring(0,3)&#125;à结果为str</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p>2.cap_first 将字符串中的第一个单词的首字母变为大写。 </p>
-<p>${‘str’？cap_first}à结果为Str </p>
-<p>3.uncap_first将字符串中的第一个单词的首字母变为小写。 </p>
-<p>${‘Str’？cap_first}à结果为str </p>
-<p>4.capitalize将字符串中的所有单词的首字母变为大写 </p>
-<p>${‘str’？ capitalize}à结果为STR </p>
-<p>5.date,time，datetime将字符串转换为日期 </p>
-<p>例如： </p>
+<p>2.cap_first 将字符串中的第一个单词的首字母变为大写。</p>
+<p>${‘str’？cap_first}à结果为Str</p>
+<p>3.uncap_first将字符串中的第一个单词的首字母变为小写。</p>
+<p>${‘Str’？cap_first}à结果为str</p>
+<p>4.capitalize将字符串中的所有单词的首字母变为大写</p>
+<p>${‘str’？ capitalize}à结果为STR</p>
+<p>5.date,time，datetime将字符串转换为日期</p>
+<p>例如：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#assign</span> <span class="attr">date1</span>=<span class="string">”2009-10-12”?date(“yyyy-MM-dd”)</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">#assign</span> <span class="attr">date2</span>=<span class="string">”9:28:20”?time(“HH:mm:ss”)</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">#assign</span> <span class="attr">date3</span>=<span class="string">”</span> <span class="attr">2009-10-12</span> <span class="attr">9:28:20</span>”?<span class="attr">time</span>(“<span class="attr">HH:mm:ss</span>”)&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<p>${date1}à结果为2009-10-12 </p>
-<p>${date2}à结果为9:28:20 </p>
-<p>${date3}à结果为2009-10-12 9:28:20 </p>
-<p>注意：如果指定的字符串格式不正确将引发错误。 </p>
-<p>6.ends_with 判断某个字符串是否由某个子串结尾，返回布尔值。 </p>
-<p>${“string”?ends_with(“ing”)?string} 返回结果为true </p>
-<p>注意：布尔值必须转换为字符串才能输出 </p>
-<p>7.html 用于将字符串中的&lt;、&gt;、&amp;和“替换为对应得&lt;&gt;&amp;quot:&amp;amp </p>
-<p>8.index_of（substring,start）在字符串中查找某个子串，返回找到子串的第一个字符的索引，如果没有找到子串，则返回-1。 </p>
-<p>Start参数用于指定从字符串的那个索引处开始搜索，start为数字值。 </p>
-<p>如果start大于字符串长度，则start取值等于字符串长度，如果start小于0， 则start取值为0。 </p>
-<p>${“string”?index_of(“in”) à结果为3 </p>
-<p>${“string”?index_of(“ab”) à结果为-1 </p>
-<p>9.length返回字符串的长度 ${“string”?length}à结果为6 </p>
-<p>10.lower_case将字符串转为小写 </p>
-<p>${“STRING”?lower_case}à结果为string </p>
-<p>11.upper_case将字符串转为大写 </p>
-<p>${“string”?upper_case}à结果为STRING </p>
-<p>12.contains 判断字符中是否包含某个子串。返回布尔值 </p>
-<p>${“string”?contains(“ing”)?string} à结果为true </p>
-<p>注意：布尔值必须转换为字符串才能输出 </p>
-<p>13.number将字符串转换为数字 </p>
-<p>${“111.11”?number}à结果为111.11 </p>
-<p>14.replace用于将字符串中的一部分从左到右替换为另外的字符串。 </p>
-<p>${“strabg”?replace(“ab”,”in”)} à结果为string </p>
-<p>15.split使用指定的分隔符将一个字符串拆分为一组字符串 </p>
+<p>${date1}à结果为2009-10-12</p>
+<p>${date2}à结果为9:28:20</p>
+<p>${date3}à结果为2009-10-12 9:28:20</p>
+<p>注意：如果指定的字符串格式不正确将引发错误。</p>
+<p>6.ends_with 判断某个字符串是否由某个子串结尾，返回布尔值。</p>
+<p>${“string”?ends_with(“ing”)?string} 返回结果为true</p>
+<p>注意：布尔值必须转换为字符串才能输出</p>
+<p>7.html 用于将字符串中的&lt;、&gt;、&amp;和“替换为对应得&lt;&gt;&amp;quot:&amp;amp</p>
+<p>8.index_of（substring,start）在字符串中查找某个子串，返回找到子串的第一个字符的索引，如果没有找到子串，则返回-1。</p>
+<p>Start参数用于指定从字符串的那个索引处开始搜索，start为数字值。</p>
+<p>如果start大于字符串长度，则start取值等于字符串长度，如果start小于0， 则start取值为0。</p>
+<p>${“string”?index_of(“in”) à结果为3</p>
+<p>${“string”?index_of(“ab”) à结果为-1</p>
+<p>9.length返回字符串的长度 ${“string”?length}à结果为6</p>
+<p>10.lower_case将字符串转为小写</p>
+<p>${“STRING”?lower_case}à结果为string</p>
+<p>11.upper_case将字符串转为大写</p>
+<p>${“string”?upper_case}à结果为STRING</p>
+<p>12.contains 判断字符中是否包含某个子串。返回布尔值</p>
+<p>${“string”?contains(“ing”)?string} à结果为true</p>
+<p>注意：布尔值必须转换为字符串才能输出</p>
+<p>13.number将字符串转换为数字</p>
+<p>${“111.11”?number}à结果为111.11</p>
+<p>14.replace用于将字符串中的一部分从左到右替换为另外的字符串。</p>
+<p>${“strabg”?replace(“ab”,”in”)} à结果为string</p>
+<p>15.split使用指定的分隔符将一个字符串拆分为一组字符串</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#list</span> “<span class="attr">This</span>|<span class="attr">is</span>|<span class="attr">split</span>”?<span class="attr">split</span>(“|”) <span class="attr">as</span> <span class="attr">s</span>&gt;</span> </span><br><span class="line"></span><br><span class="line">$&#123;s&#125; </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">#list</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>结果为: </p>
-<p>This </p>
-<p>is </p>
-<p>split </p>
+<p>结果为:</p>
+<p>This</p>
+<p>is</p>
+<p>split</p>
 <p>16.trim 删除字符串首尾空格 ${“  String ”?trim} à结果为String</p>
-<h1><span id="si-cao-zuo-shu-zi">四、          操作数字</span><a href="#si-cao-zuo-shu-zi" class="header-anchor">#</a></h1><p>引用<br>1.c 用于将数字转换为字符串 </p>
-<p>${123?c} à结果为123 </p>
-<p>2.string用于将数字转换为字符串 </p>
-<p>Freemarker中预订义了三种数字格式：number,currency（货币）和percent(百分比)其中number为默认的数字格式转换 </p>
-<p>例如： </p>
+<h1><span id="si-cao-zuo-shu-zi"> 四、          操作数字</span><a href="#si-cao-zuo-shu-zi" class="headerlink"></a></h1>
+<p>引用<br>
+1.c 用于将数字转换为字符串</p>
+<p>${123?c} à结果为123</p>
+<p>2.string用于将数字转换为字符串</p>
+<p>Freemarker中预订义了三种数字格式：number,currency（货币）和percent(百分比)其中number为默认的数字格式转换</p>
+<p>例如：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">#assign</span> <span class="attr">tempNum</span>=<span class="string">20</span>&gt;</span> </span><br><span class="line"></span><br><span class="line">$&#123;tempNum&#125;    </span><br><span class="line"></span><br><span class="line">$&#123;tempNum?string.number&#125;或$&#123;tempNum?string(“number”)&#125; à结果为20 </span><br><span class="line"></span><br><span class="line">$&#123;tempNum?string.currency&#125;或$&#123;tempNum?string(“currency”)&#125; à结果为￥20.00 </span><br><span class="line"></span><br><span class="line">$&#123;tempNum?string. percent&#125;或$&#123;tempNum?string(“percent”)&#125; à结果为2,000%</span><br></pre></td></tr></table></figure>
-
-<h1><span id="wu-cao-zuo-bu-er-zhi">五、操作布尔值</span><a href="#wu-cao-zuo-bu-er-zhi" class="header-anchor">#</a></h1><p>引用</p>
-<p>string 用于将布尔值转换为字符串输出 </p>
-<p>true转为“true”，false转换为“false” </p>
+<h1><span id="wu-cao-zuo-bu-er-zhi"> 五、操作布尔值</span><a href="#wu-cao-zuo-bu-er-zhi" class="headerlink"></a></h1>
+<p>引用</p>
+<p>string 用于将布尔值转换为字符串输出</p>
+<p>true转为“true”，false转换为“false”</p>
 <p>foo?string(“yes”,”no”)如果布尔值是true,那么返回“yes”,否则返回no</p>
 
         </div>

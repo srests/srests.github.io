@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="linux,centos,gcc">
-    <meta name="description" content="1、 到http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;下，获取最新安装包并解压 123wget http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;gcc-9.1.0&#x2F;gcc-9.1.0.tar.gztar -xzvf gcc-9.1.0.tar.gz 2、 下载供编译需求的依赖项 123cd gcc-9.1.0.&#x2F;contrib&#x2F;download_prerequisites  3、 建">
+    <meta name="description" content="1、 到http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;下，获取最新安装包并解压 123wget http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;gcc-9.1.0&#x2F;gcc-9.1.0.tar.gztar -xzvf gcc-9.1.0.tar.gz 2、 下载供编译需求的依赖项 123cd gcc-9.1.0.&#x2F;contrib&#x2F;download_prerequisites 3、 建立">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 6.6 升级GCC G++">
 <meta property="og:url" content="http://srests.github.io/2019/07/31/linux/2019073102/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="1、 到http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;下，获取最新安装包并解压 123wget http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;gcc-9.1.0&#x2F;gcc-9.1.0.tar.gztar -xzvf gcc-9.1.0.tar.gz 2、 下载供编译需求的依赖项 123cd gcc-9.1.0.&#x2F;contrib&#x2F;download_prerequisites  3、 建">
+<meta property="og:description" content="1、 到http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;下，获取最新安装包并解压 123wget http:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;gcc&#x2F;gcc-9.1.0&#x2F;gcc-9.1.0.tar.gztar -xzvf gcc-9.1.0.tar.gz 2、 下载供编译需求的依赖项 123cd gcc-9.1.0.&#x2F;contrib&#x2F;download_prerequisites 3、 建立">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-31T06:16:00.000Z">
 <meta property="article:modified_time" content="2019-07-31T06:27:38.624Z">
@@ -168,11 +168,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>1、 到<a href="http://ftp.gnu.org/gnu/gcc/下，获取最新安装包并解压" target="_blank" rel="noopener">http://ftp.gnu.org/gnu/gcc/下，获取最新安装包并解压</a></p>
+            <p>1、 到http://ftp.gnu.org/gnu/gcc/下，获取最新安装包并解压</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.gz</span><br><span class="line"></span><br><span class="line">tar -xzvf gcc-9.1.0.tar.gz</span><br></pre></td></tr></table></figure>
 <p>2、 下载供编译需求的依赖项</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> gcc-9.1.0</span><br><span class="line"></span><br><span class="line">./contrib/download_prerequisites</span><br></pre></td></tr></table></figure>
-
 <p>3、 建立一个目录供编译出的文件存放</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir gcc-build</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> gcc-build</span><br></pre></td></tr></table></figure>
 <p>4、 生成Makefile文件</p>
@@ -187,30 +186,22 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
 <p>8、 写个C++11 特性的程序段 测试</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tryCpp11.cc 代码省略....</span><br><span class="line"></span><br><span class="line">g++ -std=c++11 -o tryCpp11 tryCpp11.cc</span><br></pre></td></tr></table></figure>
-
-
 <p>9、升级gcc，生成的动态库没有替换老版本gcc的动态库</p>
 <p>源码编译升级安装了gcc后，编译程序或运行其它程序时，有时会出现类似/usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.21’ not found的问题。这是因为升级gcc时，生成的动态库没有替换老版本gcc的动态库导致的，将gcc最新版本的动态库替换系统中老版本的动态库即可解决。</p>
 <p>9.1 运行以下命令检查动态库：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings /usr/lib64/libstdc++.so.6 | grep GLIBC</span><br></pre></td></tr></table></figure>
-
 <p>从输出可以看出，gcc的动态库还是旧版本的。说明出现这些问题，是因为升级gcc时，生成的动态库没有替换老版本gcc的动态库。</p>
 <p>9.2 执行以下命令，查找编译gcc时生成的最新动态库：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name <span class="string">"libstdc++.so*"</span></span><br></pre></td></tr></table></figure>
-
 <p>将上面的最新动态库libstdc++.so.6.0.22复制到/usr/lib64目录下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib64</span><br><span class="line"></span><br><span class="line">cp /root/Downloads/gcc-6.1.0/gcc-build-6.1.0/stage1-x86_64-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.22 ./</span><br></pre></td></tr></table></figure>
-
 <p>9.3 删除原来软连接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf libstdc++.so.6</span><br></pre></td></tr></table></figure>
-
 <p>9.4 将默认库的软连接指向最新动态库：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s libstdc++.so.6.0.22 libstdc++.so.6</span><br></pre></td></tr></table></figure>
-
 <p>9.5 默认动态库升级完成。重新运行以下命令检查动态库：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings /usr/lib64/libstdc++.so.6 | grep GLIBC</span><br></pre></td></tr></table></figure>
-
-<p>可以看到 输出有”GLIBCXX_3.4.21” 了</p>
+<p>可以看到 输出有&quot;GLIBCXX_3.4.21&quot; 了</p>
 
         </div>
 

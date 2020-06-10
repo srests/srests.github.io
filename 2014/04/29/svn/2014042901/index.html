@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="eclipse,svn">
-    <meta name="description" content="eclipse svn 会报 文件夹 “” 已不存在1.查看你的Eclipse中使用的是什么SVN Interfacewindows &gt; preference &gt; Team &gt; SVN #SVN Interface2. 如果是用的JavaHL, 找到以下目录并删除auth目录.C:\Documents and Settings[YourUserName]\Application">
+    <meta name="description" content="eclipse svn 会报 文件夹 “” 已不存在 1.查看你的Eclipse中使用的是什么SVN Interface windows &gt; preference &gt; Team &gt; SVN #SVN Interface 2. 如果是用的JavaHL, 找到以下目录并删除auth目录. C:\Documents and Settings[YourUserName]\Applicat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="eclipse svn 无法使用">
 <meta property="og:url" content="http://srests.github.io/2014/04/29/svn/2014042901/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="eclipse svn 会报 文件夹 “” 已不存在1.查看你的Eclipse中使用的是什么SVN Interfacewindows &gt; preference &gt; Team &gt; SVN #SVN Interface2. 如果是用的JavaHL, 找到以下目录并删除auth目录.C:\Documents and Settings[YourUserName]\Application">
+<meta property="og:description" content="eclipse svn 会报 文件夹 “” 已不存在 1.查看你的Eclipse中使用的是什么SVN Interface windows &gt; preference &gt; Team &gt; SVN #SVN Interface 2. 如果是用的JavaHL, 找到以下目录并删除auth目录. C:\Documents and Settings[YourUserName]\Applicat">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2014-04-29T01:15:00.000Z">
 <meta property="article:modified_time" content="2020-06-09T09:13:07.326Z">
@@ -171,7 +171,24 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>eclipse svn 会报 文件夹 “” 已不存在<br>1.查看你的Eclipse中使用的是什么SVN Interface<br>windows &gt; preference &gt; Team &gt; SVN #SVN Interface<br>2. 如果是用的JavaHL, 找到以下目录并删除auth目录.<br>C:\Documents and Settings[YourUserName]\Application Data\Subversion\<br>windows 7下目录为:C:\Users[YourUserName]\AppData\Roaming\Subversion<br>3. 如果你用的SVNKit, 找到以下目录并删除.keyring文件.<br>[eclipse]\configuration\org.eclipse.core.runtime<br>打开<br>C:/Documents and Settings/Administrator/Application Data/Subversion/auth/svn.simple，<br>有时候 svn.simple文件是隐藏的。用记事本等文本编辑器打开，里面有SVN服务器地址和用户名，密码（加密后的）。<br>删除此文件，之前登录SVN的账号就没了。<br>windows 7下目录为:C:\Users[YourUserName]\AppData\Roaming\Subversion<br>eclipse svn 会报   Failed to load JavaHL Library.错误.弹出一个大大的对话框<br>其法为：<br>1.windows-&gt;preferences-&gt;Team-&gt;SVN-&gt;SVN接口<br>2.选择SVNKit (Pure Java) xxxxxx<br>注意：删除eclipse下的文件后要重启eclipse</p>
+            <p>eclipse svn 会报 文件夹 “” 已不存在<br>
+1.查看你的Eclipse中使用的是什么SVN Interface<br>
+windows &gt; preference &gt; Team &gt; SVN #SVN Interface<br>
+2. 如果是用的JavaHL, 找到以下目录并删除auth目录.<br>
+C:\Documents and Settings[YourUserName]\Application Data\Subversion\<br>
+windows 7下目录为:C:\Users[YourUserName]\AppData\Roaming\Subversion<br>
+3. 如果你用的SVNKit, 找到以下目录并删除.keyring文件.<br>
+[eclipse]\configuration\org.eclipse.core.runtime<br>
+打开<br>
+C:/Documents and Settings/Administrator/Application Data/Subversion/auth/svn.simple，<br>
+有时候 svn.simple文件是隐藏的。用记事本等文本编辑器打开，里面有SVN服务器地址和用户名，密码（加密后的）。<br>
+删除此文件，之前登录SVN的账号就没了。<br>
+windows 7下目录为:C:\Users[YourUserName]\AppData\Roaming\Subversion<br>
+eclipse svn 会报   Failed to load JavaHL Library.错误.弹出一个大大的对话框<br>
+其法为：<br>
+1.windows-&gt;preferences-&gt;Team-&gt;SVN-&gt;SVN接口<br>
+2.选择SVNKit (Pure Java) xxxxxx<br>
+注意：删除eclipse下的文件后要重启eclipse</p>
 <p>如上述操作无效并且你已经忘了对之前的svn相关操作：删除所有该工作空间下的svn信息或者备份重要工程文件，然后重新安装svn。。。。</p>
 
         </div>

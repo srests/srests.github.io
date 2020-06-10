@@ -218,8 +218,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        那么就要用下面的方法：让网页兼容ie9复制代码 代码如下:
-123456&lt;!–[if lte IE 8]&gt; &lt;meta http-equiv=”x-ua-compatible” content=”ie=7″ /&gt; &lt;![endif]–&gt; &lt;!–[if IE 9]&gt; &lt;meta http-equiv=”x-ua-compatible” co...
+        那么就要用下面的方法：让网页兼容ie9
+复制代码 代码如下:
+123456&lt;!–[if lte IE 8]&gt; &lt;meta http-equiv=”x-ua-compatible” content=”ie=7″ /&gt; &lt;![endif]–&gt; &lt;!–[if IE 9]&gt; &lt;meta http-equiv=”x-ua-compatible” c...
     
 
         <a href="/2015/08/18/html/2015081801/" class="post-more waves-effect waves-button">
@@ -264,10 +265,15 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Ffmpeg使用语法ffmpeg [[options][`-i’ input_file]]… {[options] output_file}…如果没有输入文件，那么视音频捕捉（只在Linux下有效，因为Linux下把音视频设备当作文件句柄来处理）就会起作用。作为通用的规则，选项一 般用于下一个特定的文件。如果你给 –b 64选项，改选会设置下一个视频速率。对于原始输入文件，格式选项可能是需要的。缺省情况下，ffmpeg试图尽可能的无损转换，采用与输入同样的音频视 频参数来输出。
+        Ffmpeg使用语法
+ffmpeg [[options][`-i’ input_file]]… {[options] output_file}…
+如果没有输入文件，那么视音频捕捉（只在Linux下有效，因为Linux下把音视频设备当作文件句柄来处理）就会起作用。作为通用的规则，选项一 般用于下一个特定的文件。如果你给 –b 64选项，改选会设置下一个视频速率。对于原始输入文件，格式选项可能是需要的。缺省情况下，ffmpeg试图尽可能的无损转换，采用与输入同样的音频视 频参数来输出。
 ffmpeg转换所涉及到的选项较多，可参考ffmpeg选项详解。
-ffmpeg保存流为文件ffmpeg -i http://test.m3u8 -bsf:a aac_adtstoasc -acodec copy -vcodec copy -f mp4 test.mp4
-ffmpeg支持多种文件格式和多种音频、视频编码器，可参考ffmepg格式详解，（附：常见视频文件格式详解）[编辑] 视频文件截图截取一张352x240尺寸大小的，格式为jpg的图片
+ffmpeg保存流为文件
+ffmpeg -i http://test.m3u8 -bsf:a aac_adtstoasc -acodec copy -vcodec copy -f mp4 test.mp4
+ffmpeg支持多种文件格式和多种音频、视频编码器，可参考ffmepg格式详解，（附：常见视频文件格式详解）
+[编辑] 视频文件截图
+截取一张352x240尺寸大小的，格式为jpg的图片
 1ffmpeg -i test.asf -y -f image2 -t 0.001 -s 352x240 a.jpg
     
 
@@ -403,7 +409,7 @@ ffmpeg支持多种文件格式和多种音频、视频编码器，可参考ffmep
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        placeholder        //input提示
+        placeholder		//input提示
 
     
 
@@ -494,9 +500,10 @@ ffmpeg支持多种文件格式和多种音频、视频编码器，可参考ffmep
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        FFmpegPHP 是一个纯面向对象的 ffmpeg 的 PHP封装。提供一些简单易用、面向对象的API用以访问视频和音频文件的信息，可直接从视频中获取帧的图片，这常用来做视频的缩略图。支持的视频格式包 括： MOV, AVI, MPG, 和 WMV.FFmpegPHP封装，没有提供视频转换的接口。（至少我没找到，如果大家知道还望赐教。）
-我使用的集成环境APMServ。 
-1.下载ffmp...
+        FFmpegPHP 是一个纯面向对象的 ffmpeg 的 PHP封装。提供一些简单易用、面向对象的API用以访问视频和音频文件的信息，可直接从视频中获取帧的图片，这常用来做视频的缩略图。支持的视频格式包 括： MOV, AVI, MPG, 和 WMV.
+FFmpegPHP封装，没有提供视频转换的接口。（至少我没找到，如果大家知道还望赐教。）
+我使用的集成环境APMServ。
+ 1.下载ffm...
     
 
         <a href="/2015/07/13/php/2015071301/" class="post-more waves-effect waves-button">
@@ -541,11 +548,12 @@ ffmpeg支持多种文件格式和多种音频、视频编码器，可参考ffmep
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        为空默认coalesce(字段，默认值)#自增起始
+        为空默认
+coalesce(字段，默认值)
+#自增起始
 1alter table t_userinfo AUTO_INCREMENT=10000;
-
 #创建用户
-123456-- 创建用户create user 'mztest_root'@'%' identified by 'mztest_root@123456';-- 授权给数据库grant all on mzpt_test.* to 'mz...
+123456-- 创建用户create user 'mztest_root'@'%' identified by 'mztest_root@123456';-- 授权给数据库grant all on mzpt_test.* to 'm...
     
 
         <a href="/2015/07/01/mysql/use/" class="post-more waves-effect waves-button">
@@ -590,7 +598,8 @@ ffmpeg支持多种文件格式和多种音频、视频编码器，可参考ffmep
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Downloading binary from https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-57_binding.nodeCannot download “https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-5...
+        Downloading binary from https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-57_binding.node
+Cannot download “https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-...
     
 
         <a href="/2015/06/30/nodejs/2015063001/" class="post-more waves-effect waves-button">

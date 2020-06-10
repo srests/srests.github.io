@@ -171,7 +171,6 @@
             <p>centos7里自带了python2.7,建议不要卸载python2.7安装python3.7,因为centos7系统中有依赖python2.7的地方，为避免不可预计的错误。我们选择python3.7与python2.7并存。</p>
 <p>###安装可能用到的依赖</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</span><br></pre></td></tr></table></figure>
-
 <p>###下载python3.7</p>
 <p>为方便我们在usr/local 路径下新建一个python3文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>         进入usr/localmulu</span><br><span class="line"></span><br><span class="line">mkdir python3      新建文件夹python3</span><br></pre></td></tr></table></figure>
@@ -186,17 +185,14 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/python3 --<span class="built_in">enable</span>-optimizations</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make altinstall</span><br></pre></td></tr></table></figure>
 <p>###配置软连接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/<span class="built_in">local</span>/python3/bin/python3.7 /usr/bin/python3</span><br><span class="line"></span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/python3/bin/pip3.7 /usr/bin/pip3</span><br></pre></td></tr></table></figure>
-
 <p>###安装setuptools</p>
 <p>python3.7需要用到的依赖库 没有这个可能会导致make altinstall 也就是编译后没有pip3.7模块（下文中会说到）</p>
 <p>下载setuptools</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://pypi.python.org/packages/<span class="built_in">source</span>/s/setuptools/setuptools-19.6.tar.gz<span class="comment">#md5=c607dd118eae682c44ed146367a17e26</span></span><br></pre></td></tr></table></figure>
 <p>解压setuptools</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tar -zxvf setuptools-19.6.tar.gz</span></span><br></pre></td></tr></table></figure>
-
 <p>进入目录（当前路径下，会生成这个文件夹，可用ls查看）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> setuptools-19.6</span><br></pre></td></tr></table></figure>
-
 <p>安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 setup.py build</span><br><span class="line"></span><br><span class="line">python3 setup.py install</span><br></pre></td></tr></table></figure>
         </div>

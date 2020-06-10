@@ -171,10 +171,16 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Hexo简介hexo是一款基于Node.js的静态博客框架，官网地址：https://hexo.io/zh-cn/
-安装环境安装Git
-建立新的Repository，仓库名为【your_user_name.github.io】后续想要把网站部署到Github上，需要在【your_user_name.github.io】此仓库下的Setting配置中添加一个Deploy keysGenerating a new SSH key可以参考：
-https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/安装NodeJS也可以下载并安装NodeJS，官网地址：https://nodejs.org/
+        Hexo简介
+hexo是一款基于Node.js的静态博客框架，官网地址：https://hexo.io/zh-cn/
+ 安装环境
+安装Git
+建立新的Repository，仓库名为【your_user_name.github.io】
+后续想要把网站部署到Github上，需要在【your_user_name.github.io】此仓库下的Setting配置中添加一个Deploy keys
+Generating a new SSH key可以参考：
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+安装NodeJS
+也可以下载并安装NodeJS，官网地址：https://nodejs.org/
     
 
         <a href="/2018/05/24/nodejs/2018050401/" class="post-more waves-effect waves-button">
@@ -310,7 +316,13 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        .ignore                    版本文件忽略alibaba java coding        阿里代码检查findbugs                查询buglombok plugins            lombok扩展mybatiscodehelper        mybatis扩展GenerateSerialVersionUID  生成Serial...
+        .ignore					版本文件忽略
+alibaba java coding		阿里代码检查
+findbugs				查询bug
+lombok plugins			lombok扩展
+mybatiscodehelper		mybatis扩展
+GenerateSerialVersionUID  生成SerialUID
+
     
 
         <a href="/2018/05/09/jetBrains/2018050901/" class="post-more waves-effect waves-button">
@@ -356,10 +368,14 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
 
     
         Centos 6.5升级到Git2.1.2其实是非常的简单，下面一起来看看Centos 6.5升级到Git2.1.2的步骤吧。
-第一种办法安装需求12# yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel# yum install  gcc perl-ExtUtils-MakeMaker
-卸载Centos自带的git通过git –version查看系统带的版本，Cento6.5应该自带的是git版本是1.7.1
+ 第一种办法
+ 安装需求
+12# yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel# yum install  gcc perl-ExtUtils-MakeMaker
+ 卸载Centos自带的git
+通过git –version查看系统带的版本，Cento6.5应该自带的是git版本是1.7.1
 1# yum remove git
-下载git最新版本123# cd /usr/src# wget https://www.kernel.org/pub/software/scm/git/git-2.1.2.tar.gz# tar xzf git-2.1.2.tar.gz
+ 下载git最新版本
+123# cd /usr/src# wget https://www.kernel.org/pub/software/scm/git/git-2.1.2.tar.gz# tar xzf git-2.1.2.tar.gz
     
 
         <a href="/2018/02/23/linux/2018022301/" class="post-more waves-effect waves-button">
@@ -404,9 +420,13 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        http://www.docker.org.cn/book/install/install-docker-on-rhel-29.htmlhttp://get.daocloud.io/#install-docker-for-mac-windows
-docker安装#docker-io(旧版本)#Windows#
-http://get.daocloud.io/#install-docker-fo...
+        http://www.docker.org.cn/book/install/install-docker-on-rhel-29.html
+http://get.daocloud.io/#install-docker-for-mac-windows
+ docker安装
+ docker-io(旧版本)
+ Windows
+
+http://get.daocloud.io/#install-docke...
     
 
         <a href="/2018/01/22/docker/use/" class="post-more waves-effect waves-button">
@@ -451,7 +471,12 @@ http://get.daocloud.io/#install-docker-fo...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        docker-machine envSET DOCKER_HOST=tcp://192.168.99.100:2376SET DOCKER_CERT_PATH=C:\Users\shaoshuai.docker\machine\machines\default设置到环境变量当中，或者在configuration添加如下配置：https://192.168.99.100:2376C:\User...
+        docker-machine env
+SET DOCKER_HOST=tcp://192.168.99.100:2376
+SET DOCKER_CERT_PATH=C:\Users\shaoshuai.docker\machine\machines\default
+设置到环境变量当中，或者在configuration添加如下配置：
+https://192.168.99.100:2376
+C:...
     
 
         <a href="/2017/12/13/docker/error03/" class="post-more waves-effect waves-button">
@@ -496,7 +521,8 @@ http://get.daocloud.io/#install-docker-fo...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        空与null忽略DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT
+        空与null忽略
+DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT
 
     
 
@@ -588,7 +614,11 @@ http://get.daocloud.io/#install-docker-fo...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        记得以前，当出现：ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction，要解决是一件麻烦的事情 ；特别是当一个SQL执行完了，但未COMMIT，后面的SQL想要执行就是被锁，超时结束；DBA光从数据库无法着手找出源头是哪个SQL锁住了；有时候看看show engine innodb status ...
+        记得以前，当出现：ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction，
+要解决是一件麻烦的事情 ；
+特别是当一个SQL执行完了，但未COMMIT，后面的SQL想要执行就是被锁，超时结束；
+DBA光从数据库无法着手找出源头是哪个SQL锁住了；
+有时候看看show engine innodb sta...
     
 
         <a href="/2017/07/24/mysql/lockwait/" class="post-more waves-effect waves-button">

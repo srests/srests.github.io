@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="java,Regex">
-    <meta name="description" content="&#x2F;&#x2F;不包含abc的字符串((?!abc).)*&#x2F;&#x2F;匹配abc，但不提取abc(?&lt;&#x3D;abc)(?&#x3D;abc)正则表达式-问号的四种用法原文符号 因为?在正则表达式中有特殊的含义，所以如果想匹配?本身，则需要转义，? 有无量词 问号可以表示重复前面内容的0次或一次，也就是要么不出现，要么出现一次。 非贪婪匹配 贪婪匹配 在满足匹配时，匹配尽可能长的字符串，默认情况下，采用贪婪匹配 string">
+    <meta name="description" content="&#x2F;&#x2F;不包含abc的字符串 ((?!abc).)* &#x2F;&#x2F;匹配abc，但不提取abc (?&lt;&#x3D;abc) (?&#x3D;abc) 正则表达式-问号的四种用法 原文符号 因为?在正则表达式中有特殊的含义，所以如果想匹配?本身，则需要转义，? 有无量词 问号可以表示重复前面内容的0次或一次，也就是要么不出现，要么出现一次。 非贪婪匹配 贪婪匹配 在满足匹配时，匹配尽可能长的字符串，默认情况下，采用贪婪匹配 s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则使用">
 <meta property="og:url" content="http://srests.github.io/2015/02/23/java/2015022301/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="&#x2F;&#x2F;不包含abc的字符串((?!abc).)*&#x2F;&#x2F;匹配abc，但不提取abc(?&lt;&#x3D;abc)(?&#x3D;abc)正则表达式-问号的四种用法原文符号 因为?在正则表达式中有特殊的含义，所以如果想匹配?本身，则需要转义，? 有无量词 问号可以表示重复前面内容的0次或一次，也就是要么不出现，要么出现一次。 非贪婪匹配 贪婪匹配 在满足匹配时，匹配尽可能长的字符串，默认情况下，采用贪婪匹配 string">
+<meta property="og:description" content="&#x2F;&#x2F;不包含abc的字符串 ((?!abc).)* &#x2F;&#x2F;匹配abc，但不提取abc (?&lt;&#x3D;abc) (?&#x3D;abc) 正则表达式-问号的四种用法 原文符号 因为?在正则表达式中有特殊的含义，所以如果想匹配?本身，则需要转义，? 有无量词 问号可以表示重复前面内容的0次或一次，也就是要么不出现，要么出现一次。 非贪婪匹配 贪婪匹配 在满足匹配时，匹配尽可能长的字符串，默认情况下，采用贪婪匹配 s">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-02-23T02:57:00.000Z">
 <meta property="article:modified_time" content="2019-11-12T07:29:05.557Z">
@@ -167,19 +167,42 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>//不包含abc的字符串<br>((?!abc).)*<br>//匹配abc，但不提取abc<br>(?&lt;=abc)<br>(?=abc)<br>正则表达式-问号的四种用法<br>原文符号</p>
+            <p>//不包含abc的字符串<br>
+((?!abc).)*<br>
+//匹配abc，但不提取abc<br>
+(?&lt;=abc)<br>
+(?=abc)<br>
+正则表达式-问号的四种用法<br>
+原文符号</p>
 <p>因为?在正则表达式中有特殊的含义，所以如果想匹配?本身，则需要转义，?</p>
 <p>有无量词</p>
 <p>问号可以表示重复前面内容的0次或一次，也就是要么不出现，要么出现一次。</p>
 <p>非贪婪匹配</p>
 <p>贪婪匹配</p>
 <p>在满足匹配时，匹配尽可能长的字符串，默认情况下，采用贪婪匹配</p>
-<p>string pattern1 = @”a.*c”;   // greedy match<br>Regex regex = new Regex(pattern1);<br>regex.Match(“abcabc”); // return “abcabc”<br>非贪婪匹配</p>
+<p>string pattern1 = @“a.*c”;   // greedy match<br>
+Regex regex = new Regex(pattern1);<br>
+regex.Match(“abcabc”); // return “abcabc”<br>
+非贪婪匹配</p>
 <p>在满足匹配时，匹配尽可能短的字符串，使用?来表示非贪婪匹配</p>
-<p>string pattern1 = @”a.*?c”;   // non-greedy match<br>Regex regex = new Regex(pattern1);<br>regex.Match(“abcabc”); // return “abc”<br>几个常用的非贪婪匹配Pattern</p>
-<p>*? 重复任意次，但尽可能少重复<br>+? 重复1次或更多次，但尽可能少重复<br>?? 重复0次或1次，但尽可能少重复<br>{n,m}? 重复n到m次，但尽可能少重复<br>{n,}? 重复n次以上，但尽可能少重复<br>不捕捉模式</p>
-<p>如何关闭圆括号的捕获能力？而只是用它来做分组，方法是在左括号的后边加上:?，这里第一个圆括弧只是用来分组，而不会占用捕获变量，所以$1的内容只能是steak或者burger，而永远不可能是bronto。<br>while(&lt;&gt;){<br>    if(/(?:bronto)(steak|burger)/){<br>        print “Fred wants a $1\n” ;<br>    }<br>}</p>
-<p>汉字<br>[\u4e00-\u9fa5]</p>
+<p>string pattern1 = @“a.*?c”;   // non-greedy match<br>
+Regex regex = new Regex(pattern1);<br>
+regex.Match(“abcabc”); // return “abc”<br>
+几个常用的非贪婪匹配Pattern</p>
+<p>*? 重复任意次，但尽可能少重复<br>
++? 重复1次或更多次，但尽可能少重复<br>
+?? 重复0次或1次，但尽可能少重复<br>
+{n,m}? 重复n到m次，但尽可能少重复<br>
+{n,}? 重复n次以上，但尽可能少重复<br>
+不捕捉模式</p>
+<p>如何关闭圆括号的捕获能力？而只是用它来做分组，方法是在左括号的后边加上:?，这里第一个圆括弧只是用来分组，而不会占用捕获变量，所以$1的内容只能是steak或者burger，而永远不可能是bronto。<br>
+while(&lt;&gt;){<br>
+if(/(?:bronto)(steak|burger)/){<br>
+print “Fred wants a $1\n” ;<br>
+}<br>
+}</p>
+<p>汉字<br>
+[\u4e00-\u9fa5]</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提取内容时间</span></span><br><span class="line">Matcher matcher = Pattern.compile(<span class="string">"\\d"</span>).matcher(line);</span><br><span class="line">matcher.find();</span><br><span class="line">String str = matcher.group();</span><br></pre></td></tr></table></figure>
         </div>
 

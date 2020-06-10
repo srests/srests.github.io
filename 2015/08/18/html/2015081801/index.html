@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="html">
-    <meta name="description" content="那么就要用下面的方法：让网页兼容ie9复制代码 代码如下: 123456&lt;!–[if lte IE 8]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” content&#x3D;”ie&#x3D;7″ &#x2F;&gt; &lt;![endif]–&gt; &lt;!–[if IE 9]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” conte">
+    <meta name="description" content="那么就要用下面的方法：让网页兼容ie9 复制代码 代码如下: 123456&lt;!–[if lte IE 8]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” content&#x3D;”ie&#x3D;7″ &#x2F;&gt; &lt;![endif]–&gt; &lt;!–[if IE 9]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” cont">
 <meta property="og:type" content="article">
 <meta property="og:title" content="让低版本的IE浏览器 强制渲染为IE8 或者 以上 浏览器模式">
 <meta property="og:url" content="http://srests.github.io/2015/08/18/html/2015081801/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="那么就要用下面的方法：让网页兼容ie9复制代码 代码如下: 123456&lt;!–[if lte IE 8]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” content&#x3D;”ie&#x3D;7″ &#x2F;&gt; &lt;![endif]–&gt; &lt;!–[if IE 9]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” conte">
+<meta property="og:description" content="那么就要用下面的方法：让网页兼容ie9 复制代码 代码如下: 123456&lt;!–[if lte IE 8]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” content&#x3D;”ie&#x3D;7″ &#x2F;&gt; &lt;![endif]–&gt; &lt;!–[if IE 9]&gt; &lt;meta http-equiv&#x3D;”x-ua-compatible” cont">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-08-18T07:48:00.000Z">
 <meta property="article:modified_time" content="2019-11-12T06:25:36.982Z">
@@ -166,21 +166,23 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>那么就要用下面的方法：让网页兼容ie9<br>复制代码 代码如下:</p>
+            <p>那么就要用下面的方法：让网页兼容ie9<br>
+复制代码 代码如下:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!–[if</span> <span class="attr">lte</span> <span class="attr">IE</span> <span class="attr">8</span>]&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”x-ua-compatible”</span> <span class="attr">content</span>=<span class="string">”ie</span>=<span class="string">7″</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">![endif]–</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">!–[if</span> <span class="attr">IE</span> <span class="attr">9</span>]&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">”x-ua-compatible”</span> <span class="attr">content</span>=<span class="string">”ie</span>=<span class="string">9″</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">![endif]–</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>以前没有IE9的时候，为了照顾ie8就写个&lt;meta http-equiv=X-UA-Compatible content=IE=EmulateIE7&gt;强制使IE8浏览器使用IE7模式渲染。 </p>
-<p>昨天看淘宝页面源代码&lt;meta http-equiv=”X-UA-Compatible” content=”IE=7, IE=9″&gt;加了个。<br>不过现在已经改成了 </p>
+<p>以前没有IE9的时候，为了照顾ie8就写个&lt;meta http-equiv=X-UA-Compatible content=IE=EmulateIE7&gt;强制使IE8浏览器使用IE7模式渲染。</p>
+<p>昨天看淘宝页面源代码&lt;meta http-equiv=”X-UA-Compatible” content=”IE=7, IE=9″&gt;加了个。<br>
+不过现在已经改成了</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span> &gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>大 致翻译是如果你有一个使用X-UA-Compatible Meta 标签或者http header 让网页在IE7标准模式解释的旧网站，那么这里有一个综合示例能够让ie8用ie7的标准模式呈现页面，ie9使用ie9的标准模式呈现页面。<br>用自己的话 就是使用上面&lt;meta http-equiv=”X-UA-Compatible” content=”IE=7, IE=9″&gt;，使IE7 IE8浏览器使用IE7模式渲染。IE9就用自己的IE9模式渲染。互不影响，不晓得是否正确，准备安装W7去。<br>X-UA-Compatible是针对 IE8 版本的一个特殊文件头标记，用于为 IE8 指定不同的页面渲染模式，对于ie8之外的浏览器是不识别的。</p>
+<p>大 致翻译是如果你有一个使用X-UA-Compatible Meta 标签或者http header 让网页在IE7标准模式解释的旧网站，那么这里有一个综合示例能够让ie8用ie7的标准模式呈现页面，ie9使用ie9的标准模式呈现页面。<br>
+用自己的话 就是使用上面&lt;meta http-equiv=”X-UA-Compatible” content=”IE=7, IE=9″&gt;，使IE7 IE8浏览器使用IE7模式渲染。IE9就用自己的IE9模式渲染。互不影响，不晓得是否正确，准备安装W7去。<br>
+X-UA-Compatible是针对 IE8 版本的一个特殊文件头标记，用于为 IE8 指定不同的页面渲染模式，对于ie8之外的浏览器是不识别的。</p>
 <p>在X-UA-Compatible中可用的方法有：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=5"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=8"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span> &gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>其中最后一行是Edge 模式，通知 Windows Internet Explorer 以最高级别的可用模式显示内容。</p>
 <p>目前绝大多数网站都用<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">来作为IE8的兼容方法。为了避免制作出的页面在IE8下面出现错误，建议直接将IE8使用IE7进行渲染。也就是直接在页面的header的meta标签中加入如下代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=EmulateIE7"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=EmulateIE8"</span> &gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>而使用，Emulate模式后则更重视&lt;!DOCTYPE&gt;，<br>所以目前来说还是以<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">为首选。</p>
+<p>而使用，Emulate模式后则更重视&lt;!DOCTYPE&gt;，<br>
+所以目前来说还是以<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">为首选。</p>
 
         </div>
 

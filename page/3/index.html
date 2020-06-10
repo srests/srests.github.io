@@ -220,7 +220,31 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        世界各国和地区名称代码代码    国家和地区004    阿富汗008    阿尔巴尼亚010    南极洲012    安道尔016    美属萨摩亚012    安道尔024    安哥拉028    安提瓜032    阿根廷036    澳大利亚　152    智利156    中国162    圣诞岛166    可可(基林)群岛170    哥伦比亚174    科摩罗178  ...
+        世界各国和地区名称代码
+代码	国家和地区
+004	阿富汗
+008	阿尔巴尼亚
+010	南极洲
+012	安道尔
+016	美属萨摩亚
+012	安道尔
+024	安哥拉
+028	安提瓜
+032	阿根廷
+036	澳大利亚
+　
+152	智利
+156	中国
+162	圣诞岛
+166	可可(基林)群岛
+170	哥伦比亚
+174	科摩罗
+178	刚果
+180	扎伊尔
+184	库克群岛
+188	哥斯达黎加
+　
+3...
     
 
         <a href="/2016/01/28/code/" class="post-more waves-effect waves-button">
@@ -266,9 +290,16 @@
 
     
         
-概述本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访问  mvnrepository：org.springframework.
 
-使用Maven管理基本的Spring依赖关系Spring被设计为可高度模块化的 ―― 使用Spring中的一部分,不应该也不需要引用另一个不相关的部分. 例如, 使用基本的Spring Context可以不使用 Persistence或MVC相关的Spring库.让我们从一个非常简单的Maven设置开始,这里只使用 spring-context 依赖 :
+概述
+本教程向您展示如何通过 Maven 管理 Spring 的依赖关系.最新的Spring版本可以在 Maven Central仓库 中找到. 也可以访问  mvnrepository：org.springframework.
+
+
+使用Maven管理基本的Spring依赖关系
+Spring被设计为可高度模块化的 ―― 使用Spring中的一部分,不应该也不需要引用另一个不相关的部分. 例如, 使用基本的Spring Context可以不使用 Persistence或MVC相关的Spring库.
+让我们从一个非常简单的Maven设置开始,这里只使用 spring-context 依赖 :
+
+
 12345678910&lt;properties&gt;      &lt;org.springframework.version&gt;3.2.8.RELEASE&lt;/org.springframework.version&gt;      &lt;!-- &lt;org.springframework.version&gt;4.0.2.RELEASE&lt;/org.springframework.version&gt; --&gt;  &lt;/properties&gt;  &lt;dependency&gt;      &lt;groupId&gt;org.springframework&lt;/groupId&gt;      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;      &lt;version&gt;$&#123;org.springframework.version&#125;&lt;/version&gt;      &lt;scope&gt;runtime&lt;/scope&gt;  &lt;/dependency&gt;
     
 
@@ -314,10 +345,13 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        RPM安装JDKrpm   -i  jdk-7u4-linux-i586.rpm
+        RPM安装JDK
+rpm   -i  jdk-7u4-linux-i586.rpm
 # vi /etc/profile
 export JAVA_HOME = /home/myuser/jdk1.7.0_03
-export PATH = $JAVA_HOME/bin:$PATHexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tool...
+export PATH = $JAVA_HOME/bin:$PATH
+
+export CLASSPATH=.:JAVAHOME/lib/dt.jar:JAVA_HOME/lib/dt.j...
     
 
         <a href="/2015/12/06/java/jdkinstall/" class="post-more waves-effect waves-button">
@@ -364,7 +398,8 @@ export PATH = $JAVA_HOME/bin:$PATHexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA
     
         今天使用xampp，apache无法启动，由于使用xampp-control-3-beta.exe无法看到错误，就是无法启动。
 windows用cmd，执行xampp/apache/bin中的httpd.exe，看到：
-(OS 10048)通常每个套接字地址(协议/网络地址/端口)只允许使用一次。  : make_sock: could not bind to address [::]:443
+(OS 10048)通常每个套接字地址(协议/网络地址/端口)只允许使用一次。  : make_sock: c
+ould not bind to address [::]:443
     
 
         <a href="/2015/11/06/apache/2015110601/" class="post-more waves-effect waves-button">
@@ -410,7 +445,13 @@ windows用cmd，执行xampp/apache/bin中的httpd.exe，看到：
 
     
         一般情况下Tomcat服务需要手动运行批命令启动服务。在windows操作系统下如果需要将Tomcat变成自动启动的服务,只需按以下步骤操作即可：
-方法/步骤1在环境变量中设置JAVA_HOME(假设我们缺省的JDK目录为d:\j2sdk1.4.2_04)   A、进入windows桌面，右键选择“我的电脑”–&gt;“属性”   B、选择“高级”页签，点开“环境变量”   C、在“系统变量...
+方法/步骤
+1
+在环境变量中设置JAVA_HOME
+(假设我们缺省的JDK目录为d:\j2sdk1.4.2_04)
+A、进入windows桌面，右键选择“我的电脑”–&gt;“属性”
+B、选择“高级”页签，点开“环境变量”
+C、在“系统变量”下点...
     
 
         <a href="/2015/11/06/tomcat/install/" class="post-more waves-effect waves-button">
@@ -455,7 +496,9 @@ windows用cmd，执行xampp/apache/bin中的httpd.exe，看到：
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Hazelcast: Java分布式内存网格框架(平台)网址: http://www.hazelcast.com/下边是它的宣传内容：
+        Hazelcast: Java分布式内存网格框架(平台)
+网址: http://www.hazelcast.com/
+下边是它的宣传内容：
 hazelcast是一个开放源码集群和高度可扩展的数据分发平台，这是为Java：
 
 快如闪电;数以千计的运算/秒。
@@ -463,7 +506,7 @@ hazelcast是一个开放源码集群和高度可扩展的数据分发平台，�
 作为新服务器的动态调整 。
 超级简单的使用 ，包括一个单独的jar。
 
-Hazelcast与各种分布式数据结构...
+Hazelcast与各种分布式数据...
     
 
         <a href="/2015/10/13/java/hazelcast/" class="post-more waves-effect waves-button">
@@ -508,7 +551,8 @@ Hazelcast与各种分布式数据结构...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Apache2.2和Apache2.4中httpd.conf配置文件的异同编辑: upupw发布时间: 2013-08-09 11:32:01来源: UPUPW绿色服务器平台热度: 7511
+        Apache2.2和Apache2.4中httpd.conf配置文件的异同
+编辑: upupw发布时间: 2013-08-09 11:32:01来源: UPUPW绿色服务器平台热度: 7511
 Windows环境从Apache2.2改成Apache2.4后httpd.conf中的设置异同。
     
 
@@ -603,7 +647,8 @@ Apache服务无法启动。
 
     
         下面说下禁止禁止Apache显示目录索引的常见的3种方法。要实现禁止Apache显示目录索引,只需将Option中的Indexes去掉即可,具体方法看下面说明
-禁止Apache显示目录索引，禁止Apache显示目录结构列表，禁止Apache浏览目录，这是网上提问比较多的，其实都是一个意思。下面说下禁止禁止Apache显示目录索引的常见的3种方法。要实现禁止Apache显示目录索引，只需将 Option 中的 Indexes 去掉即可。
+禁止Apache显示目录索引，禁止Apache显示目录结构列表，禁止Apache浏览目录，这是网上提问比较多的，其实都是一个意思。下面说下禁止禁止Apache显示目录索引的常见的3种方法。
+要实现禁止Apache显示目录索引，只需将 Option 中的 Indexes 去掉即可。
     
 
         <a href="/2015/09/22/apache/2015092201/" class="post-more waves-effect waves-button">
