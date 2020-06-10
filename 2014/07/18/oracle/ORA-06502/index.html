@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="oracle">
+    <meta name="description" content="问题起因  最近在进行oracle的一些操作时，总会遇到这个错误：  ORA-06502: PL&#x2F;SQL: 数字或值错误 :  字符串缓冲区太小,错误如下： [sql] ORA-00604: 递归 SQL 级别 1 出现错误 ORA-06502: PL&#x2F;SQL: 数字或值错误 :  字符串缓冲区太小 ORA-06512: 在 line 7 2.官方解释  www.2cto.com 查看官方文档上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ORA-06502:PL&#x2F;SQL:数字或值错误:字符串缓冲区太小错误分析">
+<meta property="og:url" content="http://srests.github.io/2014/07/18/oracle/ORA-06502/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="问题起因  最近在进行oracle的一些操作时，总会遇到这个错误：  ORA-06502: PL&#x2F;SQL: 数字或值错误 :  字符串缓冲区太小,错误如下： [sql] ORA-00604: 递归 SQL 级别 1 出现错误 ORA-06502: PL&#x2F;SQL: 数字或值错误 :  字符串缓冲区太小 ORA-06512: 在 line 7 2.官方解释  www.2cto.com 查看官方文档上">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2014-07-18T05:12:00.000Z">
+<meta property="article:modified_time" content="2020-06-10T07:42:04.834Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2014-07-18T05:12:00.000Z" itemprop="datePublished" class="page-time">
+  2014-07-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-oracle/ORA-06502"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2014-07-18 13:12:00" datetime="2014-07-18T05:12:00.000Z"  itemprop="datePublished">2014-07-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ol>
+<li>问题起因</li>
+</ol>
+<p>最近在进行oracle的一些操作时，总会遇到这个错误：  ORA-06502: PL/SQL: 数字或值错误 :  字符串缓冲区太小,错误如下：</p>
+<p>[sql]</p>
+<p>ORA-00604: 递归 SQL 级别 1 出现错误</p>
+<p>ORA-06502: PL/SQL: 数字或值错误 :  字符串缓冲区太小</p>
+<p>ORA-06512: 在 line 7</p>
+<p>2.官方解释  <a href="http://www.2cto.com" target="_blank" rel="noopener">www.2cto.com</a></p>
+<p>查看官方文档上的解释：</p>
+<p>ORA-06502: PL/SQL: numeric or value errorstring</p>
+<p>Cause: An arithmetic, numeric, string, conversion, or constraint error occurred. For example, this error occurs if an attempt is made to assign the value NULL to a variable declared NOT NULL, or if an attempt is made to assign an integer larger than 99 to a variable declared NUMBER(2).</p>
+<p>Action: Change the data, how it is manipulated, or how it is declared so that values do not violate constraints.</p>
+<p>官方解释是：  想存入数据库的数据（包含数据，字符串等等）不符合该字段的定义（比如长度，约束等）， 举个例子，就是说你想存一个空值到非空字段，如存入3位以上的数字到NUMBER(2)字段中，等等</p>
+<p>官方解决方法是： 改变数据的类型，或长度，等等。</p>
+<ol start="3">
+<li>问题描述</li>
+</ol>
+<p>但是，实际中，我们在做升级的时候，或者做EXPDP/IMPDP的时候，根本不是我们本身的业务数据，也会报这个错误，遇到这种情况，我怎么知道去哪改这个数据呢，</p>
+<p>举几个例子：</p>
+<p>例1. 上次在做oracle升级的时候，从11.2.0.1.0升到11.2.0.1.6的时候在跑最后的升级脚本catcpu.sql的时候，就遇到这个错误：</p>
+<p>[sql]</p>
+<p>SQL&gt; /*****************************  PACKAGE BODY ********************************/</p>
+<p>SQL&gt; /*** DBMS_EXPFIL : Package to manage a Expression Engine                  ***/</p>
+<p>SQL&gt; /***               All procedures are defined with definer rights         ***/</p>
+<p>SQL&gt; /****************************************************************************/</p>
+<p>SQL&gt; create or replace package body dbms_expfil wrapped</p>
+<p>2  a000000</p>
+<p>3  1</p>
+<p>4  abcd</p>
+<p>5  abcd</p>
+<p>.    <a href="http://www.2cto.com" target="_blank" rel="noopener">www.2cto.com</a></p>
+<p>.</p>
+<p>19  b</p>
+<p>20  dbb0 3035</p>
+<p>21  wBYhf/HY/DuxqMBbCYAx0nWpqRUwg80A9scFYaf4k53h7RLaiTPCHPqfQYP1QG8+uv30CVrF</p>
+<p>22  Lf5t1PSNPJhKkNUFecK3LJ0wJChaaSsloMeCeeC3pud2dm7+rVQUjJz6UkBKiymIRTD47p8N</p>
+<p>23  +dIIc0OU7IlN6zUWPsEgm9hnXXIeGgSQFJU//nCdeBSWO7VQUXXQwvWTkRaQX+VcQUdld5As</p>
+<p>24  cx9z+2uhSovZ8svraprK7VAh2cy8bqQBlS+1P4mkrsCSbvlsRSSqN+XgZbZqgUDSzZFfRbc0</p>
+<p>.</p>
+<p>.</p>
+<p>191</p>
+<p>192  /</p>
+<p>create or replace package body dbms_expfil wrapped</p>
+<ul>
+<li></li>
+</ul>
+<p>第 1 行出现错误:</p>
+<p>ORA-00604: 递归 SQL 级别 1 出现错误</p>
+<p>ORA-06502: PL/SQL: 数字或值错误 :  字符串缓冲区太小</p>
+<p>ORA-06512: 在 line 7</p>
+<p>这种情况下，明明是oracle本身的东西出了错，我们无法去改变任何东西。</p>
+<p>例2： 在做expdp/impdp 导出导入的时候，报这个错：</p>
+<p>[sql]</p>
+<p>C:\Documents and Settings\andyleng&gt;expdp system/oracle@test DIRECTORY=db_backup DUMPFILE=catb_normal.DMP SCHEMAS=catb logfile=expdp_catb_201020727.log parallel=1 CONTENT=ALL FLASHBACK_TIME=SYSDATE</p>
+<pre><code>www.2cto.com  
+</code></pre>
+<p>Export: Release 11.2.0.1.0 - Production on 星期五 7月 27 17:43:11 2012</p>
+<p>Copyright © 1982, 2009, Oracle and/or its affiliates.  All rights reserved.</p>
+<p>连接到: Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production</p>
+<p>With the Partitioning, OLAP, Data Mining and Real Application Testing options</p>
+<p>ORA-31626: 作业不存在</p>
+<p>ORA-31637: 无法创建作业 SYS_EXPORT_SCHEMA_02 (用户 SYSTEM)</p>
+<p>ORA-06512: 在 “SYS.DBMS_SYS_ERROR”, line 95</p>
+<p>ORA-06512: 在 “SYS.KUPV$FT_INT”, line 798</p>
+<p>ORA-39080: 无法为数据泵作业创建队列 “KUPC<span class="katex-error" title="ParseError: KaTeX parse error: Double subscript at position 4: C_1_̲20120727174311&quot;…">C_1_20120727174311&quot; 和 &quot;KUPC</span>S_1_20120727174311”</p>
+<p>ORA-06512: 在 “SYS.DBMS_SYS_ERROR”, line 95</p>
+<p>ORA-06512: 在 “SYS.KUPC$QUE_INT”, line 1530</p>
+<p>ORA-06502: PL/SQL: 数字或值错误 :  字符串缓冲区太小</p>
+<p>[sql]</p>
+<p>C:\Documents and Settings\andyleng&gt;impdp system/oracle@test DIRECTORY=db_backup DUMPFILE=scott.DMP LOGFILE=impdp_scott_20120727.log  SCHEMAS=SCOTT CONTENT=ALL PARALLEL=1 TABLE_EXISTS_ACTION=REPLACE</p>
+<p>Import: Release 11.2.0.1.0 - Production on 星期五 7月 27 18:09:11 2012</p>
+<p>Copyright © 1982, 2009, Oracle and/or its affiliates.  All rights reserved.</p>
+<pre><code>www.2cto.com  
+</code></pre>
+<p>连接到: Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production</p>
+<p>With the Partitioning, OLAP, Data Mining and Real Application Testing options</p>
+<p>ORA-31626: 作业不存在</p>
+<p>ORA-31637: 无法创建作业 SYS_IMPORT_SCHEMA_09 (用户 SYSTEM)</p>
+<p>ORA-06512: 在 “SYS.DBMS_SYS_ERROR”, line 95</p>
+<p>ORA-06512: 在 “SYS.KUPV$FT_INT”, line 798</p>
+<p>ORA-39080: 无法为数据泵作业创建队列 “KUPC<span class="katex-error" title="ParseError: KaTeX parse error: Double subscript at position 4: C_1_̲20120727180912&quot;…">C_1_20120727180912&quot; 和 &quot;KUPC</span>S_1_20120727180912”</p>
+<p>ORA-06512: 在 “SYS.DBMS_SYS_ERROR”, line 95</p>
+<p>ORA-06512: 在 “SYS.KUPC$QUE_INT”, line 1530</p>
+<p>ORA-06502: PL/SQL: 数字或值错误 :  字符串缓冲区太小</p>
+<p>这种情况下，貌似是oracle在创建这个任务的时候，因为ORA-06502错误无法创建。</p>
+<p>4.问题解决</p>
+<p>以上两种情况，和用户数据无关，但出了ORA-06502错误，说明ORACLE本身有一张系统表在插入数据的时候不符合长短需求，而报了这个错。</p>
+<p>搜集信息：经查资料， oracle有一个隐含参数“_system_trig_enabled”用来控制系统触发器的，用来存储系统的一些触发事件，但这个表(目前不知道是哪个表)本身有问题，导致数据无法插入。</p>
+<p>解决思路： 顺着这个想法，只要我们把这个参数关掉，让系统的日志不保存在那张有问题的表中，就好了（当然有隐含风险，目前未知）：</p>
+<p>解决方法：</p>
+<p>[sql]</p>
+<p>SQL&gt; show parameter trig</p>
+<p>NAME                                   TYPE                      VALUE</p>
+<hr>
+<p>_system_trig_enabled      boolean                FALSE</p>
+<p>SQL&gt; alter system set “_system_trig_enabled”=false;</p>
+<p>系统已更改。</p>
+<p><a href="http://www.2cto.com" target="_blank" rel="noopener">www.2cto.com</a></p>
+<p>更改之后，再做上述操作，问题解决！</p>
+<p>5.总结</p>
+<p>根据问题的不同有2种解决方法</p>
+<p>一.如果是用户数据，则更改用户表，或者数据</p>
+<p>二.如果是oracle系统表，则使用如下语句关系统系统触发器：</p>
+<p>alter system set “_system_trig_enabled”=false;</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-06-10T07:42:04.834Z" itemprop="dateUpdated">2020-06-10 15:42:04</time>
+</span><br>
+
+
+        
+        <a href="/2014/07/18/oracle/ORA-06502/" target="_blank" rel="external">http://srests.github.io/2014/07/18/oracle/ORA-06502/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/" rel="tag">oracle</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/07/18/oracle/ORA-06502/&title=《ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/07/18/oracle/ORA-06502/&title=《ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/07/18/oracle/ORA-06502/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析》 — Srests的博客&url=http://srests.github.io/2014/07/18/oracle/ORA-06502/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/07/18/oracle/ORA-06502/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/07/23/oracle/2014072301/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">java复制文件夹</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/07/14/eclipse/config/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">MyEclipse设置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/07/18/oracle/ORA-06502/&title=《ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/07/18/oracle/ORA-06502/&title=《ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/07/18/oracle/ORA-06502/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ORA-06502:PL/SQL:数字或值错误:字符串缓冲区太小错误分析》 — Srests的博客&url=http://srests.github.io/2014/07/18/oracle/ORA-06502/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/07/18/oracle/ORA-06502/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aS24DIRBFUe9/051JhgHfV0VLAS4jy7IbjiNV6sPng9czWOTz5Mnzd5YtGTJkbMt4pmt0LE6af57v+2VHGTJkXMCYh8JRWCTgWuTkZ5MhQ4YM8nqE4cGa7CVDhgwZnYA7f4enoeQJMmTIuJnRf9woKeSBmwT0BbW4DBkyNmR0Csu3X78y35AhQ8ZWjCdcaaONhMhO+vj7XRkyZBzN4AGON8XShK8/EJUhQ8bZDFIc1lpj6TN5U694Z02GDBkHMXjSlobRtCUX7CVDhoyjGZ0yMr0YUQus81ArQ4aMGxjpgDAdLpJitTY0DbqGMmTIOIKx6gpXbQjKhw3DHWXIkHE0g7e0OmByoNpP9keGK0OGjOMYC5ry4RH5dVhSBsuQIUMGH0/yNhn/Fk8fZciQcTZjVXlZqyjT0cLrVbIMGTL+MaOWotWGCmkYDS5byJAh4wIGb6LxIEhSxjgFrG0pQ4aMzRmrLlv0x5M86MuQIeNORo3Xb7qlpXKQFMqQIeNQRhpG05ZZes0iaM/JkCHjYkYtWew8LS10ZciQIaM2mOwMLEk/rfh/Q4YMGRsynnCRXyUNsmkSOfw7yJAh41BGP9iR4pYHdF4et+a0MmTI2JDBgywBpME3HXnGly1kyJBxEKMW+FJY//oXqsVlyJBxPYOnj6jb14ifrYArQ4aMoxm1llwHgMpgGTJkXMDgx5ofJW3o10pWGTJk3MaolY5pEy099KqEVYYMGZszfgDW+H+tkBPC2wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

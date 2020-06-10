@@ -14,25 +14,24 @@
     
     
     
-    <title>docker运行mysql | Srests的博客</title>
+    <title>oracle for in loop | Srests的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#CCC">
     
     
-    <meta name="keywords" content="docker,mysql">
-    <meta name="description" content="123docker pull mysql:5.6docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.6">
+    <meta name="keywords" content="oracle">
+    <meta name="description" content="for in loop 壹： 1、搭建环境 create table ETL_DATE(DATE_CHAR VARCHAR2(8),DATE_DATE DATE); select * from etl_date; 2、代码 DECLARE v_date date; BEGIN EXECUTE IMMEDIATE ‘truncate table etl_date’; for v_date in 20">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker运行mysql">
-<meta property="og:url" content="http://srests.github.io/2018/05/18/mysql/mysql/index.html">
+<meta property="og:title" content="oracle for in loop">
+<meta property="og:url" content="http://srests.github.io/2014/08/12/oracle/loop/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="123docker pull mysql:5.6docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.6">
+<meta property="og:description" content="for in loop 壹： 1、搭建环境 create table ETL_DATE(DATE_CHAR VARCHAR2(8),DATE_DATE DATE); select * from etl_date; 2、代码 DECLARE v_date date; BEGIN EXECUTE IMMEDIATE ‘truncate table etl_date’; for v_date in 20">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-05-18T11:47:00.000Z">
-<meta property="article:modified_time" content="2020-06-09T09:47:26.555Z">
+<meta property="article:published_time" content="2014-08-12T02:02:00.000Z">
+<meta property="article:modified_time" content="2020-06-10T07:42:04.871Z">
 <meta property="article:author" content="Srests">
-<meta property="article:tag" content="docker">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="oracle">
 <meta name="twitter:card" content="summary">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -105,7 +104,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">docker运行mysql</div>
+        <div class="flex-col header-title ellipsis">oracle for in loop</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -127,13 +126,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">docker运行mysql</h1>
+        <h1 class="title">oracle for in loop</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-05-18T11:47:00.000Z" itemprop="datePublished" class="page-time">
-  2018-05-18
+                <time datetime="2014-08-12T02:02:00.000Z" itemprop="datePublished" class="page-time">
+  2014-08-12
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
 
             
         </h5>
@@ -148,15 +149,17 @@
 <div class="container body-wrap">
     
 
-<article id="post-mysql/mysql"
+<article id="post-oracle/loop"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">docker运行mysql</h1>
+        <h1 class="post-card-title">oracle for in loop</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-05-18 19:47:00" datetime="2018-05-18T11:47:00.000Z"  itemprop="datePublished">2018-05-18</time>
+            <time class="post-time" title="2014-08-12 10:02:00" datetime="2014-08-12T02:02:00.000Z"  itemprop="datePublished">2014-08-12</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
+
 
 
             
@@ -167,7 +170,53 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.6</span><br><span class="line"></span><br><span class="line">docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6</span><br></pre></td></tr></table></figure>
+            <p>for in loop 壹：<br>
+1、搭建环境<br>
+create table ETL_DATE(DATE_CHAR VARCHAR2(8),DATE_DATE DATE);<br>
+select * from etl_date;<br>
+2、代码<br>
+DECLARE<br>
+v_date date;<br>
+BEGIN<br>
+EXECUTE IMMEDIATE ‘truncate table etl_date’;<br>
+for v_date in 20091001 … 20091021 LOOP<br>
+INSERT INTO etl_date<br>
+(date_char, date_date)<br>
+SELECT v_date, to_date(v_date, ‘YYYY-MM-DD’) FROM dual;<br>
+END LOOP;<br>
+COMMIT;<br>
+END;</p>
+<p>select * from etl_date;<br>
+3、删除环境<br>
+drop table etl_date;</p>
+<p>注：仅适用于在一月之内的循环。</p>
+<p>for in loop 贰：<br>
+1、搭建环境<br>
+create table SQLTEXT(TEXT VARCHAR2(100));<br>
+create table HZ(HZ_NAME VARCHAR2(3));<br>
+INSERT INTO hz(HZ_NAME)values(’ ');<br>
+INSERT INTO hz(HZ_NAME)values(‘PRE’);<br>
+INSERT INTO hz(HZ_NAME)values(‘CUR’);<br>
+INSERT INTO hz(HZ_NAME)values(‘INS’);<br>
+INSERT INTO hz(HZ_NAME)values(‘UPD’);<br>
+select * from HZ;<br>
+2、代码<br>
+declare<br>
+P_TABLE_NAME varchar2(100) := ‘CFA’;<br>
+begin<br>
+for HZ in (select HZ_NAME from HZ) LOOP<br>
+insert into sqltext<br>
+select ‘CREATE TABLE ’ || REPLACE(P_TABLE_NAME, ‘EDW’, ‘TMP’) ||<br>
+HZ.HZ_NAME || ’ AS select * from ’ || P_TABLE_NAME ||<br>
+’ where ROWNUM&lt;1’<br>
+from dual;<br>
+END LOOP;<br>
+end;</p>
+<p>select * from SQLTEXT;<br>
+3、清空环境<br>
+drop table SQLTEXT;<br>
+drop table HZ;</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -175,12 +224,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-09T09:47:26.555Z" itemprop="dateUpdated">2020-06-09 17:47:26</time>
+    最后更新时间：<time datetime="2020-06-10T07:42:04.871Z" itemprop="dateUpdated">2020-06-10 15:42:04</time>
 </span><br>
 
 
         
-        <a href="/2018/05/18/mysql/mysql/" target="_blank" rel="external">http://srests.github.io/2018/05/18/mysql/mysql/</a>
+        <a href="/2014/08/12/oracle/loop/" target="_blank" rel="external">http://srests.github.io/2014/08/12/oracle/loop/</a>
         
     </div>
     
@@ -197,7 +246,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/" rel="tag">oracle</a></li></ul>
 
 
             
@@ -207,7 +256,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2018/05/18/mysql/mysql/&title=《docker运行mysql》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/08/12/oracle/loop/&title=《oracle for in loop》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -217,22 +266,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2018/05/18/mysql/mysql/&title=《docker运行mysql》 — Srests的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/08/12/oracle/loop/&title=《oracle for in loop》 — Srests的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2018/05/18/mysql/mysql/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/08/12/oracle/loop/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker运行mysql》 — Srests的博客&url=http://srests.github.io/2018/05/18/mysql/mysql/&via=http://srests.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《oracle for in loop》 — Srests的博客&url=http://srests.github.io/2014/08/12/oracle/loop/&via=http://srests.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2018/05/18/mysql/mysql/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/08/12/oracle/loop/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -255,18 +304,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/05/24/nodejs/2018050401/" id="post-prev" class="post-nav-link">
+      <a href="/2014/08/20/cpp/2014082001/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Hexo + Github搭建个人博客</h4>
+        <h4 class="title">c++创建特殊字体</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/18/docker/error02/" id="post-next" class="post-nav-link">
+      <a href="/2014/08/05/java/copydirs/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">【Error】docker错误:iptables No chaintargetmatch by that name</h4>
+        <h4 class="title">oracle批量插入10万条记录问题</h4>
       </a>
     </div>
   
@@ -338,7 +387,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2018/05/18/mysql/mysql/&title=《docker运行mysql》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2014/08/12/oracle/loop/&title=《oracle for in loop》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -348,22 +397,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2018/05/18/mysql/mysql/&title=《docker运行mysql》 — Srests的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2014/08/12/oracle/loop/&title=《oracle for in loop》 — Srests的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2018/05/18/mysql/mysql/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2014/08/12/oracle/loop/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker运行mysql》 — Srests的博客&url=http://srests.github.io/2018/05/18/mysql/mysql/&via=http://srests.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《oracle for in loop》 — Srests的博客&url=http://srests.github.io/2014/08/12/oracle/loop/&via=http://srests.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2018/05/18/mysql/mysql/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2014/08/12/oracle/loop/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -374,7 +423,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3awY6DMAxF0f7/T2ekWY3UAvfZdCScm1VVIuCwsOzYrxde63edX/27Z70tfufz/a0lQ4aMxzLW6Xq/dbqfUI8Y5FkyZMjYh3EeCgmMB2IOI+8mQ4YMGeSlF1i1VFKGDBkyOgGXpHH9ICtDhgwZaVFKDtF4OE7Tx9tqcRkyZDyQkTYG/vP3F/sbMmTIeAhjhYung/c+9+KtZMiQMZqRjjukSV46lpE2JIpTGzJkyHgUg4fUzowW+Rx8RONVu50MGTIGMXiSVzuY67/0YVIoQ4aM0YxaEOSwGi8om2XIkDGaEde7jTGyWmgmn0OGDBk7MGr1IE/gOCP9rDJkyNiHkRac/AFpMXwevlELU4YMGeMYfGu/qXlX+P7wjwwZMkYz+MhF7cG87Kz9L0OGjN0Y6fE9H8WoNUe/Mn4hQ4aMBzJ4usYDIr8PbwNc7JchQ8ZoRq2VSK6mDci0YEaNARkyZAxl1AJlejSWJp0oJZUhQ8ZoBsekO+/ioZaADBkyhjL4AFan7EwP9+OTQhkyZGzAqIXI2iHaXYXrh4ArQ4aMoYy0AcDDa9qqJCsIuzJkyBjEWOFKZzfS5K/YWpAhQ8ZoRhrs0vjWGfxKE00ZMmTMZpBX6QRcksXxgYzD+8uQIWMDRhpkOwVqLbG72C9DhgwZjcYkP9yvJZoyZMiQUWtMdpoBxfELGTJkbMAgRWx6oNaZqOWjHjJkyNiBUWsMpIMRnTGy2mGfDBkyRjB+AITQGQbhVwo+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS27DMAwFwNz/0i7QVYHU9iNlFw09WgWNqni8IPjR6xWv7Xu9fz7e83Pt7X//dm//BQsDA+NjGdvhyo8+3n9Myl/H7jkYGBgPYPSOS07Y27n3bTW4Y2BgYBwH0GrgznkYGBgY6wE3qSKTIIuBgYGRM5LkL3/Q5Pxq+nhZLY6BgfGBjJXBwN2f/2i+gYGB8Y8ZW3FdFQRXzv/lvzAwMEYz8lZa0spPMEnrvzcqwMDAmMqotvvzyxPJt5dd0cDAwBjNyHnVtn5vSNAL2RgYGLMZ1WsQSbi8b7SwOyjFwMAYzagmiHdcwkiCeHIaBgbGbEae9q08es7IwzEGBsYTGHl52UsKk4o5SRZPnhADA2M0I78ElqdxPV51zICBgfEcxno62BsVVEcRJzAMDIwHMFYuOpxUxjEjP/OkX4iBgTGOkTTIqjlmNXFcL5sxMDBmM+5O6XopZrWUxcDAeBqj15RfD9ZbsHafEAMDYzTjqmRuJVyu/wUDA2M2ozfhXHn06kW0pJ2HgYHxBMZV17OSJn7vlZXnGxgYGIMYJ4GsFQR7o8pkRcNLDAyMcYytuKo/sDLmLIwWMDAwRjOqwa5XP/YufuUDCQwMjCcwkiCbvIO8AO6F1MJ4AAMDYygjD6b5BYtmVR2HaQwMDIyrGvr5oLRXQmNgYGBcG0B7e6JSGQMD4wGMJNVbucy6cgUtaudhYGCMZqwUkL3WW/4KqsNRDAyMcYwvyP1gvnWYVukAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

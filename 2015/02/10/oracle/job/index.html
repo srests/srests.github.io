@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>创建ORACLE JOB | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="oracle">
+    <meta name="description" content="创建ORACLE JOB oracle job简介 主要的使用情景 定时在后台执行相关操作:如每天晚上0点将一张表的数据保存到另一张表中,2：定时备份数据库等 熟化说万事开头难，这里我只简单记述一个创建一个简单的job 步骤如下： 1、创建一张表g_test create table G_TEST ( ID     NUMBER(12), C_DATE DATE ) 2、创建一个sequence">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建ORACLE JOB">
+<meta property="og:url" content="http://srests.github.io/2015/02/10/oracle/job/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="创建ORACLE JOB oracle job简介 主要的使用情景 定时在后台执行相关操作:如每天晚上0点将一张表的数据保存到另一张表中,2：定时备份数据库等 熟化说万事开头难，这里我只简单记述一个创建一个简单的job 步骤如下： 1、创建一张表g_test create table G_TEST ( ID     NUMBER(12), C_DATE DATE ) 2、创建一个sequence">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-02-10T06:50:00.000Z">
+<meta property="article:modified_time" content="2020-06-10T07:41:57.140Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">创建ORACLE JOB</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">创建ORACLE JOB</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-02-10T06:50:00.000Z" itemprop="datePublished" class="page-time">
+  2015-02-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text"> declare
+
+job number;
+
+begin
+
+sys.dbms_job.submit(job,‘prc_g_test;’,sysdate,‘sysdate+1&#x2F;1440’);
+
+end;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 在plSQL中我的做法是：
+
+begin
+
+dbms_job.run(3017);
+
+end;</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-oracle/job"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">创建ORACLE JOB</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-02-10 14:50:00" datetime="2015-02-10T06:50:00.000Z"  itemprop="datePublished">2015-02-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>创建ORACLE JOB<br>
+oracle job简介<br>
+主要的使用情景<br>
+定时在后台执行相关操作:如每天晚上0点将一张表的数据保存到另一张表中,2：定时备份数据库等</p>
+<p>熟化说万事开头难，这里我只简单记述一个创建一个简单的job<br>
+步骤如下：<br>
+1、创建一张表g_test<br>
+create table G_TEST<br>
+(<br>
+ID     NUMBER(12),<br>
+C_DATE DATE<br>
+)<br>
+2、创建一个sequence<br>
+create sequence G_SEQ<br>
+minvalue 1<br>
+maxvalue 999999999999999999999999999<br>
+start with 141<br>
+increment by 1<br>
+cache 20;</p>
+<p>3、创建一个存储过程<br>
+create or replace procedure prc_g_test is<br>
+begin<br>
+insert into g_test values(g_seq.nextval,sysdate);<br>
+end prc_g_test;</p>
+<p>4、创建job,<br>
+使用Submit()过程，工作被正常地计划好。<br>
+这个过程有五个参数：job、what、next_date、interval与no_parse。</p>
+<p>PROCEDURE Submit ( job       OUT binary_ineger,<br>
+What      IN  varchar2,<br>
+next_date IN  date,<br>
+interval  IN  varchar2,<br>
+no_parse  IN  booean:=FALSE)</p>
+<p>job参数是由Submit()过程返回的binary_ineger。这个值用来唯一标识一个工作。<br>
+what参数是将被执行的PL/SQL代码块。<br>
+next_date参数指识何时将运行这个工作。<br>
+interval参数何时这个工作将被重执行。<br>
+no_parse参数指示此工作在提交时或执行时是否应进行语法分析――TRUE<br>
+指示此PL/SQL代码在它第一次执行时应进行语法分析，<br>
+而FALSE指示本PL/SQL代码应立即进行语法分析。</p>
+<p>在command window窗口中执行下面脚本<br>
+variable job1 number;<br>
+begin<br>
+sys.dbms_job.submit(job =&gt; :job,<br>
+what =&gt; ‘prc_g_test;’,<br>
+next_date =&gt; to_date(‘22-10-2008 10:06:41’, ‘dd-mm-yyyy hh24:mi:ss’),<br>
+interval =&gt; ‘sysdate+1/1440’);–每天1440分钟，即一分钟运行test过程一次<br>
+commit;<br>
+end;<br>
+/</p>
+<hr>
+<p>在plSQL中我的做法是：</p>
+<h2><a href="#declare-job-number-begin-sys-dbms-job-submit-job-prc-g-test-sysdate-sysdate-1-1440-end" class="headerlink"></a><span id="declare-job-number-begin-sys-dbms-job-submit-job-prc-g-test-sysdate-sysdate-1-1440-end"> declare<br>
+job number;<br>
+begin<br>
+sys.dbms_job.submit(job,‘prc_g_test;’,sysdate,‘sysdate+1/1440’);<br>
+end;</span></h2>
+<p>5、查看创建的job<br>
+查看相关job信息<br>
+1、相关视图<br>
+dba_jobs<br>
+all_jobs<br>
+user_jobs<br>
+dba_jobs_running 包含正在运行job相关信息。<br>
+如：<br>
+select * from dba_jobs</p>
+<p>6、运行JOB<br>
+说明：Run()过程用来立即执行一个指定的工作。这个过程只接收一个参数：<br>
+SQL&gt; begin<br>
+2  dbms_job.run(:job);<br>
+3  end;<br>
+4  /</p>
+<hr>
+<h2><a href="#zai-plsql-zhong-wo-de-zuo-fa-shi-begin-dbms-job-run-3017-end" class="headerlink"></a><span id="zai-plsql-zhong-wo-de-zuo-fa-shi-begin-dbms-job-run-3017-end"> 在plSQL中我的做法是：<br>
+begin<br>
+dbms_job.run(3017);<br>
+end;</span></h2>
+<p>7、删除JOB<br>
+SQL&gt; begin<br>
+2  dbms_job.remove(:job);–:job可以用dba_jobs.job的值代替如：1198<br>
+3  end;<br>
+4  /</p>
+<p>说明：在sqlplus命令行直接定义变量要variable！！！！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-06-10T07:41:57.140Z" itemprop="dateUpdated">2020-06-10 15:41:57</time>
+</span><br>
+
+
+        
+        <a href="/2015/02/10/oracle/job/" target="_blank" rel="external">http://srests.github.io/2015/02/10/oracle/job/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/" rel="tag">oracle</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/02/10/oracle/job/&title=《创建ORACLE JOB》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/02/10/oracle/job/&title=《创建ORACLE JOB》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/02/10/oracle/job/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《创建ORACLE JOB》 — Srests的博客&url=http://srests.github.io/2015/02/10/oracle/job/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/02/10/oracle/job/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/02/23/docker/2015022301/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Dubbo Filter</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/01/05/java/md5/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">java编码解码工具类</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/02/10/oracle/job/&title=《创建ORACLE JOB》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/02/10/oracle/job/&title=《创建ORACLE JOB》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/02/10/oracle/job/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《创建ORACLE JOB》 — Srests的博客&url=http://srests.github.io/2015/02/10/oracle/job/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/02/10/oracle/job/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQW7DMAwEwP7/0+k1QFtll0oKWB6fjLSxNDnQpMivr/h6PF3Pn/y8/+v/109ef/K2CwMD47KMx/Jabytf8lFe+d4wMDDuw1iHwuTRbahNAm6yNwwMDIx33a/TxzzpxMDAwMgDX1K4JltfgzEwMDDaInYnsLbp5gdrcQwMjAsy2lLzP+8/0t/AwMC4FGN2WJ88ZyeU17vCwMA4mpEHuJw3ayfMRjQwMDDuxpg1I9uiNG8J1A1RDAyMQxltGM0TuzW1TRBfrIWBgXE0Iw+OswGvWWszXx0DAwNjp0BdA9ownYR+DAyMUxk7B/Ft07FNHJOXwbCFiYGBcSlGnt59ugRtG58vdouBgXEQY7bppCXZNhjaYP1LaoiBgXEoI28WtsVt/gO1qxTZLgYGxqGMPDmbbbRtGLTNCQwMjPMYbZDd4b1rUOPFzAgGBsZxjNmoxOyIrd36sPTFwMA4jpEcvrcHcO23EvCLzzEwMI5mtI+blbJtO2E2RoaBgXE2I88i86Dcpph56P/zR8TAwLgBIxlOzQ/ddraYpInRmAUGBsbRjLawnIXj9kRwOC2CgYFxccajvHa+O0tAk9cABgbG2YydYNeOaOTPaZNUDAyMOzBmw16fKGK3Ai4GBsYNGG3BmS82Gw6rBz4wMDAwtkcuZtutD90wMDAwgqDZDkwkf12vhYGBcR9GUsTODsL2S9Yo7GJgYBzNmCVqScDdaTPMXgMYGBjHMb4BqO6yUIftohAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
