@@ -152,6 +152,53 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-html/2016031701"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-17 12:39:04" datetime="2016-03-17T04:39:04.000Z"  itemprop="datePublished">2016-03-17</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/03/17/html/2016031701/">CSS样式表初始化代码</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        CSS为什么要初始化？建站老手都知道，这是为了考虑到浏览器的兼容问题，其实不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面差异。当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。
+最简单的初始化方法就是： * {padding: 0; margin: 0;} 。有很多人也是这样写的。这确实很简单，但有人就会感到疑问：*号这样一个通用符在编写代码的时候是快，但如果网站很大，CSS样式表文件很大，这样写的话，他会把所有的标签都初始化一遍，这样就大大的加强了网站运行的负载，会使网站加载的时候需要很长一段时间。
+写过css的都知道每个网页引进的css首先都需要初始化，而出名的css reset有YUI css reset（QQ、淘宝等都出现他的影子），业内用的最多的还有Erik Meyer’s CSS Reset。
+    
+
+        <a href="/2016/03/17/html/2016031701/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-code"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -619,53 +666,6 @@ Apache服务无法启动。
     <div class="post-footer">
         
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/" rel="tag">apache</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-html/2015082501"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2015-08-25 14:37:00" datetime="2015-08-25T06:37:00.000Z"  itemprop="datePublished">2015-08-25</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2015/08/25/html/2015082501/">关于伪类元素:before和:after</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Categoriescss
-:before和:after的作用就是在指定的元素内容（而不是元素本身）之前或者之后插入一个包含content属性指定内容的行内元素，最基本的用法如下：
-123456789#example:before &#123;    content: "#";    color: red;&#125;#example:after &#123;    content: "$"...
-    
-
-        <a href="/2015/08/25/html/2015082501/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/h5/" rel="tag">h5</a></li></ul>
 
     </div>
     

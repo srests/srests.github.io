@@ -14,24 +14,25 @@
     
     
     
-    <title>mysql 使用 | Srests的博客</title>
+    <title>梅林内网DNS设置方法 | Srests的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#CCC">
     
     
-    <meta name="keywords" content="mysql">
-    <meta name="description" content="为空默认 coalesce(字段，默认值)  自增起始 1alter table t_userinfo AUTO_INCREMENT&#x3D;10000;  创建用户 123456-- 创建用户create user &#39;mztest_root&#39;@&#39;%&#39; identified by &#39;mztest_root@123456&#39;;-- 授权给数据库grant all on mzpt_test.* to &#39;mzte">
+    <meta name="keywords" content="梅林,dns">
+    <meta name="description" content="启用SSH登录 登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。 SSH登录用户名密码与管理界面相同。  配置DNS 12#配置DNS,格式为：address&#x3D;&#x2F;域名&#x2F;需要指向的ip，保存文件vi &#x2F;jffs&#x2F;configs&#x2F;dnsmasq.conf.add  重启DNSmasq service restart_dnsmasq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql 使用">
-<meta property="og:url" content="http://srests.github.io/2015/07/01/mysql/use/index.html">
+<meta property="og:title" content="梅林内网DNS设置方法">
+<meta property="og:url" content="http://srests.github.io/2020/06/11/router/merlindns/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="为空默认 coalesce(字段，默认值)  自增起始 1alter table t_userinfo AUTO_INCREMENT&#x3D;10000;  创建用户 123456-- 创建用户create user &#39;mztest_root&#39;@&#39;%&#39; identified by &#39;mztest_root@123456&#39;;-- 授权给数据库grant all on mzpt_test.* to &#39;mzte">
+<meta property="og:description" content="启用SSH登录 登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。 SSH登录用户名密码与管理界面相同。  配置DNS 12#配置DNS,格式为：address&#x3D;&#x2F;域名&#x2F;需要指向的ip，保存文件vi &#x2F;jffs&#x2F;configs&#x2F;dnsmasq.conf.add  重启DNSmasq service restart_dnsmasq">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2015-07-01T02:34:00.000Z">
-<meta property="article:modified_time" content="2020-06-10T07:54:29.854Z">
+<meta property="article:published_time" content="2020-06-11T04:01:05.495Z">
+<meta property="article:modified_time" content="2020-06-11T04:08:37.306Z">
 <meta property="article:author" content="Srests">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="梅林">
+<meta property="article:tag" content="dns">
 <meta name="twitter:card" content="summary">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -111,7 +112,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">mysql 使用</div>
+        <div class="flex-col header-title ellipsis">梅林内网DNS设置方法</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -133,15 +134,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">mysql 使用</h1>
+        <h1 class="title">梅林内网DNS设置方法</h1>
         <h5 class="subtitle">
             
-                <time datetime="2015-07-01T02:34:00.000Z" itemprop="datePublished" class="page-time">
-  2015-07-01
+                <time datetime="2020-06-11T04:01:05.495Z" itemprop="datePublished" class="page-time">
+  2020-06-11
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a></li></ul>
 
             
         </h5>
@@ -158,21 +159,21 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 自增起始</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 创建用户</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 启用SSH登录</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 配置DNS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 重启DNSmasq</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-mysql/use"
+<article id="post-router/merlindns"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">mysql 使用</h1>
+        <h1 class="post-card-title">梅林内网DNS设置方法</h1>
         <div class="post-meta">
-            <time class="post-time" title="2015-07-01 10:34:00" datetime="2015-07-01T02:34:00.000Z"  itemprop="datePublished">2015-07-01</time>
+            <time class="post-time" title="2020-06-11 12:01:05" datetime="2020-06-11T04:01:05.495Z"  itemprop="datePublished">2020-06-11</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a></li></ul>
 
 
 
@@ -184,12 +185,14 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>为空默认<br>
-coalesce(字段，默认值)</p>
-<h1><a href="#zi-zeng-qi-shi" class="headerlink"></a><span id="zi-zeng-qi-shi"> 自增起始</span></h1>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> t_userinfo AUTO_INCREMENT=<span class="number">10000</span>;</span><br></pre></td></tr></table></figure>
-<h1><a href="#chuang-jian-yong-hu" class="headerlink"></a><span id="chuang-jian-yong-hu"> 创建用户</span></h1>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建用户</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'mztest_root'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'mztest_root@123456'</span>;</span><br><span class="line"><span class="comment">-- 授权给数据库</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">on</span> mzpt_test.* <span class="keyword">to</span> <span class="string">'mztest_root'</span>@<span class="string">'%'</span>;</span><br><span class="line"><span class="comment">-- 修改生效</span></span><br><span class="line"><span class="keyword">FLUSH</span>   <span class="keyword">PRIVILEGES</span></span><br></pre></td></tr></table></figure>
+            <h1><a href="#qi-yong-ssh-deng-lu" class="headerlink"></a><span id="qi-yong-ssh-deng-lu"> 启用SSH登录</span></h1>
+<p>登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。<br>
+SSH登录用户名密码与管理界面相同。</p>
+<h1><a href="#pei-zhi-dns" class="headerlink"></a><span id="pei-zhi-dns"> 配置DNS</span></h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">配置DNS,格式为：address=/域名/需要指向的ip，保存文件</span></span><br><span class="line">vi /jffs/configs/dnsmasq.conf.add</span><br></pre></td></tr></table></figure>
+<h1><a href="#chong-qi-dnsmasq" class="headerlink"></a><span id="chong-qi-dnsmasq"> 重启DNSmasq</span></h1>
+<p>service restart_dnsmasq</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -197,12 +200,12 @@ coalesce(字段，默认值)</p>
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-10T07:54:29.854Z" itemprop="dateUpdated">2020-06-10 15:54:29</time>
+    最后更新时间：<time datetime="2020-06-11T04:08:37.306Z" itemprop="dateUpdated">2020-06-11 12:08:37</time>
 </span><br>
 
 
         
-        <a href="/2015/07/01/mysql/use/" target="_blank" rel="external">http://srests.github.io/2015/07/01/mysql/use/</a>
+        <a href="/2020/06/11/router/merlindns/" target="_blank" rel="external">http://srests.github.io/2020/06/11/router/merlindns/</a>
         
     </div>
     
@@ -219,7 +222,7 @@ coalesce(字段，默认值)</p>
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dns/" rel="tag">dns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A2%85%E6%9E%97/" rel="tag">梅林</a></li></ul>
 
 
             
@@ -229,7 +232,7 @@ coalesce(字段，默认值)</p>
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/07/01/mysql/use/&title=《mysql 使用》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2020/06/11/router/merlindns/&title=《梅林内网DNS设置方法》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -239,22 +242,22 @@ coalesce(字段，默认值)</p>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/07/01/mysql/use/&title=《mysql 使用》 — Srests的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2020/06/11/router/merlindns/&title=《梅林内网DNS设置方法》 — Srests的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/07/01/mysql/use/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2020/06/11/router/merlindns/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql 使用》 — Srests的博客&url=http://srests.github.io/2015/07/01/mysql/use/&via=http://srests.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《梅林内网DNS设置方法》 — Srests的博客&url=http://srests.github.io/2020/06/11/router/merlindns/&via=http://srests.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/07/01/mysql/use/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2020/06/11/router/merlindns/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -274,21 +277,14 @@ coalesce(字段，默认值)</p>
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2015/07/13/php/2015071301/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">FFmpegPHP的安装使用详解</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2015/06/30/nodejs/2015063001/" id="post-next" class="post-nav-link">
+      <a href="/2020/06/09/linux/2019102201/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">npm install 报node-sass错误</h4>
+        <h4 class="title">centos7 切换阿里yum镜像</h4>
       </a>
     </div>
   
@@ -360,7 +356,7 @@ coalesce(字段，默认值)</p>
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2015/07/01/mysql/use/&title=《mysql 使用》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2020/06/11/router/merlindns/&title=《梅林内网DNS设置方法》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -370,22 +366,22 @@ coalesce(字段，默认值)</p>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2015/07/01/mysql/use/&title=《mysql 使用》 — Srests的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2020/06/11/router/merlindns/&title=《梅林内网DNS设置方法》 — Srests的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2015/07/01/mysql/use/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2020/06/11/router/merlindns/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql 使用》 — Srests的博客&url=http://srests.github.io/2015/07/01/mysql/use/&via=http://srests.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《梅林内网DNS设置方法》 — Srests的博客&url=http://srests.github.io/2020/06/11/router/merlindns/&via=http://srests.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2015/07/01/mysql/use/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2020/06/11/router/merlindns/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -396,7 +392,7 @@ coalesce(字段，默认值)</p>
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQQ7CMAxE0d7/0kFiCw0z41Apzs8KQdX6dWGc2Nclr/Fe+jXjY91d//mr8qxwwYABY1vGmK55iPNvlKDd13F7HxgwYBzA0G+nh/WP13H7PQwYMGAIoejJUQ8dBgwYMLKEOy/7Kkn20f8NGDBgbMhQbucmUz3QLKHDgAHjHIbbGHjy8x/7GzBgwNiEMcxVOXqbP7cUFQwYMFoz5sVcJbO5rQJ30yvNg8CAAeMAhnu4r49W6IdrRiqHAQNGU0aWLucPyFqSlQEOGDBg9GYoP69tZK4dv/jR5YABA0YLRtZJ0INzr9Ff65dTQxgwYDRl6OVaFlaWgsP/DRgwYDRlKANYlU2sktDd47wf/xswYMA4jFEPPWtz2o1PGDBgtGYoAxbZob+70dULUxgwYJzG0NNrJSx9tCIc44ABA8YxjMoR/6oBsmwrCwMGjN4M90BfH7Cob3fdwhQGDBi9GUqyy67UD8uyNH1VgoMBA8aGDHecyz0+00N3XwEMGDB6M7Lta6WYW5voYcCAcQ7DLfL0F5E1HuzXBwMGjNYMPfG5DUi9tVkZ9bDzNwwYMDZkDHMpoSj7Zv2VSa0FGDBgtGboa17euQ/IWgJGJxYGDBjtGEqS1RNrZdPr3s0oEGHAgNGC4ZZ9lUdmhR0MGDBgrDoOq29u9S00DBgwYLhF3oKkac5OfNnEwoABozVDH5vI2o3uPe0YYMCA0ZqRJUq3+HNbC3oRCQMGjNaMF2w+qHbuhRZAAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aS46DQAwFwNz/0pltpFE6zzaJRHexihADFAuPf49HfDxfjtcz/3+/u3595/WZyw4MDIzbMp7LI79m8pQLnouBgXEAYx0K19e8e3DO6z0XAwMDY50IJmeq16/vg4GBgVENuL2XyBNBDAwMjF4Ru07+1ufzIP71WhwDA+OGjGqp+cvfX5lvYGBg3IoxadZXW2/JX/UODAyMvRl5gMtTtGoimIM/pKEYGBhbM3oDxeqSxPqjzNfLMDAwdmVUm1mTwWTekiuPRTEwMLZmVFO6alisjhmqAwAMDAyM/LW+sf7VewcMDIwzGZNi9fdtOAwMjHMY892NPPhOEsQPARcDA2MjxjzV64XReRmMgYFxAqM3sKwuh1XL4IT6YVsEAwNjI0YPkBecSVmbf5rytggGBsZGjAsGh8UWXi+HLWS4GBgYGzGqJegkmPY+QXOmgYGBsSljEkDzJYzq8ln0ITAwMLZm9IrS6mrXpIiNJhsYGBgHMHoJXNImqxarefh+u2yBgYGxNSMfOubDy7zovWBQioGBcQAjX4aYt9J61xf+b2BgYGzEeBaPPDWs3mHUnsPAwNiaUQ1z+TLEJFmsDlYxMDBOYEya/vny1jfuHFXbGBgYGzF6rf+c0WurNWtxDAyM4xlXLXjlT4+oGBgYGEEh2gu1OeBDCw8DA+MARlJqzscGzVes7oxgYGBsx5gsRiQDg6vGk5PSFwMD47aMP5GMGQbzDR2gAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
