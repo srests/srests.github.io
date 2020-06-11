@@ -21,15 +21,15 @@
     
     
     <meta name="keywords" content="梅林,dns">
-    <meta name="description" content="启用SSH登录 登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。 SSH登录用户名密码与管理界面相同。  配置DNS 12#配置DNS,格式为：address&#x3D;&#x2F;域名&#x2F;需要指向的ip，保存文件vi &#x2F;jffs&#x2F;configs&#x2F;dnsmasq.conf.add  重启DNSmasq service restart_dnsmasq">
+    <meta name="description" content="启用SSH登录 登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。 SSH登录用户名密码与管理界面相同。  配置DNS 12#配置DNSmasq,格式为：address&#x3D;&#x2F;域名&#x2F;需要指向的ip，保存文件vi &#x2F;jffs&#x2F;configs&#x2F;dnsmasq.conf.add  重启DNSmasq 1service restart_dnsmasq">
 <meta property="og:type" content="article">
 <meta property="og:title" content="梅林内网DNS设置方法">
 <meta property="og:url" content="http://srests.github.io/2020/06/11/router/merlindns/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="启用SSH登录 登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。 SSH登录用户名密码与管理界面相同。  配置DNS 12#配置DNS,格式为：address&#x3D;&#x2F;域名&#x2F;需要指向的ip，保存文件vi &#x2F;jffs&#x2F;configs&#x2F;dnsmasq.conf.add  重启DNSmasq service restart_dnsmasq">
+<meta property="og:description" content="启用SSH登录 登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。 SSH登录用户名密码与管理界面相同。  配置DNS 12#配置DNSmasq,格式为：address&#x3D;&#x2F;域名&#x2F;需要指向的ip，保存文件vi &#x2F;jffs&#x2F;configs&#x2F;dnsmasq.conf.add  重启DNSmasq 1service restart_dnsmasq">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-11T04:01:05.495Z">
-<meta property="article:modified_time" content="2020-06-11T04:08:37.306Z">
+<meta property="article:modified_time" content="2020-06-11T04:10:55.631Z">
 <meta property="article:author" content="Srests">
 <meta property="article:tag" content="梅林">
 <meta property="article:tag" content="dns">
@@ -189,10 +189,9 @@
 <p>登录管理界面，点击系统管理-&gt;点击系统设置，配置Enable SSH为Lan Only。<br>
 SSH登录用户名密码与管理界面相同。</p>
 <h1><a href="#pei-zhi-dns" class="headerlink"></a><span id="pei-zhi-dns"> 配置DNS</span></h1>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">配置DNS,格式为：address=/域名/需要指向的ip，保存文件</span></span><br><span class="line">vi /jffs/configs/dnsmasq.conf.add</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">配置DNSmasq,格式为：address=/域名/需要指向的ip，保存文件</span></span><br><span class="line">vi /jffs/configs/dnsmasq.conf.add</span><br></pre></td></tr></table></figure>
 <h1><a href="#chong-qi-dnsmasq" class="headerlink"></a><span id="chong-qi-dnsmasq"> 重启DNSmasq</span></h1>
-<p>service restart_dnsmasq</p>
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service restart_dnsmasq</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -200,7 +199,7 @@ SSH登录用户名密码与管理界面相同。</p>
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-11T04:08:37.306Z" itemprop="dateUpdated">2020-06-11 12:08:37</time>
+    最后更新时间：<time datetime="2020-06-11T04:10:55.631Z" itemprop="dateUpdated">2020-06-11 12:10:55</time>
 </span><br>
 
 
