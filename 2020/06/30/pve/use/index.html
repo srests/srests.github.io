@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>pve6使用 | Srests的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#CCC">
+    
+    
+    <meta name="keywords" content="pve">
+    <meta name="description" content="#去订阅 ##登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js ##修改概要状态 ###6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642 ###6.2-6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pve6使用">
+<meta property="og:url" content="http://srests.github.io/2020/06/30/pve/use/index.html">
+<meta property="og:site_name" content="Srests的博客">
+<meta property="og:description" content="#去订阅 ##登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js ##修改概要状态 ###6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642 ###6.2-6">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-30T01:53:00.000Z">
+<meta property="article:modified_time" content="2020-07-01T02:14:50.624Z">
+<meta property="article:author" content="Srests">
+<meta property="article:tag" content="pve">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Srests</h5>
+          <a href="mailto:srests@qq.com" title="srests@qq.com" class="mail">srests@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/srests" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">pve6使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">pve6使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-06-30T01:53:00.000Z" itemprop="datePublished" class="page-time">
+  2020-06-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-pve/use"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">pve6使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-06-30 09:53:00" datetime="2020-06-30T01:53:00.000Z"  itemprop="datePublished">2020-06-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>#去订阅<br>
+##登录提示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i.bak "s/data.status !== 'Active'/false/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js</span><br></pre></td></tr></table></figure>
+<p>##修改概要状态<br>
+###6.2-2<br>
+vim /usr/share/pve-manager/js/pvemanagerlib.js 37642<br>
+###6.2-6<br>
+vim /usr/share/pve-manager/js/pvemanagerlib.js 37572<br>
+找到相关代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">var</span> data = &#123;</span><br><span class="line">title: Proxmox.Utils.unknownText,</span><br><span class="line">text: Proxmox.Utils.unknownText,</span><br><span class="line">iconCls: PVE.Utils.get_health_icon(<span class="literal">undefined</span>, <span class="literal">true</span>)</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">//这之后加一行</span></span><br><span class="line">   level = <span class="string">'admin'</span>;</span><br></pre></td></tr></table></figure>
+<p>#ceph相关<br>
+##PG状态</p>
+<blockquote>
+<p>OSD存储PG，PG包含对象。集群的整体监控状态主要取决于PG。只有所有PG的状态都是active+clean状态时，集群才会保持为HEALTH_OK状态。如果ceph集群不是健康状态，很有可能PG不是active+clean。下面介绍下PG的多种状态</p>
+<p>creating：创建pool时，它将创建指定的pg的数量。 当Ceph创建一个或多个PG时，它将fillback创建。 创建OSD之后，属于PG&quot;Acting Set&quot;的OSD将会对等(peer)。 对等完成后，展示PG状态应为active+clean，这意味着Ceph客户端可以开始写入PG。</p>
+<p>peering：在peering状态下，OSD的PG都在acting集合中，存储PG的副本，并保持PG中的对象和元数据状态一致。在peering操作完成后，存储PG的所有OSD都彼此确认当前状态。</p>
+<p>active：在peering操作完成后，Ceph将PG状态置为active。处在active状态，说明PG及其副本中的数据都处于能够提供I/O操作的状态。</p>
+<p>clean：在clean状态下，主OSD和副本OSD已经成功彼此确认，所有PG都处在正确的位置上，没有发生偏移，而且所有对象都复制好正确的副本数。</p>
+<p>degraded：当客户端将PG对象写入主OSD时，主OSD负责将副本写入副本OSD。在主OSD将对象写入存储后，PG将保持degraded状态，直到主OSD从副本OSD收到确认Ceph成功创建副本对象的确认为止。</p>
+<p>PG可以处于active+degraded的原因是：即使OSD尚未容纳所有对象，也可能处于active状态，如果OSD出现故障down掉了，ceph将会标记分配给OSD的每一个PG为degraded。当OSD重新恢复后，OSD会再次完成peer操作。即使PG处于degraded状态，客户端依然可以执行I/O操作。</p>
+<p>如果OSD down并且degraded状态持续存在，ceph可能会将down的OSD标记为不在集群内，并将数据映射到另一个OSD中。标记down的时间默认为600s，可以由mon osd down out interval控制。</p>
+<p>PG也可能degraded，因为ceph找不到认为应该在PG中的一个或多个对象，虽然无法读取或写入未找到的对象，但仍可以访问处于degraded PG中的其他对象。</p>
+<p>recovering：ceph专为容错能力而设计。当OSD发生故障时，其存储的内容可能会与其他OSD上副本的数据不一致。当OSD恢复up状态，ceph会针对这些PG启动恢复操作，使得它们的数据与其他OSD上的PG副本保持一致。</p>
+<p>back filling：当新的OSD加入集群后，CRUSH将把PG从集群中的OSD重新分配给新添加的OSD来平衡数据。这个过程称之为back filling。一旦PG的backfilling 操作完成，OSD可以参与到客户端的I/O操作中。</p>
+<blockquote>
+<p>在backfilling操作期间，可能会看到如下状态：<br>
+backfill_wait：backfill操作处于挂起状态，还未执行。<br>
+backfill_toofull：已请求backfill操作，由于存储容量不足无法完成。<br>
+remapped：每当OSD的 acting 集合有变化，就会触发数据迁移，数据从老的 acting 集合OSD向新的 acting 集合OSD转移。在迁移操作期间，依然由旧的 acting 集合主副本OSD为客户端提供服务。迁移完成后，使用新的 acting 集合主OSD为客户端提供服务。</p>
+</blockquote>
+<p>stale：ceph通过heartbeat机制来确保主机与daemon处于运行状态，当ceph-osd daemon处于卡顿状态，从而无法积极反应统计结果。默认情况下osd daemon每隔0.5秒向ceph mon报告统计信息。如果某个PG的acting集合的主副本OSD没有成功向mon报告统计结果，或者其他OSD报告它们的主OSD状态变为down，mon会考虑将这些PG标记为stale状态。<br>
+##OSD单节点</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">导出配置</span></span><br><span class="line">cd /etc/ceph/</span><br><span class="line">ceph osd getcrushmap -o crushmap</span><br><span class="line">crushtool -d crushmap -o crushmap.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">将host修改为osd</span></span><br><span class="line">sed -i.bak 's/step chooseleaf firstn 0 type host/step chooseleaf firstn 0 type osd/' crushmap.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">查看修改结果</span></span><br><span class="line">grep 'step chooseleaf' crushmap.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">备份、保存设置</span></span><br><span class="line">mv crushmap crushmap.bak</span><br><span class="line">crushtool -c crushmap.txt -o crushmap</span><br><span class="line">ceph osd setcrushmap -i crushmap</span><br></pre></td></tr></table></figure>
+<p>##错误解决</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rbd error: rbd: listing images failed: (2) No such file or directory (500)</span><br><span class="line"></span><br><span class="line">rbd ls ceph-vm</span><br><span class="line">rbd ls -l ceph-vm</span><br><span class="line">rbd rm vm-106-state-init -p ceph-vm</span><br><span class="line"><span class="meta">#</span><span class="bash">查看image状态</span></span><br><span class="line">rbd status vm-106-disk-0 -p ceph-vm</span><br><span class="line"><span class="meta">#</span><span class="bash">查看image信息</span></span><br><span class="line">rbd info vm-106-state-init -p ceph-vm</span><br><span class="line"></span><br><span class="line">rbd lock ls vm-106-disk-0 -p ceph-vm</span><br><span class="line">There is 1 exclusive lock on this image.</span><br><span class="line">Locker        ID                   Address                    </span><br><span class="line">client.586429 auto 140376241356560 * </span><br><span class="line">rbd lock rm vm-106-disk-0 "auto 140376241356560" client.586429 -p ceph-vm</span><br><span class="line"></span><br><span class="line">ceph-objectstore-tool --pgid 1.4f --op mark-complete --data-path /var/lib/ceph/osd/ceph-0/ --type bluestore</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-07-01T02:14:50.624Z" itemprop="dateUpdated">2020-07-01 10:14:50</time>
+</span><br>
+
+
+        
+        <a href="/2020/06/30/pve/use/" target="_blank" rel="external">http://srests.github.io/2020/06/30/pve/use/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://srests.github.io">
+            <img src="/img/avatar.jpg" alt="Srests">
+            Srests
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pve/" rel="tag">pve</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2020/06/30/pve/use/&title=《pve6使用》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2020/06/30/pve/use/&title=《pve6使用》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2020/06/30/pve/use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《pve6使用》 — Srests的博客&url=http://srests.github.io/2020/06/30/pve/use/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2020/06/30/pve/use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/06/24/git/authentication/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">windows下git push输错密码，出现fatal Authentication failed for的解决方法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Srests &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://srests.github.io/2020/06/30/pve/use/&title=《pve6使用》 — Srests的博客&pic=http://srests.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://srests.github.io/2020/06/30/pve/use/&title=《pve6使用》 — Srests的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://srests.github.io/2020/06/30/pve/use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《pve6使用》 — Srests的博客&url=http://srests.github.io/2020/06/30/pve/use/&via=http://srests.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://srests.github.io/2020/06/30/pve/use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOklEQVR42u3aQW7DMAwF0dz/0u62QGt5PuksRI1WReo4eg7AkCI/H7yuX2t9zd/r+bvuXnltyZAhY1vGtVwpY72t9Z35f//ZiQwZMg5gkACabpc/AnKfhz3LkCFDxvIastIQLEOGDBn9gItuvUwcSdErQ4YMGWkRS7bFAy5/fC/X4jJkyNiQ0Sksv/33V/obMmTI2IpxhatWuL4VXm8/RYYMGaMZPMDxhIwkl7WU8eFKGTJkjGaQMrV29MbbCbxUDnJYGTJkDGLUjsnI4Vc6/tUa+JAhQ8YBDBIQeZjujGjwtmjxF0OGDBlbMXgqxlM9ngjyx/FwNxkyZBzASNNBAq6NaBQP+2TIkHEMo5Zx8QyUtwrixFGGDBmjGengFzn24pvrNydkyJBxDoMfrqVpZVrQ8rTy9nuQIUPGOEYaKFErsdFa4IE47nPKkCFjW0at6Zge99fCaPz4ZMiQMZRBtpUG0/TIrNgMIFW1DBkyBjFIQsY3R4Jm2gpFzQAZMmQMZaTtw7ih2G5/xp0NGTJkHMZ4a3iidrTHfwZkyJBxDqMW7Hgzkofj9L0yZMg4jZEeoqU9xM71KDWUIUPGOMZbJWvagOSBniSXMmTImM3gK21bpqNmfFgtThllyJAxgpE2JjshlYfyOODKkCHjAEYn8PUHvNIiNm4MyJAh4zBGLaFMRy7i4zwZMmTICA/LOoGVp6EvBFwZMmRsxSBFbDq6mo5r8NE0GTJknMZIS8c0BPMGQ6uIlSFDxkzGD1l+S6nL+ACIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
