@@ -21,15 +21,15 @@
     
     
     <meta name="keywords" content="pve">
-    <meta name="description" content="#去订阅 ##登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js ##修改概要状态 ###6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642 ###6.2-6">
+    <meta name="description" content="去订阅  登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js  修改概要状态  6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642  6.2-6 vim &#x2F;u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pve6使用">
 <meta property="og:url" content="http://srests.github.io/2020/06/30/pve/use/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="#去订阅 ##登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js ##修改概要状态 ###6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642 ###6.2-6">
+<meta property="og:description" content="去订阅  登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js  修改概要状态  6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642  6.2-6 vim &#x2F;u">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-30T01:53:00.000Z">
-<meta property="article:modified_time" content="2020-07-01T02:14:50.624Z">
+<meta property="article:modified_time" content="2020-07-01T08:48:59.245Z">
 <meta property="article:author" content="Srests">
 <meta property="article:tag" content="pve">
 <meta name="twitter:card" content="summary">
@@ -155,6 +155,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 去订阅</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 登录提示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 修改概要状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text"> 6.2-2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text"> 6.2-6</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"> ceph相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> PG状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> OSD单节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> 错误解决</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-pve/use"
   class="post-article article-type-post fade" itemprop="blogPost">
@@ -177,18 +184,18 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>#去订阅<br>
-##登录提示</p>
+            <h1><a href="#qu-ding-yue" class="headerlink"></a><span id="qu-ding-yue"> 去订阅</span></h1>
+<h2><a href="#deng-lu-ti-shi" class="headerlink"></a><span id="deng-lu-ti-shi"> 登录提示</span></h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i.bak "s/data.status !== 'Active'/false/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js</span><br></pre></td></tr></table></figure>
-<p>##修改概要状态<br>
-###6.2-2<br>
-vim /usr/share/pve-manager/js/pvemanagerlib.js 37642<br>
-###6.2-6<br>
-vim /usr/share/pve-manager/js/pvemanagerlib.js 37572<br>
+<h2><a href="#xiu-gai-gai-yao-zhuang-tai" class="headerlink"></a><span id="xiu-gai-gai-yao-zhuang-tai"> 修改概要状态</span></h2>
+<h3><a href="#6-2-2" class="headerlink"></a><span id="6-2-2"> 6.2-2</span></h3>
+<p>vim /usr/share/pve-manager/js/pvemanagerlib.js 37642</p>
+<h3><a href="#6-2-6" class="headerlink"></a><span id="6-2-6"> 6.2-6</span></h3>
+<p>vim /usr/share/pve-manager/js/pvemanagerlib.js 37572<br>
 找到相关代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">var</span> data = &#123;</span><br><span class="line">title: Proxmox.Utils.unknownText,</span><br><span class="line">text: Proxmox.Utils.unknownText,</span><br><span class="line">iconCls: PVE.Utils.get_health_icon(<span class="literal">undefined</span>, <span class="literal">true</span>)</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">//这之后加一行</span></span><br><span class="line">   level = <span class="string">'admin'</span>;</span><br></pre></td></tr></table></figure>
-<p>#ceph相关<br>
-##PG状态</p>
+<h1><a href="#ceph-xiang-guan" class="headerlink"></a><span id="ceph-xiang-guan"> ceph相关</span></h1>
+<h2><a href="#pg-zhuang-tai" class="headerlink"></a><span id="pg-zhuang-tai"> PG状态</span></h2>
 <blockquote>
 <p>OSD存储PG，PG包含对象。集群的整体监控状态主要取决于PG。只有所有PG的状态都是active+clean状态时，集群才会保持为HEALTH_OK状态。如果ceph集群不是健康状态，很有可能PG不是active+clean。下面介绍下PG的多种状态</p>
 <p>creating：创建pool时，它将创建指定的pg的数量。 当Ceph创建一个或多个PG时，它将fillback创建。 创建OSD之后，属于PG&quot;Acting Set&quot;的OSD将会对等(peer)。 对等完成后，展示PG状态应为active+clean，这意味着Ceph客户端可以开始写入PG。</p>
@@ -207,11 +214,11 @@ backfill_wait：backfill操作处于挂起状态，还未执行。<br>
 backfill_toofull：已请求backfill操作，由于存储容量不足无法完成。<br>
 remapped：每当OSD的 acting 集合有变化，就会触发数据迁移，数据从老的 acting 集合OSD向新的 acting 集合OSD转移。在迁移操作期间，依然由旧的 acting 集合主副本OSD为客户端提供服务。迁移完成后，使用新的 acting 集合主OSD为客户端提供服务。</p>
 </blockquote>
-<p>stale：ceph通过heartbeat机制来确保主机与daemon处于运行状态，当ceph-osd daemon处于卡顿状态，从而无法积极反应统计结果。默认情况下osd daemon每隔0.5秒向ceph mon报告统计信息。如果某个PG的acting集合的主副本OSD没有成功向mon报告统计结果，或者其他OSD报告它们的主OSD状态变为down，mon会考虑将这些PG标记为stale状态。<br>
-##OSD单节点</p>
+<p>stale：ceph通过heartbeat机制来确保主机与daemon处于运行状态，当ceph-osd daemon处于卡顿状态，从而无法积极反应统计结果。默认情况下osd daemon每隔0.5秒向ceph mon报告统计信息。如果某个PG的acting集合的主副本OSD没有成功向mon报告统计结果，或者其他OSD报告它们的主OSD状态变为down，mon会考虑将这些PG标记为stale状态。</p>
 </blockquote>
+<h2><a href="#osd-dan-jie-dian" class="headerlink"></a><span id="osd-dan-jie-dian"> OSD单节点</span></h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">导出配置</span></span><br><span class="line">cd /etc/ceph/</span><br><span class="line">ceph osd getcrushmap -o crushmap</span><br><span class="line">crushtool -d crushmap -o crushmap.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">将host修改为osd</span></span><br><span class="line">sed -i.bak 's/step chooseleaf firstn 0 type host/step chooseleaf firstn 0 type osd/' crushmap.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">查看修改结果</span></span><br><span class="line">grep 'step chooseleaf' crushmap.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">备份、保存设置</span></span><br><span class="line">mv crushmap crushmap.bak</span><br><span class="line">crushtool -c crushmap.txt -o crushmap</span><br><span class="line">ceph osd setcrushmap -i crushmap</span><br></pre></td></tr></table></figure>
-<p>##错误解决</p>
+<h2><a href="#cuo-wu-jie-jue" class="headerlink"></a><span id="cuo-wu-jie-jue"> 错误解决</span></h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rbd error: rbd: listing images failed: (2) No such file or directory (500)</span><br><span class="line"></span><br><span class="line">rbd ls ceph-vm</span><br><span class="line">rbd ls -l ceph-vm</span><br><span class="line">rbd rm vm-106-state-init -p ceph-vm</span><br><span class="line"><span class="meta">#</span><span class="bash">查看image状态</span></span><br><span class="line">rbd status vm-106-disk-0 -p ceph-vm</span><br><span class="line"><span class="meta">#</span><span class="bash">查看image信息</span></span><br><span class="line">rbd info vm-106-state-init -p ceph-vm</span><br><span class="line"></span><br><span class="line">rbd lock ls vm-106-disk-0 -p ceph-vm</span><br><span class="line">There is 1 exclusive lock on this image.</span><br><span class="line">Locker        ID                   Address                    </span><br><span class="line">client.586429 auto 140376241356560 * </span><br><span class="line">rbd lock rm vm-106-disk-0 "auto 140376241356560" client.586429 -p ceph-vm</span><br><span class="line"></span><br><span class="line">ceph-objectstore-tool --pgid 1.4f --op mark-complete --data-path /var/lib/ceph/osd/ceph-0/ --type bluestore</span><br></pre></td></tr></table></figure>
 
         </div>
@@ -221,7 +228,7 @@ remapped：每当OSD的 acting 集合有变化，就会触发数据迁移，数�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-01T02:14:50.624Z" itemprop="dateUpdated">2020-07-01 10:14:50</time>
+    最后更新时间：<time datetime="2020-07-01T08:48:59.245Z" itemprop="dateUpdated">2020-07-01 16:48:59</time>
 </span><br>
 
 
