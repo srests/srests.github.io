@@ -21,15 +21,15 @@
     
     
     <meta name="keywords" content="pve">
-    <meta name="description" content="去订阅  登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js  修改概要状态  6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642  6.2-6 vim &#x2F;u">
+    <meta name="description" content="去订阅  登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js  6.3-3 1vim &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js .data.stat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pve6使用">
 <meta property="og:url" content="http://srests.github.io/2020/06/30/pve/use/index.html">
 <meta property="og:site_name" content="Srests的博客">
-<meta property="og:description" content="去订阅  登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js  修改概要状态  6.2-2 vim &#x2F;usr&#x2F;share&#x2F;pve-manager&#x2F;js&#x2F;pvemanagerlib.js 37642  6.2-6 vim &#x2F;u">
+<meta property="og:description" content="去订阅  登录提示 1sed -i.bak &quot;s&#x2F;data.status !&#x3D;&#x3D; &#39;Active&#39;&#x2F;false&#x2F;g&quot; &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js  6.3-3 1vim &#x2F;usr&#x2F;share&#x2F;javascript&#x2F;proxmox-widget-toolkit&#x2F;proxmoxlib.js .data.stat">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-30T01:53:00.000Z">
-<meta property="article:modified_time" content="2020-07-01T08:48:59.245Z">
+<meta property="article:modified_time" content="2021-03-05T01:46:13.890Z">
 <meta property="article:author" content="Srests">
 <meta property="article:tag" content="pve">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 去订阅</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 登录提示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 修改概要状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text"> 6.2-2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text"> 6.2-6</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"> ceph相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> PG状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> OSD单节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> 错误解决</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 去订阅</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 登录提示</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text"> 6.3-3</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 修改概要状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text"> 6.2-2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text"> 6.2-6</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"> ceph相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> PG状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> OSD单节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> 错误解决</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -187,6 +187,10 @@
             <h1><a href="#qu-ding-yue" class="headerlink"></a><span id="qu-ding-yue"> 去订阅</span></h1>
 <h2><a href="#deng-lu-ti-shi" class="headerlink"></a><span id="deng-lu-ti-shi"> 登录提示</span></h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i.bak "s/data.status !== 'Active'/false/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js</span><br></pre></td></tr></table></figure>
+<h3><a href="#6-3-3" class="headerlink"></a><span id="6-3-3"> 6.3-3</span></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js</span><br></pre></td></tr></table></figure>
+<p>.data.status.toLowerCase() !== ‘active’<br>
+找到这一行修改条件为false</p>
 <h2><a href="#xiu-gai-gai-yao-zhuang-tai" class="headerlink"></a><span id="xiu-gai-gai-yao-zhuang-tai"> 修改概要状态</span></h2>
 <h3><a href="#6-2-2" class="headerlink"></a><span id="6-2-2"> 6.2-2</span></h3>
 <p>vim /usr/share/pve-manager/js/pvemanagerlib.js 37642</p>
@@ -228,7 +232,7 @@ remapped：每当OSD的 acting 集合有变化，就会触发数据迁移，数�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-01T08:48:59.245Z" itemprop="dateUpdated">2020-07-01 16:48:59</time>
+    最后更新时间：<time datetime="2021-03-05T01:46:13.890Z" itemprop="dateUpdated">2021-03-05 09:46:13</time>
 </span><br>
 
 
@@ -366,7 +370,7 @@ remapped：每当OSD的 acting 集合有变化，就会触发数据迁移，数�
         </p>
     </div>
     <div class="bottom">
-        <p><span>Srests &copy; 2015 - 2020</span>
+        <p><span>Srests &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
